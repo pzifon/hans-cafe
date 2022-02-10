@@ -1,0 +1,20 @@
+html, body {
+	width: inherit;
+	height: inherit;
+	margin: 0;
+	padding: 0;
+	background-color: #cfedea;
+	font-family: Verdana, sans-serif;
+}
+
+.ClaimButton{
+	border-radius: 25px;
+	background-color: #1abb00;
+	width:100px;
+}
+.ClaimedButton{
+	border-radius: 25px;
+	background-color: #eaeaea;
+	font-color: green;
+	width:100px;
+}

@@ -1,0 +1,132 @@
+html, body {
+	width: inherit;
+	height: inherit;
+	margin: 0;
+	padding: 0;
+	background-color: #cfedea;
+	font-family: Verdana, sans-serif;
+}
+
+
+.head{
+	display: block;
+	background-color: #cfedea;
+	width: 100%;
+	height: 180px;
+	position: fixed;
+	top: 0px;
+}
+
+h1{
+  top:105px;
+  left: 60px;
+  position: fixed;
+  margin: 0px 20px;
+  font-size: 50px;
+}
+.sidenav {
+  width: 250px;
+  position: fixed;
+  background-color: #cfedea;
+  overflow-x: hidden;
+  top: 180px;
+  left: 130px;
+  bottom: 0px;
+
+}
+
+.sidenav a {
+  padding: 6px 8px 10px 15px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+ .TopLine {
+    position: fixed;
+	width: 1350px;
+    top: 170px;
+	margin: 0px 80px;
+    border: none;
+    height: 3px;
+    background: darkgrey;
+    margin-bottom: 50px;
+    }
+/*Vertical Line*/
+.Linel {
+  border-left: 3px solid darkgrey;
+  height: 550px;
+  position: fixed;
+  left: 25%;
+  top: 170px;
+}
+
+
+.MenuContent {
+	margin-top: 190px;
+	margin-left: 400px; /* Same width as the sidebar + left position in px */
+	font-size: 28px; /* Increased text to enable scrolling */
+	padding: 0px 10px;
+	box-sizing: border-box;
+}
+h2{
+	margin: 0px;
+	margin-left: -50px;
+font-size: 20px;	
+}
+
+.des{
+	font-size: 15px;
+	margin-left: -50px;
+}
+
+.Cal{
+	font-size: 20px;
+	margin-top: 65px;
+	margin-left: -50px;
+}
+
+.button {
+  background-color: #76e500;
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 100px 2px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  float: right;
+}
+
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.MenuLine{
+margin-top: 0px;
+margin-left: -30px;
+width: 1050px;	
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

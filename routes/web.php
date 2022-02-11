@@ -29,7 +29,10 @@ Route::get('/loyalty', function () {
     return view('loyalty');
 });
 
-Route::get('/menu', function () {
-    return view('menu');
-});
+// Route::get('/menu', function () {
+//     return view('menu');
+// });
+
+Route::get('/menu','App\Http\Controllers\MenuController@index');
+
 require __DIR__.'/auth.php';

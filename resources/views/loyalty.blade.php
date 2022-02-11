@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
- <head>
-    
-  <title> Loyalty </title>
+  <head>
+    <title> Loyalty </title>
+    <link rel="stylesheet" href="loyalty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      html,
+      body {
+        width: inherit;
+        height: inherit;
+        margin: 0;
+        padding: 0;
+        background-color: #cfedea;
+        font-family: Verdana, sans-serif;
+      }
 
-  <link rel="stylesheet" href="loyalty.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style type="text/css">
-</style>
- </head>
+      .ClaimButton {
+        border-radius: 25px;
+        background-color: #1abb00;
+        width: 100px;
+      }
 
       .ClaimedButton {
         border-radius: 25px;

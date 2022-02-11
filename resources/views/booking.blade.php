@@ -184,7 +184,7 @@
             transform: translateY(-2rem);
         } */
 
-        .book {
+        /* .book {
             background: url(../image/book-bg.jpg) no-repeat;
             background-position: center;
             background-size: cover;
@@ -217,7 +217,7 @@
         .book form textarea {
             height: 15rem;
             resize: none;
-        }
+        } */
 
         /* .footer .box-container {
             display: grid;
@@ -519,6 +519,10 @@
             display: table;
             clear: both;
         }
+
+        .info {
+            text-align: center;
+        }
         </style>
     </head>
     <!-- <header class="header"><a href="#" class="logo"> Hans Cafe </a><nav class="navbar"><a href="#home">What's Cooking</a><a href="#about">about</a><a href="#menu">menu</a><a href="#contact">contact</a></nav><a href="#" class="btn">Reservation</a><div class="icons"><div><i class="material-icons" style="font-size:36px">&#xe7fd;</i></div></div></header> -->
@@ -527,29 +531,29 @@
     <!-- <section class="home" id="home"><div class="row"><div class="content"><h3>ABOUT US</h3><a href="#" class="btn">READ MORE</a></div></div></section> -->
         <x-app-layout>
             <x-slot name="header">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
                     {{ __('Booking') }}
                 </h2>
             </x-slot>
-        <section class="book" id="book">  
-            <h3 class="title">
-            <i class="material-icons" style="font-size:36px">&#xe55f;</i> 1, Jalan Taylors, 47500 Subang Jaya, Selangor.
-            </h3>
-            <div class="time">
-            <h2>
-                <i class="material-icons" style="font-size:36px">&#xe855;</i>10:00 AM - 10:00 PM
-            </h2>
-            <h2>
-                <i class="material-icons" style="font-size:36px">&#xe0b0;</i>04-1234567
-            </h2>
+            <div class="info" style="font-size:20px;text-align:center;">
+                </br>
+                <i class="material-icons" style="">&#xe55f; LOCATION</i>
+                <h2>1, Jalan Taylors, 47500 Subang Jaya, Selangor.</h2>
+                </br>
+                <i class="material-icons">&#xe855; OPENING HOURS</i>
+                <h2>10:00 AM - 10:00 PM</h2>
+                </br>
+                <i class="material-icons">&#xe0b0; PHONE NUMBER</i>
+                <h2>04-1234567</h2>
+                </br>
             </div>
-            <form action="">
+            <form action="" style="width:80%;margin:auto">
                 <div class="row">
                     <div class="column-2" style="background-color:#aaa;">
-                        <input type="number" placeholder="Number of people" class="">
+                        <input type="number" placeholder="Number of people" class="" style="width:100%">
                     </div>
                     <div class="column-2" style="background-color:#bbb;">
-                        <input type="Date" placeholder="Date & Time" class="">
+                        <input type="Date" placeholder="Date & Time" class="" style="width:100%">
                     </div>
                 </div>
                 
@@ -591,6 +595,5 @@
             <h1>Private Events</h1>
             <button class="accordion">Request Information</button>
             </div> -->
-        </section>
         </x-app-layout>
     </body>

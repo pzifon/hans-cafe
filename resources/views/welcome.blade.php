@@ -46,15 +46,46 @@
             .active {
             background-color: #04AA6D;
             }
+
+            .cen {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 40%;
+            }
+
+            .info {
+            text-align: center;
+            }
         </style>
     </head>
     <body class="antialiased">
     <x-app-layout>
         <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
                 {{ __('About Us') }}
             </h2>
-            </x-slot>
+        </x-slot>
+
+        <div class="row">
+            <img src="{{ asset('storage/img/salad.jpg') }}" class="cen">
+        </div>
+        <div class="row" style="text-align:center">
+            <p style="font-size:28px">Our story</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat nunc tellus, quis condimentum massa condimentum ut. Cras leo justo, commodo et sollicitudin id, posuere ac libero. Donec faucibus vitae erat sed posuere. Vestibulum vitae tincidunt leo. Fusce sed orci nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ullamcorper sem eget arcu pulvinar suscipit. In fringilla non nisi in porttitor. Quisque accumsan nibh metus, quis bibendum justo hendrerit id. Suspendisse vel fermentum erat. Mauris ac metus sem. Nullam a diam vel erat varius convallis. Maecenas facilisis semper dapibus. Proin eu sagittis tellus.</p>
+        </div>
+        <div class="info" style="font-size:20px;text-align:center;">
+            </br>
+            <i class="material-icons" style="">&#xe55f; LOCATION</i>
+            <h2>1, Jalan Taylors, 47500 Subang Jaya, Selangor.</h2>
+            </br>
+            <i class="material-icons">&#xe855; OPENING HOURS</i>
+            <h2>10:00 AM - 10:00 PM</h2>
+            </br>
+            <i class="material-icons">&#xe0b0; PHONE NUMBER</i>
+            <h2>04-1234567</h2>
+            </br>
+        </div>
     </x-app-layout>
     </body>
 </html>

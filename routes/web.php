@@ -29,9 +29,11 @@ Route::get('/booking', function () {
     return view('booking');
 });
 
-Route::get('/loyalty', function () {
-    return view('loyalty');
-});
+// Route::get('/loyalty', function () {
+//     return view('loyalty');
+// });
+
+Route::get('/loyalty','App\Http\Controllers\CustAccController@index');
 
 // Route::get('/menu', function () {
 //     return view('menu');

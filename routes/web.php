@@ -33,6 +33,8 @@ Route::get('/editacc', function () {
     return view('editaccount');
 });
 
+Route::post('create','App\Http\Controllers\BookingController@insert');
+
 // Route::get('/loyalty', function () {
 //     return view('loyalty');
 // });

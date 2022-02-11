@@ -29,6 +29,10 @@ Route::get('/booking', function () {
     return view('booking');
 });
 
+Route::get('/editacc', function () {
+    return view('editaccount');
+});
+
 Route::post('create','App\Http\Controllers\BookingController@insert');
 
 // Route::get('/loyalty', function () {

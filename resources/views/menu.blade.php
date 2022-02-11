@@ -71,21 +71,16 @@
 
 <body>
   <x-app-layout>
-    <x-slot name="header" style="position:fixed">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-32px;">
-        {{ __('Menu') }}
-      </h2>
-      <button style="float: right">Cart</button>
-    </x-slot>
+    <x-slot name="header"></x-slot>
     <div>
-      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;position:relative">
+      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;">
         <a href="#main" class="w3-bar-item w3-button">Main Course</a>
         <a href="#sides" class="w3-bar-item w3-button">Sides</a>
         <a href="#beverages" class="w3-bar-item w3-button">Beverages</a>
         <a href="#dessert" class="w3-bar-item w3-button">Dessert</a>
       </div>
 
-      <div style="margin-left:15%">
+      <div style="margin-left:15%;margin-top:10px">
         <h1 id="main" style="font-size:20px">Main Course</h1>
         <div class="MenuContent">
           @foreach ($main as $main)

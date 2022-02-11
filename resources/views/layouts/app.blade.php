@@ -28,7 +28,7 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main style="">
                 {{ $slot }}
             </main>
         </div>

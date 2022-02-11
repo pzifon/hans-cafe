@@ -18,25 +18,74 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+
+            li {
+            float: left;
+            }
+
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+            background-color: #111;
+            }
+
+            .active {
+            background-color: #04AA6D;
+            }
+
+            .cen {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 40%;
+            }
+
+            .info {
+            text-align: center;
+            }
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <x-app-layout>
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
+                {{ __('About Us') }}
+            </h2>
+        </x-slot>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            
+        <div class="row">
+            <img src="{{ asset('storage/img/salad.jpg') }}" class="cen">
         </div>
+        <div class="row" style="text-align:center">
+            <p style="font-size:28px">Our story</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat nunc tellus, quis condimentum massa condimentum ut. Cras leo justo, commodo et sollicitudin id, posuere ac libero. Donec faucibus vitae erat sed posuere. Vestibulum vitae tincidunt leo. Fusce sed orci nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ullamcorper sem eget arcu pulvinar suscipit. In fringilla non nisi in porttitor. Quisque accumsan nibh metus, quis bibendum justo hendrerit id. Suspendisse vel fermentum erat. Mauris ac metus sem. Nullam a diam vel erat varius convallis. Maecenas facilisis semper dapibus. Proin eu sagittis tellus.</p>
+        </div>
+        <div class="info" style="font-size:20px;text-align:center;">
+            </br>
+            <i class="material-icons" style="">&#xe55f; LOCATION</i>
+            <h2>1, Jalan Taylors, 47500 Subang Jaya, Selangor.</h2>
+            </br>
+            <i class="material-icons">&#xe855; OPENING HOURS</i>
+            <h2>10:00 AM - 10:00 PM</h2>
+            </br>
+            <i class="material-icons">&#xe0b0; PHONE NUMBER</i>
+            <h2>04-1234567</h2>
+            </br>
+        </div>
+    </x-app-layout>
     </body>
 </html>

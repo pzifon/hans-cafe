@@ -77,7 +77,7 @@
       </h2>
     </x-slot>
     <div>
-      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%;position:relative">
+      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;position:relative">
         <a href="#" class="w3-bar-item w3-button">Our Signature</a>
         <a href="#" class="w3-bar-item w3-button">Veggie Lover</a>
         <a href="#" class="w3-bar-item w3-button">Appetizer</a>
@@ -88,8 +88,8 @@
         <a href="#" class="w3-bar-item w3-button">Dessert</a>
       </div>
 
-      <div style="margin-left:25%">
-        <h1>Our Signature</h1>
+      <div style="margin-left:15%">
+        <h1 style="font-size:20px">Our Signature</h1>
         <div class="MenuContent">
           @foreach ($menu as $menu)
           <div class="row">

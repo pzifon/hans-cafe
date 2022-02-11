@@ -29,6 +29,10 @@ Route::get('/booking', function () {
     return view('booking');
 });
 
+Route::get('/editacc', function () {
+    return view('editaccount');
+});
+
 // Route::get('/loyalty', function () {
 //     return view('loyalty');
 // });

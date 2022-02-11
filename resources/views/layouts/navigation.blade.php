@@ -1,5 +1,6 @@
 <style>
     ul {
+        height: 50px;
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -43,6 +44,7 @@
                         </form>
                     </li>
                     <li style="float:right"><a class="active" href="{{ url('/loyalty') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Account</a></li>
+                    <li style="float:right"><a class="active" href="{{ url('/cart') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Cart</a></li>
                 @else
                     <li style="float:right"><a class="active" href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
                 @if (Route::has('register'))

@@ -61,11 +61,7 @@
     </head>
     <body class="antialiased">
     <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
-                {{ __('About Us') }}
-            </h2>
-        </x-slot>
+        <x-slot name="header"></x-slot>
 
         <div class="row">
             <img src="{{ asset('storage/img/salad.jpg') }}" class="cen">

@@ -4,7 +4,6 @@
 <head>
   <title> Menu </title>
   <link rel="stylesheet" href="menu.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style type="text/css">
@@ -65,6 +64,21 @@
       width: 1050px;
     }
 
+    .cartBtn {
+      background-color: red;
+      border: none;
+      color: white;
+      padding: 5px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 20px;
+      float: right;
+      margin-top: 10px;
+    }
+
     @media screen and (max-height: 450px) {}
   </style>
 </head>
@@ -72,22 +86,12 @@
 <body>
   <x-app-layout>
     <x-slot name="header" style="position:fixed">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;">
         {{ __('Menu') }}
       </h2>
     </x-slot>
     <div>
       <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;position:relative">
-        <a href="#main" class="w3-bar-item w3-button">Main Course</a>
-        <a href="#sides" class="w3-bar-item w3-button">Sides</a>
-        <a href="#beverages" class="w3-bar-item w3-button">Beverages</a>
-        <a href="#dessert" class="w3-bar-item w3-button">Dessert</a>
-      </div>
-
-      <div style="margin-left:15%">
-        <h1 id="main" style="font-size:20px">Main Course</h1>
-        <div class="MenuContent">
-          @foreach ($main as $main)
           <div class="row">
             <div class="column">
               <img src="{{asset('storage/img/'.$main->image)}}" style="width:250px; height:150px;">

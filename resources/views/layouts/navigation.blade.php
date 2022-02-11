@@ -1,8 +1,4 @@
 <style>
-    body {
-        font-family: 'Nunito', sans-serif;
-    }
-
     ul {
         list-style-type: none;
         margin: 0;

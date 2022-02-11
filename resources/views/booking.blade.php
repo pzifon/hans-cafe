@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hans Cafe</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="style.css">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hans Cafe</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
         /* :root {
             --main-color: #443;
@@ -523,70 +524,62 @@
         .info {
             text-align: center;
         }
-        </style>
-    </head>
-    <!-- <header class="header"><a href="#" class="logo"> Hans Cafe </a><nav class="navbar"><a href="#home">What's Cooking</a><a href="#about">about</a><a href="#menu">menu</a><a href="#contact">contact</a></nav><a href="#" class="btn">Reservation</a><div class="icons"><div><i class="material-icons" style="font-size:36px">&#xe7fd;</i></div></div></header> -->
-    <body>
+    </style>
+</head>
+<!-- <header class="header"><a href="#" class="logo"> Hans Cafe </a><nav class="navbar"><a href="#home">What's Cooking</a><a href="#about">about</a><a href="#menu">menu</a><a href="#contact">contact</a></nav><a href="#" class="btn">Reservation</a><div class="icons"><div><i class="material-icons" style="font-size:36px">&#xe7fd;</i></div></div></header> -->
+
+<body>
     <!-- <div class="slider"><div class="slides"><input type="radio" name="radio-btn" id="radio1"><input type="radio" name="radio-btn" id="radio2"><input type="radio" name="radio-btn" id="radio3"><input type="radio" name="radio-btn" id="radio4"><div class="slide first"><img src="images/1.jpg" alt=""></div><div class="slide"><img src="images/2.jpg" alt=""></div><div class="slide"><img src="images/3.jpg" alt=""></div><div class="slide"><img src="images/4.jpg" alt=""></div><div class="navigation-auto"><div class="auto-btn1"></div><div class="auto-btn2"></div><div class="auto-btn3"></div><div class="auto-btn4"></div></div></div><div class="navigation-manual"><label for="radio1" class='manual-btn"></label><label for="radio2" class= ' manual-btn"></label><label for="radio3" class='manual-btn"></label><label for="radio4" class= ' manual-btn"></label></div></div> -->
     <!-- <section class="home" id="home"><div class="row"><div class="content"><h3>ABOUT US</h3><a href="#" class="btn">READ MORE</a></div></div></section> -->
-        <x-app-layout>
-            <x-slot name="header">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
-                    {{ __('Booking') }}
-                </h2>
-            </x-slot>
-            <div class="info" style="font-size:20px;text-align:center;">
-                </br>
-                <i class="material-icons" style="">&#xe55f; LOCATION</i>
-                <h2>1, Jalan Taylors, 47500 Subang Jaya, Selangor.</h2>
-                </br>
-                <i class="material-icons">&#xe855; OPENING HOURS</i>
-                <h2>10:00 AM - 10:00 PM</h2>
-                </br>
-                <i class="material-icons">&#xe0b0; PHONE NUMBER</i>
-                <h2>04-1234567</h2>
-                </br>
+    <x-app-layout>
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
+                {{ __('Make Reservation') }}
+            </h2>
+        </x-slot>
+        <div class="info" style="font-size:20px;text-align:center;">
+            </br>
+            <i class="material-icons" style="">&#xe55f; LOCATION</i>
+            <h2>1, Jalan Taylors, 47500 Subang Jaya, Selangor.</h2>
+            </br>
+            <i class="material-icons">&#xe855; OPENING HOURS</i>
+            <h2>8:00 AM - 6:00 PM</h2>
+            </br>
+            <i class="material-icons">&#xe0b0; CONTACT NUMBER</i>
+            <h2>04-1234567</h2>
+            </br>
+        </div>
+        <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
+        <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+            <div class="row">
+                <div class="column-2" style="background-color:#aaa;">
+                    <input type="number" placeholder="Number of people" name="no_of_people" class="" style="width:100%" min=1>
+                </div>
+                <div class="column-2" style="background-color:#bbb;">
+                    <input type="Date" placeholder="Date & Time" name="date" class="" style="width:100%">
+                </div>
             </div>
-            <form action="" style="width:80%;margin:auto">
-                <div class="row">
-                    <div class="column-2" style="background-color:#aaa;">
-                        <input type="number" placeholder="Number of people" class="" style="width:100%">
-                    </div>
-                    <div class="column-2" style="background-color:#bbb;">
-                        <input type="Date" placeholder="Date & Time" class="" style="width:100%">
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="column" style="background-color:#aaa;">
-                        <button>09:00am</button>
-                    </div>
-                    <div class="column" style="background-color:#bbb;">
-                        <button>10:00am</button>
-                    </div>
-                    <div class="column" style="background-color:#ccc;">
-                        <button>11:00am</button>
-                    </div>
-                    <div class="column" style="background-color:#ddd;">
-                        <button>12:00pm</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column" style="background-color:#aaa;">
-                        <button>01:00pm</button>
-                    </div>
-                    <div class="column" style="background-color:#bbb;">
-                        <button>02:00pm</button>
-                    </div>
-                    <div class="column" style="background-color:#ccc;">
-                        <button>03:00pm</button>
-                    </div>
-                    <div class="column" style="background-color:#ddd;">
-                        <button>04:00pm</button>
-                    </div>
-                </div>
-            </form>
-            <!-- <div>
+
+            <div class="row">
+                <input type="submit" value="08:00am" name="time" class="column" style="background-color:#aaa;">
+                <input type="submit" value="09:00am" name="time" class="column" style="background-color:#bbb;">
+                <input type="submit" value="10:00am" name="time" class="column" style="background-color:#ccc;">
+                <input type="submit" value="11:00am" name="time" class="column" style="background-color:#ddd;">
+            </div>
+            <div class="row">
+                <input type="submit" value="12:00pm" name="time" class="column" style="background-color:#aaa;">
+                <input type="submit" value="01:00pm" name="time" class="column" style="background-color:#bbb;">
+                <input type="submit" value="02:00pm" name="time" class="column" style="background-color:#ccc;">
+                <input type="submit" value="03:00pm" name="time" class="column" style="background-color:#ddd;">
+            </div>
+            <div vlass="row">
+                <div class="column"></div>
+                <input type="submit" value="04:00pm" name="time" class="column" style="background-color:#bbb;">
+                <input type="submit" value="05:00pm" name="time" class="column" style="background-color:#ccc;">
+                <div class="column"></div>
+            </div>
+        </form>
+        <!-- <div>
             <h1>Waitlist</h1>
             <button class="accordion">
                 <i class="material-icons" style="font-size:36px">&#xe7f4;</i>Waitlist </button>
@@ -595,5 +588,23 @@
             <h1>Private Events</h1>
             <button class="accordion">Request Information</button>
             </div> -->
-        </x-app-layout>
-    </body>
+    </x-app-layout>
+
+    <script>
+        var today = new Date();
+        var dd = today.getDate() + 1;
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        tmr = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("date").setAttribute("min", tmr);
+    </script>
+</body>

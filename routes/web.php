@@ -25,6 +25,8 @@ Route::get('/booking', function () {
     return view('booking');
 });
 
+Route::post('create','App\Http\Controllers\BookingController@insert');
+
 // Route::get('/loyalty', function () {
 //     return view('loyalty');
 // });

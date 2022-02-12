@@ -16,8 +16,6 @@ class CustAccController extends Controller
             ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
             ->where('id', Auth::id())
             ->get();
-        log:
-        info($user);
         return view('dashboard', compact('user'));
     }
 

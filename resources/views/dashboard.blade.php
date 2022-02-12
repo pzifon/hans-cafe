@@ -1,14 +1,3 @@
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="/js/app.js"></script>
-@if ($message = Session::get('success'))
-<div class="alert alert-success alert-block">
-  <strong>{{ $message }}</strong>
-  <button type="button" class="close" data-dismiss="alert">×</button>
-</div>
-@endif
-
 <!DOCTYPE html>
 <html>
 
@@ -58,6 +47,7 @@
 <body>
   <x-app-layout>
     <x-slot name="header"></x-slot>
+    @include('flash-message')
     <div class="row">
       <div class="column-2">
         <div class="row">

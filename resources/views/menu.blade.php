@@ -72,6 +72,7 @@
 <body>
   <x-app-layout>
     <x-slot name="header"></x-slot>
+    @include('flash-message')
     <div>
       <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;">
         <a href="#main" class="w3-bar-item w3-button">Main Course</a>
@@ -98,7 +99,9 @@
                 <h2 style="text-align:right">RM {{ number_format($main->price,2) }}</h2>
               </div>
               <div class="row">
-                <button class="button">Add to Cart</button>
+              <a href="{{ url('/add-to-cart/'.$main->menu_code) }}">
+                  <button class="button">Add to Cart</button>
+                </a>
               </div>
             </div>
           </div>
@@ -121,7 +124,9 @@
                 <h2 style="text-align:right">RM {{ number_format($sides->price,2) }}</h2>
               </div>
               <div class="row">
-                <button class="button">Add to Cart</button>
+              <a href="{{ url('/add-to-cart/'.$sides->menu_code) }}">
+                  <button class="button">Add to Cart</button>
+                </a>
               </div>
             </div>
           </div>
@@ -143,8 +148,9 @@
               <div class="row">
                 <h2 style="text-align:right">RM {{ number_format($beverages->price,2) }}</h2>
               </div>
-              <div class="row">
-                <button class="button">Add to Cart</button>
+              <a href="{{ url('/add-to-cart/'.$beverages->menu_code) }}">
+                  <button class="button">Add to Cart</button>
+                </a>
               </div>
             </div>
           </div>
@@ -167,7 +173,9 @@
                 <h2 style="text-align:right">RM {{ number_format($dessert->price,2) }}</h2>
               </div>
               <div class="row">
-                <button class="button">Add to Cart</button>
+                <a href="{{ url('/add-to-cart/'.$dessert->menu_code) }}">
+                  <button class="button">Add to Cart</button>
+                </a>
               </div>
             </div>
           </div>

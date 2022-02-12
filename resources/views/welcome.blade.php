@@ -357,7 +357,6 @@
                 padding-right: 2rem
             }
         }
-        }
     </style>
 
     <style>

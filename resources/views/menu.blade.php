@@ -39,7 +39,6 @@
       padding: 5px 20px;
       text-align: center;
       text-decoration: none;
-      display: inline-block;
       font-size: 16px;
       margin: 70px 2px 2px;
       cursor: pointer;
@@ -73,114 +72,128 @@
   <x-app-layout>
     <x-slot name="header"></x-slot>
     @include('flash-message')
-    <div>
-      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;">
-        <a href="#main" class="w3-bar-item w3-button">Main Course</a>
-        <a href="#sides" class="w3-bar-item w3-button">Sides</a>
-        <a href="#beverages" class="w3-bar-item w3-button">Beverages</a>
-        <a href="#dessert" class="w3-bar-item w3-button">Dessert</a>
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;">
+      <a href="#main" class="w3-bar-item w3-button">Main Course</a>
+      <a href="#sides" class="w3-bar-item w3-button">Sides</a>
+      <a href="#beverages" class="w3-bar-item w3-button">Beverages</a>
+      <a href="#dessert" class="w3-bar-item w3-button">Dessert</a>
+    </div>
+
+    <div style="margin-left:15%;margin-top:10px">
+      <h1 id="main" style="font-size:20px">Main Course</h1>
+      <div class="MenuContent">
+        @foreach ($main as $main)
+        <div class="row">
+          <div class="column">
+            <img src="{{asset('storage/img/'.$main->image)}}" style="width:250px; height:150px;">
+          </div>
+          <div class="column">
+            <h2>{{ $main->name }}</h2>
+            <p class="des">{{ $main->description}}</p>
+            <p class="Cal">{{ $main->nutrition }}</p>
+          </div>
+          <div class="column">
+            <div class="row">
+              <h2 style="text-align:right">RM {{ number_format($main->price,2) }}</h2>
+            </div>
+            <div class="row">
+              @if (Route::has('login'))
+              @auth
+              <a href="{{ url('/add-to-cart/'.$main->menu_code) }}">
+                <button class="button">Add to Cart</button>
+              </a>
+              @endauth
+              @endif
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+      <h1 id="sides" style="font-size:20px">Sides</h1>
+      <div class="MenuContent">
+        @foreach ($sides as $sides)
+        <div class="row">
+          <div class="column">
+            <img src="{{asset('storage/img/'.$sides->image)}}" style="width:250px; height:150px;">
+          </div>
+          <div class="column">
+            <h2>{{ $sides->name }}</h2>
+            <p class="des">{{ $sides->description}}</p>
+            <p class="Cal">{{ $sides->nutrition }}</p>
+          </div>
+          <div class="column">
+            <div class="row">
+              <h2 style="text-align:right">RM {{ number_format($sides->price,2) }}</h2>
+            </div>
+            <div class="row">
+              @if (Route::has('login'))
+              @auth
+              <a href="{{ url('/add-to-cart/'.$sides->menu_code) }}">
+                <button class="button">Add to Cart</button>
+              </a>
+              @endauth
+              @endif
+            </div>
+          </div>
+        </div>
+        @endforeach
+      </div>
+      <h1 id="beverages" style="font-size:20px">Beverages</h1>
+      <div class="MenuContent">
+        @foreach ($beverages as $beverages)
+        <div class="row">
+          <div class="column">
+            <img src="{{asset('storage/img/'.$beverages->image)}}" style="width:250px; height:150px;">
+          </div>
+          <div class="column">
+            <h2>{{ $beverages->name }}</h2>
+            <p class="des">{{ $beverages->description}}</p>
+            <p class="Cal">{{ $beverages->nutrition }}</p>
+          </div>
+          <div class="column">
+            <div class="row">
+              <h2 style="text-align:right">RM {{ number_format($beverages->price,2) }}</h2>
+            </div>
+            @if (Route::has('login'))
+            @auth
+            <a href="{{ url('/add-to-cart/'.$beverages->menu_code) }}">
+              <button class="button">Add to Cart</button>
+            </a>
+            @endauth
+            @endif
+          </div>
+        </div>
+        @endforeach
       </div>
 
-      <div style="margin-left:15%;margin-top:10px">
-        <h1 id="main" style="font-size:20px">Main Course</h1>
-        <div class="MenuContent">
-          @foreach ($main as $main)
-          <div class="row">
-            <div class="column">
-              <img src="{{asset('storage/img/'.$main->image)}}" style="width:250px; height:150px;">
+      <h1 id="dessert" style="font-size:20px">Dessert</h1>
+      <div class="MenuContent">
+        @foreach ($dessert as $dessert)
+        <div class="row">
+          <div class="column">
+            <img src="{{asset('storage/img/'.$dessert->image)}}" style="width:250px; height:150px;">
+          </div>
+          <div class="column">
+            <h2>{{ $dessert->name }}</h2>
+            <p class="des">{{ $dessert->description}}</p>
+            <p class="Cal">{{ $dessert->nutrition }}</p>
+          </div>
+          <div class="column">
+            <div class="row">
+              <h2 style="text-align:right">RM {{ number_format($dessert->price,2) }}</h2>
             </div>
-            <div class="column">
-              <h2>{{ $main->name }}</h2>
-              <p class="des">{{ $main->description}}</p>
-              <p class="Cal">{{ $main->nutrition }}</p>
-            </div>
-            <div class="column">
-              <div class="row">
-                <h2 style="text-align:right">RM {{ number_format($main->price,2) }}</h2>
-              </div>
-              <div class="row">
-              <a href="{{ url('/add-to-cart/'.$main->menu_code) }}">
-                  <button class="button">Add to Cart</button>
-                </a>
-              </div>
+            <div class="row">
+              @if (Route::has('login'))
+              @auth
+              <a href="{{ url('/add-to-cart/'.$dessert->menu_code) }}">
+                <button class="button">Add to Cart</button>
+              </a>
+              @endauth
+              @endif
             </div>
           </div>
-          @endforeach
         </div>
-        <h1 id="sides" style="font-size:20px">Sides</h1>
-        <div class="MenuContent">
-          @foreach ($sides as $sides)
-          <div class="row">
-            <div class="column">
-              <img src="{{asset('storage/img/'.$sides->image)}}" style="width:250px; height:150px;">
-            </div>
-            <div class="column">
-              <h2>{{ $sides->name }}</h2>
-              <p class="des">{{ $sides->description}}</p>
-              <p class="Cal">{{ $sides->nutrition }}</p>
-            </div>
-            <div class="column">
-              <div class="row">
-                <h2 style="text-align:right">RM {{ number_format($sides->price,2) }}</h2>
-              </div>
-              <div class="row">
-              <a href="{{ url('/add-to-cart/'.$sides->menu_code) }}">
-                  <button class="button">Add to Cart</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-        <h1 id="beverages" style="font-size:20px">Beverages</h1>
-        <div class="MenuContent">
-          @foreach ($beverages as $beverages)
-          <div class="row">
-            <div class="column">
-              <img src="{{asset('storage/img/'.$beverages->image)}}" style="width:250px; height:150px;">
-            </div>
-            <div class="column">
-              <h2>{{ $beverages->name }}</h2>
-              <p class="des">{{ $beverages->description}}</p>
-              <p class="Cal">{{ $beverages->nutrition }}</p>
-            </div>
-            <div class="column">
-              <div class="row">
-                <h2 style="text-align:right">RM {{ number_format($beverages->price,2) }}</h2>
-              </div>
-              <a href="{{ url('/add-to-cart/'.$beverages->menu_code) }}">
-                  <button class="button">Add to Cart</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-        <h1 id="dessert" style="font-size:20px">Dessert</h1>
-        <div class="MenuContent">
-          @foreach ($dessert as $dessert)
-          <div class="row">
-            <div class="column">
-              <img src="{{asset('storage/img/'.$dessert->image)}}" style="width:250px; height:150px;">
-            </div>
-            <div class="column">
-              <h2>{{ $dessert->name }}</h2>
-              <p class="des">{{ $dessert->description}}</p>
-              <p class="Cal">{{ $dessert->nutrition }}</p>
-            </div>
-            <div class="column">
-              <div class="row">
-                <h2 style="text-align:right">RM {{ number_format($dessert->price,2) }}</h2>
-              </div>
-              <div class="row">
-                <a href="{{ url('/add-to-cart/'.$dessert->menu_code) }}">
-                  <button class="button">Add to Cart</button>
-                </a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
+        @endforeach
       </div>
     </div>
   </x-app-layout>

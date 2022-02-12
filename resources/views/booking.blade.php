@@ -524,6 +524,12 @@
         .info {
             text-align: center;
         }
+
+        .alert {
+            font-size: 20px;
+            text-align: center;
+            border-style: solid;
+        }
     </style>
 </head>
 <!-- <header class="header"><a href="#" class="logo"> Hans Cafe </a><nav class="navbar"><a href="#home">What's Cooking</a><a href="#about">about</a><a href="#menu">menu</a><a href="#contact">contact</a></nav><a href="#" class="btn">Reservation</a><div class="icons"><div><i class="material-icons" style="font-size:36px">&#xe7fd;</i></div></div></header> -->
@@ -549,6 +555,8 @@
             <h2>04-1234567</h2>
             </br>
         </div>
+        @if (Route::has('login'))
+        @auth
         <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -580,6 +588,10 @@
                 <div class="column"></div>
             </div>
         </form>
+        @else
+        <div class="alert">Pls login to make reservtion</div>
+        @endauth
+        @endif
         <!-- <div>
             <h1>Waitlist</h1>
             <button class="accordion">

@@ -17,11 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cart', function () {
-    return view('cart');
-});
-
-
 Route::get('/dashboard','App\Http\Controllers\CustAccController@index');
 
 Route::get('/editacc', 'App\Http\Controllers\CustAccController@viewinfo');
@@ -37,5 +32,14 @@ Route::post('create','App\Http\Controllers\BookingController@insert');
 // });
 
 Route::get('/menu','App\Http\Controllers\MenuController@index');
+
+Route::get('/cart', 'App\Http\Controllers\MenuController@cart');
+Route::get('/add-to-cart/{code}', 'App\Http\Controllers\MenuController@addToCart');
+
+Route::patch('/update-cart', 'App\Http\Controllers\MenuController@update');
+Route::delete('/remove-from-cart', 'App\Http\Controllers\MenuController@remove');
+// Route::get('/cart', function () {
+//     return view('cart');
+// });
 
 require __DIR__.'/auth.php';

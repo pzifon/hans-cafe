@@ -22,6 +22,9 @@ Route::get('/dashboard','App\Http\Controllers\CustAccController@index');
 Route::get('/editacc', 'App\Http\Controllers\CustAccController@viewinfo');
 Route::post('edit', 'App\Http\Controllers\CustAccController@editInfo');
 
+Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
+Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
+
 Route::get('/booking', function () {
     return view('booking');
 });

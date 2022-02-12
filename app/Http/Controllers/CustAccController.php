@@ -16,7 +16,15 @@ class CustAccController extends Controller
             ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
             ->where('id', Auth::id())
             ->get();
-        return view('dashboard', compact('user'));
+        $records = DB::table('reservation')
+            ->select('res_id', 'date', 'time_slot', 'no_of_people')
+            ->where('customer_id', Auth::id())
+            ->where('cancelled', false)
+            ->get();
+        $total_purchases = DB::table('purchases')
+            ->where('customer_id', Auth::id())
+            ->count();
+        return view('dashboard', compact('user', 'records', 'total_purchases'));
     }
 
     public function viewinfo()
@@ -39,6 +47,5 @@ class CustAccController extends Controller
             ->update(['name' => $name, 'dob' => $dob, 'email' => $email, "contact" => $contact, "updated_at" => date("Y-m-d h:i:s")]);
         // echo "Sucessfully updated!";
         return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Account info updated successfully!');;
-
     }
 }

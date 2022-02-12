@@ -53,7 +53,7 @@
         <div class="row">
           <div class="column" style="font-weight:bold;">Account Details</div>
           <div class="column" style="float:right; text-align:right;">
-          <a href="/editacc"><i class="material-icons">edit</i></a>
+            <a href="/editacc"><i class="material-icons">edit</i></a>
           </div>
         </div>
         @foreach ($user as $user)
@@ -80,8 +80,8 @@
       <div class="column-2">
         <div class="row">
           <p class="column">Total Purchases</p>
-          <a class="column" style="float: right;text-decoration: underline;" href="#">View Purchases</a><br>
-          <p style="text-align:center;font-size:40px">12</p>
+          <a class="column" style="float: right;text-decoration: underline;" href="/purchases">View Purchases</a><br>
+          <p style="text-align:center;font-size:40px">{{ $total_purchases}}</p>
         </div>
         <div class="row">
           <div class="row">
@@ -100,9 +100,28 @@
         </div>
       </div>
       <div class="column-2">
-        booking
+        <div class="row">
+          <div class="row">
+            RESERVATIONS
+          </div>
+          <table>
+            <tr>
+              <th style="width:8%">ID</th>
+              <th style="width:30%">Date</th>
+              <th style="width:22%">Time</th>
+              <th style="width:40%">No of people</th>
+            </tr>
+            @foreach ($records as $records)
+            <tr>
+              <td>{{ $records->res_id }}</td>
+              <td>{{ $records->date }}</td>
+              <td>{{ date('h:ia', strtotime($records->time_slot)) }}</td>
+              <td style="text-align:right;">{{ $records->no_of_people }}</td>
+            </tr>
+            @endforeach
+          </table>
+        </div>
       </div>
-    </div>
   </x-app-layout>
 </body>
 

@@ -550,32 +550,32 @@
             </br>
         </div>
         <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
-        <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"><input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <div class="row">
                 <div class="column-2" style="background-color:#aaa;">
-                    <input type="number" placeholder="Number of people" name="no_of_people" class="" style="width:100%" min=1>
+                    <input type="number" placeholder="Number of people" name="no_of_people" class="" style="width:100%" min=1 required>
                 </div>
                 <div class="column-2" style="background-color:#bbb;">
-                    <input type="Date" placeholder="Date & Time" name="date" class="" style="width:100%">
+                    <input type="Date" placeholder="Date" name="res_date" id="res_date" class="" style="width:100%" required>
                 </div>
             </div>
 
             <div class="row">
-                <input type="submit" value="08:00am" name="time" class="column" style="background-color:#aaa;">
-                <input type="submit" value="09:00am" name="time" class="column" style="background-color:#bbb;">
-                <input type="submit" value="10:00am" name="time" class="column" style="background-color:#ccc;">
-                <input type="submit" value="11:00am" name="time" class="column" style="background-color:#ddd;">
+                <input type="submit" value="08:00am" name="time_slot" class="column" style="background-color:#aaa;" onclick="return confirm('Confirm reservation at 8:00am?');">
+                <input type="submit" value="09:00am" name="time_slot" class="column" style="background-color:#bbb;" onclick="return confirm('Confirm reservation at 9:00am?');">
+                <input type="submit" value="10:00am" name="time_slot" class="column" style="background-color:#ccc;" onclick="return confirm('Confirm reservation at 10:00am?');">
+                <input type="submit" value="11:00am" name="time_slot" class="column" style="background-color:#ddd;" onclick="return confirm('Confirm reservation at 11:00am?');">
             </div>
             <div class="row">
-                <input type="submit" value="12:00pm" name="time" class="column" style="background-color:#aaa;">
-                <input type="submit" value="01:00pm" name="time" class="column" style="background-color:#bbb;">
-                <input type="submit" value="02:00pm" name="time" class="column" style="background-color:#ccc;">
-                <input type="submit" value="03:00pm" name="time" class="column" style="background-color:#ddd;">
+                <input type="submit" value="12:00pm" name="time_slot" class="column" style="background-color:#aaa;" onclick="return confirm('Confirm reservation at 12:00pm?');">
+                <input type="submit" value="01:00pm" name="time_slot" class="column" style="background-color:#bbb;" onclick="return confirm('Confirm reservation at 1:00pm?');">
+                <input type="submit" value="02:00pm" name="time_slot" class="column" style="background-color:#ccc;" onclick="return confirm('Confirm reservation at 2:00pm?');">
+                <input type="submit" value="03:00pm" name="time_slot" class="column" style="background-color:#ddd;" onclick="return confirm('Confirm reservation at 3:00pm?');">
             </div>
             <div vlass="row">
                 <div class="column"></div>
-                <input type="submit" value="04:00pm" name="time" class="column" style="background-color:#bbb;">
-                <input type="submit" value="05:00pm" name="time" class="column" style="background-color:#ccc;">
+                <input type="submit" value="04:00pm" name="time_slot" class="column" style="background-color:#bbb;" onclick="return confirm('Confirm reservation at 4:00pm?');">
+                <input type="submit" value="05:00pm" name="time_slot" class="column" style="background-color:#ccc;" onclick="return confirm('Confirm reservation at 5:00pm?');">
                 <div class="column"></div>
             </div>
         </form>
@@ -599,12 +599,11 @@
         if (dd < 10) {
             dd = '0' + dd;
         }
-
         if (mm < 10) {
             mm = '0' + mm;
         }
 
         tmr = yyyy + '-' + mm + '-' + dd;
-        document.getElementById("date").setAttribute("min", tmr);
+        document.getElementById("res_date").setAttribute("min", tmr);
     </script>
 </body>

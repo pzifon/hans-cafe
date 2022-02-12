@@ -21,26 +21,16 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
+Route::get('/dashboard','App\Http\Controllers\CustAccController@index');
+
+Route::get('/editacc', 'App\Http\Controllers\CustAccController@viewinfo');
+Route::post('edit', 'App\Http\Controllers\CustAccController@editInfo');
 
 Route::get('/booking', function () {
     return view('booking');
 });
-
-Route::get('/editacc', function () {
-    return view('editaccount');
-});
-
 Route::post('create','App\Http\Controllers\BookingController@insert');
-
-// Route::get('/loyalty', function () {
-//     return view('loyalty');
-// });
-
-// Route::get('/loyalty','App\Http\Controllers\CustAccController@index');
-Route::get('/dashboard','App\Http\Controllers\CustAccController@index');
 
 // Route::get('/menu', function () {
 //     return view('menu');

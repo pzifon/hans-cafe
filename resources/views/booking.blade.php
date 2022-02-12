@@ -539,8 +539,8 @@
         </x-slot>
         <div class="info" style="font-size:20px;text-align:center;">
             </br>
-            <i class="material-icons" style="">&#xe55f; LOCATION</i>
-            <h2>1, Jalan Taylors, 47500 Subang Jaya, Selangor.</h2>
+            <i class="material-icons">&#xe55f; LOCATION</i>
+            <h2>TB 16313, Lot B15 Tkt 1, Perdana Jaya, Tawau 91000 Malaysia.</h2>
             </br>
             <i class="material-icons">&#xe855; OPENING HOURS</i>
             <h2>8:00 AM - 6:00 PM</h2>
@@ -550,7 +550,8 @@
             </br>
         </div>
         <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>"><input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <div class="row">
                 <div class="column-2" style="background-color:#aaa;">
                     <input type="number" placeholder="Number of people" name="no_of_people" class="" style="width:100%" min=1 required>

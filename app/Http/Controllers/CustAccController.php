@@ -17,6 +17,6 @@ class CustAccController extends Controller
                 ->where('id', Auth::id())
                 ->get();
         log:info($user);
-        return view('loyalty', compact('user'));
+        return view('dashboard', compact('user'));
     }
 }

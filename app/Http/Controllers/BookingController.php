@@ -24,7 +24,6 @@ class BookingController extends Controller
         $data = array('customer_id' => $user['id'], "contact" => $user['contact'], "date" => $date, "time_slot" => $time, 'no_of_people' => $no_of_people);
         DB::table('reservation')->insert($data);
 
-        //add pop up message - successfully booked
         return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Successfully booked a slot!');;
     }
 }

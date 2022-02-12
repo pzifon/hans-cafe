@@ -94,7 +94,7 @@
           </div>
           <div class="row">
             <p style="margin-left: 20px;">A cup of Handcraft Coffee <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-              <button class="ClaimedButton" style="float:right;margin-right:20px">Claim</button>
+              <button class="ClaimedButton" style="float:right;margin-right:20px">Claimed</button>
             </p>
           </div>
         </div>
@@ -105,20 +105,47 @@
             RESERVATIONS
           </div>
           <table>
+            <th colspan="5">UPCOMING</th>
             <tr>
               <th style="width:8%">ID</th>
               <th style="width:30%">Date</th>
               <th style="width:22%">Time</th>
               <th style="width:40%">No of people</th>
             </tr>
-            @foreach ($records as $records)
+
+            <form action="/cancel" method="post" action="/action_page.php">
+              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+              @foreach ($upcoming_res as $upcoming_res)
+              <tr>
+                <td>{{ $upcoming_res->res_id }}</td>
+                <td>{{ $upcoming_res->date }}</td>
+                <td>{{ date('h:ia', strtotime($upcoming_res->time_slot)) }}</td>
+                <td style="text-align:right;">{{ $upcoming_res->no_of_people }}</td>
+                <td>
+                  <button type="submit" value="{{$upcoming_res->res_id}}" name="res_id" class="column">Cancel</button>
+                </td>
+              </tr>
+              @endforeach
+            </form>
+          </table>
+          <table>
+            <th colspan="5">PAST</th>
             <tr>
-              <td>{{ $records->res_id }}</td>
-              <td>{{ $records->date }}</td>
-              <td>{{ date('h:ia', strtotime($records->time_slot)) }}</td>
-              <td style="text-align:right;">{{ $records->no_of_people }}</td>
+              <th style="width:8%">ID</th>
+              <th style="width:30%">Date</th>
+              <th style="width:22%">Time</th>
+              <th style="width:40%">No of people</th>
             </tr>
-            @endforeach
+              @foreach ($past_res as $past_res)
+              <tr>
+                <td>{{ $past_res->res_id }}</td>
+                <td>{{ $past_res->date }}</td>
+                <td>{{ date('h:ia', strtotime($past_res->time_slot)) }}</td>
+                <td style="text-align:right;">{{ $past_res->no_of_people }}</td>
+                <td></td>
+              </tr>
+              @endforeach
           </table>
         </div>
       </div>

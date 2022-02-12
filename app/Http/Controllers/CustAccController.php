@@ -16,15 +16,20 @@ class CustAccController extends Controller
             ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
             ->where('id', Auth::id())
             ->get();
-        $records = DB::table('reservation')
+        $total_purchases = DB::table('purchases')
+                ->where('customer_id', Auth::id())
+                ->count();
+        $upcoming_res = DB::table('reservation')
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
-            ->where('cancelled', false)
+            ->where('date', '>', date("Y-m-d"))
             ->get();
-        $total_purchases = DB::table('purchases')
+        $past_res = DB::table('reservation')
+            ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
-            ->count();
-        return view('dashboard', compact('user', 'records', 'total_purchases'));
+            ->where('date', '<', date("Y-m-d"))
+            ->get();
+        return view('dashboard', compact('user', 'total_purchases', 'upcoming_res', 'past_res',));
     }
 
     public function viewinfo()

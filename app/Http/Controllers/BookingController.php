@@ -26,4 +26,14 @@ class BookingController extends Controller
 
         return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Successfully booked a slot!');;
     }
+
+    public function remove(Request $request)
+    {
+        $id = $request->input('res_id');
+        DB::table('reservation')
+            ->where('res_id',$id)
+            ->delete();
+
+        return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Cancelled reservation!');;
+    }
 }

@@ -6,31 +6,33 @@
     </head>
 
     <body>
-    <form action="/viewDetails" method="post" action="/action_page.php">
+        <form action="/viewDetails" method="post" action="/action_page.php">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-        <table border="1">
-            <tr>
-                <td>ID</td>
-                <td>Date</td>
-                <td>Total</td>
-                <td>Payment Status</td>
-                <td></td>
-            </tr>
-            @foreach ($purchases as $purchases)
-            <tr>
-                <td>{{ $purchases->id }}</td>
-                <td>{{ $purchases->date }}</td>
-                <td>RM {{ number_format($purchases->total,2) }}</td>
-                @if ($purchases->payment_status)
-                <td>Paid</td>
-                @else
-                <td>Unpaid</td>
-                @endif
-                <td><button type="submit" value="{{$purchases->id}}" name="view_details" class="column" >View Details</button></td>
-            </tr>
-            @endforeach
-            
+            <table border="1">
+                <tr>
+                    <td>ID</td>
+                    <td>Date</td>
+                    <td>Total</td>
+                    <td>Payment Status</td>
+                    <td></td>
+                </tr>
+                @foreach ($purchases as $purchases)
+                <tr>
+                    <td>{{ $purchases->id }}</td>
+                    <td>{{ $purchases->date }}</td>
+                    <td>RM {{ number_format($purchases->total,2) }}</td>
+                    @if ($purchases->payment_status)
+                    <td>Paid</td>
+                    @else
+                    <td>Unpaid</td>
+                    @endif
+                    <td>
+                        <button type="submit" value="{{$purchases->id}}" name="view_details" class="column">View Details</button>
+                    </td>
+                </tr>
+                @endforeach
+
         </form>
         </table>
         <br><br>
@@ -60,7 +62,7 @@
         </table>
         @endif
 
-        
+
     </body>
 
     </html>

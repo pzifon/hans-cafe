@@ -29,6 +29,7 @@ Route::get('/booking', function () {
     return view('booking');
 });
 Route::post('create','App\Http\Controllers\BookingController@insert');
+Route::post('cancel','App\Http\Controllers\BookingController@remove');
 
 // Route::get('/menu', function () {
 //     return view('menu');

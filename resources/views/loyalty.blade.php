@@ -94,15 +94,18 @@
             REWARDS
           </div>
           <div class="row">
-            <p style="margin-left: 20px;">A cup of Handcraft Coffee <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-              <button class="ClaimButton" style="float:right;margin-right:20px">Claim</button>
-            </p>
+            <p class="column">Total Purchases</p>
+            <a class="column" style="float: right;text-decoration: underline;" href="#">View Purchases</a><br>
+            <p style="text-align:center;font-size:40px">12</p>
           </div>
           <div class="row">
             <p style="margin-left: 20px;">A cup of Handcraft Coffee <i class="fa fa-question-circle-o" aria-hidden="true"></i>
               <button class="ClaimedButton" style="float:right;margin-right:20px">Claim</button>
             </p>
           </div>
+        </div>
+        <div class="column-2">
+          booking
         </div>
       </div>
     </div>

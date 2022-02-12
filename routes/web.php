@@ -40,6 +40,7 @@ Route::post('create','App\Http\Controllers\BookingController@insert');
 // });
 
 Route::get('/loyalty','App\Http\Controllers\CustAccController@index');
+Route::get('/dashboard','App\Http\Controllers\CustAccController@index');
 
 // Route::get('/menu', function () {
 //     return view('menu');

@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
 	width: inherit;
 	height: inherit;
 	margin: 0;
@@ -57,7 +57,6 @@ h1{
     background: darkgrey;
     margin-bottom: 50px;
     }
-/*Vertical Line*/
 .Linel {
   border-left: 3px solid darkgrey;
   height: 550px;
@@ -69,8 +68,8 @@ h1{
 
 .MenuContent {
 	margin-top: 190px;
-	margin-left: 400px; /* Same width as the sidebar + left position in px */
-	font-size: 28px; /* Increased text to enable scrolling */
+	margin-left: 400px;
+	font-size: 28px;
 	padding: 0px 10px;
 	box-sizing: border-box;
 }
@@ -103,7 +102,6 @@ font-size: 20px;
   margin: 100px 2px 2px;
   cursor: pointer;
   border-radius: 20px;
-  /* float: right; */
 }
 
 .column {
@@ -112,7 +110,6 @@ font-size: 20px;
   padding: 5px;
 }
 
-/* Clearfix (clear floats) */
 .row::after {
   content: "";
   clear: both;
@@ -129,4 +126,4 @@ width: 1050px;
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
+ */

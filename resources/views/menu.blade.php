@@ -1,9 +1,13 @@
 <title> Menu </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
     .MenuContent {
         margin-top: 0%;
+        /* Same width as the sidebar + left position in px */
         font-size: 28px;
+        /* Increased text to enable scrolling */
         padding: 0px 10px;
         box-sizing: border-box;
     }
@@ -43,6 +47,7 @@
         padding: 5px;
     }
 
+    /* Clearfix (clear floats) */
     .row::after {
         content: "";
         clear: both;

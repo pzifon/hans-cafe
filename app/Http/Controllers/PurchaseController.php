@@ -24,16 +24,15 @@ class PurchaseController extends Controller
             ->select('*')
             ->where('customer_id', Auth::id())
             ->get();
-
         $purchase_id = $request->input('view_details');
         $orders = DB::table('orders')
-            ->join('menu', 'menu.menu_code', '=', 'orders.menu_code')
+            ->join('menus', 'menus.menu_code', '=', 'orders.menu_code')
             ->where('orders.purchase_id', $purchase_id)
             ->get();
         $total = DB::table('orders')
             ->where('purchase_id', $purchase_id)
             ->sum('subtotal');
-        log:info($total);
+
         return view('purchases', compact('purchases', 'orders', 'total'));
     }
 }

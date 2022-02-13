@@ -2,128 +2,17 @@
 <html>
 
 <head>
-    <title> Cart </title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Cart </title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/cart.css') }}">
-    @section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(".update-cart").click(function(e) {
-            e.preventDefault();
-            document.getElementById("headline").value = "red";
-            var ele = $(this);
-
-            var parent_row = ele.parents("tr");
-
-            var quantity = parent_row.find(".quantity").val();
-
-            var product_subtotal = parent_row.find("span.product-subtotal");
-
-            var cart_total = $(".cart-total");
-
-            var loading = parent_row.find(".btn-loading");
-
-            loading.show();
-
-            $.ajax({
-                url: "{{ url('/update-cart') }}",
-                method: "patch",
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    id: ele.attr("data-id"),
-                    quantity: quantity
-                },
-                dataType: "json",
-                success: function(response) {
-
-                    loading.hide();
-
-                    $("span#status").html('<div class="alert alert-success">' + response.msg + '</div>');
-
-                    $("#header-bar").html(response.data);
-
-                    product_subtotal.text(response.subTotal);
-
-                    cart_total.text(response.total);
-                }
-            });
-        });
-
-        $(".remove-from-cart").click(function(e) {
-            e.preventDefault();
-
-            var ele = $(this);
-
-            var parent_row = ele.parents("tr");
-
-            var cart_total = $(".cart-total");
-
-            if (confirm("Are you sure")) {
-                $.ajax({
-                    url: "{{ url('/remove-from-cart') }}",
-                    method: "DELETE",
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        id: ele.attr("data-id")
-                    },
-                    dataType: "json",
-                    success: function(response) {
-
-                        parent_row.remove();
-
-                        $("span#status").html('<div class="alert alert-success">' + response.msg + '</div>');
-
-                        $("#header-bar").html(response.data);
-
-                        cart_total.text(response.total);
-                    }
-                });
-            }
-        });
-    </script>
-
-    @endsection
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
-        /* .CartContent {
-            padding: 10px 10px;
-        } */
-
-        /* .TotalCart {
-            padding-left: 10px;
-            width: 98%;
-            margin-left: 10px;
-            position: fixed;
-            bottom: 0px;
-            border-style: inset;
-            border-bottom-style: none;
-        } */
-
-        /* .column {
-            text-align: center;
-            float: left;
-            width: 15%;
-            padding: 5px;
-        }
-
-        .column-B {
-            float: left;
-            width: 40%;
-            padding: 5px;
-        } */
-
-        /* Clearfix (clear floats)
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
-        } */
 
         ul {
             list-style-type: none;
@@ -154,9 +43,9 @@
         }
     </style>
 </head>
-
-<body>
-    <ul>
+  </head>
+  <body>
+  <ul>
         <li><a href="/">Hans Cafe</a></li>
         <li><a href="/menu">Menu</a></li>
         <li><a href="/booking">Booking</a></li>
@@ -178,101 +67,88 @@
         @endauth
         @endif
     </ul>
-    <!-- <div style="">
-        <div class="CartContent">
-            <h2 style="font-size: 20px;margin-top: 0px;margin-left: 10px">Cart</h1>
-            <div style="border-style: groove;padding: 10px">
-                <div class="row" style="font-weight: bold;font-size:18;border-bottom-style: solid;">
-                    <div class="column-B">
-                        Item
-                    </div>
-                    <div class="column">
-                        Unit Price
-                    </div>
-                    <div class="column">
-                        Quantity
-                    </div>
-                    <div class="column">
-                        Total price
-                    </div>
-                    <div class="column">
-                        Action
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column-B">
-                        Salad
-                    </div>
-                    <div class="column">
-                        RM 12
-                    </div>
-                    <div class="column">
-                        <input type="number" id="quantity" name="quantity" min="1" placeholder="2" style="width:80%">
-                    </div>
-                    <div class="column">
-                        RM 24
-                    </div>
-                    <div class="column">
-                        <a>delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="TotalCart">
-            <h1 style="width:50%;float:left">Total: RM24.00</h1>
-            <a style="width:50%;float:right;text-align:right;margin:auto">Confirm Order</a>
-        </div>
-    </div> -->
-
-    <table id="cart" class="table table-hover table-condensed">
-        <thead>
-            <h2 id="headline" style="font-size: 20px;margin-top: 0px;margin-left: 10px">Cart</h1>
-                <tr>
-                    <th style="width:50%">Product</th>
-                    <th style="width:10%">Price</th>
-                    <th style="width:8%">Quantity</th>
-                    <th style="width:22%" class="text-center">Subtotal</th>
-                    <th style="width:10%"></th>
-                </tr>
-        </thead>
-        <tbody>
-            <?php $total = 0 ?>
-            @if(session('cart'))
-            @foreach(session('cart') as $code => $details)
-            <?php $total += $details['price'] * $details['quantity'] ?>
-            <tr>
-                <td data-th="Product">
-                    <div class="row">
-                        <div class="col-sm-3 hidden-xs"><img src="{{asset('storage/img/'.$details['photo'])}}" width="100" height="100" class="img-responsive" /></div>
-                        <div class="col-sm-9">
-                            <h4 class="nomargin">{{ $details['name'] }}</h4>
+          <main class="my-8">
+            <div class="container px-6 mx-auto">
+                <div class="flex justify-center my-6">
+                    <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+                      
+    @include('flash-message')
+                        <h3 class="text-3xl text-bold">Cart List</h3>
+                      <div class="flex-1">
+                        <table class="w-full text-sm lg:text-base" cellspacing="0">
+                          <thead>
+                            <tr class="h-12 uppercase">
+                              <th class="hidden md:table-cell"></th>
+                              <th class="text-left">Name</th>
+                              <th class="pl-5 text-left lg:text-right lg:pl-0">
+                                <span class="lg:hidden" title="Quantity">Qtd</span>
+                                <span class="hidden lg:inline">Quantity</span>
+                              </th>
+                              <th class="hidden text-right md:table-cell"> Price</th>
+                              <th class="hidden text-right md:table-cell"> Remove </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              @foreach ($cartItems as $item)
+                            <tr>
+                              <td class="hidden pb-4 md:table-cell">
+                                <a href="#">
+                                  <img src="{{asset('storage/img/'.$item->attributes->image)}}" class="w-20 rounded" alt="Thumbnail">
+                                </a>
+                              </td>
+                              <td>
+                                <a href="#">
+                                  <p class="mb-2 md:ml-4">{{ $item->name }}</p>
+                                  
+                                </a>
+                              </td>
+                              <td class="justify-center mt-6 md:justify-end md:flex">
+                                <div class="h-10 w-28">
+                                  <div class="relative flex flex-row w-full h-8">
+                                    <form action="{{ route('cart.update') }}" method="POST">
+                                      @csrf
+                                      <input type="hidden" name="id" value="{{ $item->id}}" >
+                                    <input type="number" name="quantity" value="{{ $item->quantity }}" 
+                                    class="w-6 text-center bg-gray-300" />
+                                    <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">Update</button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="hidden text-right md:table-cell">
+                                <span class="text-sm font-medium lg:text-base">
+                                    ${{ $item->price }}
+                                </span>
+                              </td>
+                              <td class="hidden text-right md:table-cell">
+                                <form action="{{ route('cart.remove') }}" method="POST">
+                                  @csrf
+                                  <input type="hidden" value="{{ $item->id }}" name="id">
+                                  <button class="px-4 py-2 text-white bg-red-600">x</button>
+                              </form>
+                                
+                              </td>
+                            </tr>
+                            @endforeach
+                             
+                          </tbody>
+                        </table>
+                        <div>
+                         Total: ${{ Cart::getTotal() }}
                         </div>
+                        <div>
+                          <form action="{{ route('cart.clear') }}" method="POST">
+                            @csrf
+                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
+                          </form>
+                        </div>
+
+
+                      </div>
                     </div>
-                </td>
-                <td data-th="Price">RM{{ number_format($details['price'],2) }}</td>
-                <td data-th="Quantity">
-                    <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
-                </td>
-                <td data-th="Subtotal" class="text-center">RM{{ number_format($details['price'] * $details['quantity'],2) }}</td>
-                <td class="actions" data-th="">
-                    <button class="btn btn-info btn-sm update-cart" data-id="{{ $code }}" onclick=""><i class="fa fa-refresh"></i></button>
-                    <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $code }}"><i class="fa fa-trash-o"></i></button>
-                </td>
-            </tr>
-            @endforeach
-            @endif
-        </tbody>
-        <tfoot>
-            <tr class="visible-xs">
-                <td class="text-center"><strong>Total RM{{ number_format($total,2) }}</strong></td>
-            </tr>
-            <tr>
-                <td><a href="{{ url('/menu') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                <td colspan="2" class="hidden-xs"></td>
-                <td class="hidden-xs text-center"><strong>Total RM{{ number_format($total,2) }}</strong></td>
-            </tr>
-        </tfoot>
-    </table>
+                  </div>
+            </div>
+</main>
 </body>
 
 </html>

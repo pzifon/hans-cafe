@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
         /* :root {
             --main-color: #443;
@@ -538,11 +537,7 @@
     <!-- <div class="slider"><div class="slides"><input type="radio" name="radio-btn" id="radio1"><input type="radio" name="radio-btn" id="radio2"><input type="radio" name="radio-btn" id="radio3"><input type="radio" name="radio-btn" id="radio4"><div class="slide first"><img src="images/1.jpg" alt=""></div><div class="slide"><img src="images/2.jpg" alt=""></div><div class="slide"><img src="images/3.jpg" alt=""></div><div class="slide"><img src="images/4.jpg" alt=""></div><div class="navigation-auto"><div class="auto-btn1"></div><div class="auto-btn2"></div><div class="auto-btn3"></div><div class="auto-btn4"></div></div></div><div class="navigation-manual"><label for="radio1" class='manual-btn"></label><label for="radio2" class= ' manual-btn"></label><label for="radio3" class='manual-btn"></label><label for="radio4" class= ' manual-btn"></label></div></div> -->
     <!-- <section class="home" id="home"><div class="row"><div class="content"><h3>ABOUT US</h3><a href="#" class="btn">READ MORE</a></div></div></section> -->
     <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="margin-top:50px;margin-left:-16px;">
-                {{ __('Make Reservation') }}
-            </h2>
-        </x-slot>
+        <x-slot name="header"></x-slot>
         <div class="info" style="font-size:20px;text-align:center;">
             </br>
             <i class="material-icons">&#xe55f; LOCATION</i>

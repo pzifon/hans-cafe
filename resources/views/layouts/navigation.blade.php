@@ -1,5 +1,6 @@
 <style>
     ul {
+        height: 50px;
         list-style-type: none;
         margin: 0;
         padding: 0;

@@ -78,11 +78,10 @@
             <a href="#beverages" class="w3-bar-item w3-button">Beverages</a>
             <a href="#dessert" class="w3-bar-item w3-button">Dessert</a>
         </div>
-        <div class="margin-left:15%;margin-top:10px">
-
+        <div style="margin-left:15%;margin-top:10px">
+            <h1 id="main" style="font-size:20px">Main Course</h1>
             @foreach ($menu as $product)
             @if ($product->category == 'Main_Course')
-            <h1 id="main" style="font-size:20px">Main Course</h1>
             <div class="MenuContent">
                 <div class="row">
                     <div class="column">
@@ -118,9 +117,9 @@
             @endif
             @endforeach
 
+            <h1 id="sides" style="font-size:20px">Sides</h1>
             @foreach ($menu as $product)
             @if ($product->category == 'Sides')
-            <h1 id="sides" style="font-size:20px">Sides</h1>
             <div class="MenuContent">
                 <div class="row">
                     <div class="column">
@@ -156,9 +155,9 @@
             @endif
             @endforeach
 
-@foreach ($menu as $product)
-            @if ($product->category == 'Beverages')
             <h1 id="beverages" style="font-size:20px">Beverages</h1>
+            @foreach ($menu as $product)
+            @if ($product->category == 'Beverages')
             <div class="MenuContent">
                 <div class="row">
                     <div class="column">
@@ -194,9 +193,9 @@
             @endif
             @endforeach
 
-@foreach ($menu as $product)
-            @if ($product->category == 'Dessert')
             <h1 id="dessert" style="font-size:20px">Dessert</h1>
+            @foreach ($menu as $product)
+            @if ($product->category == 'Dessert')
             <div class="MenuContent">
                 <div class="row">
                     <div class="column">

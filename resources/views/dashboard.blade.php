@@ -58,22 +58,27 @@
         </div>
         @foreach ($user as $user)
         <p>MEMBERSHIP ID <br>
-          <span style="font-size:25px">{{$user->id}}
+          <span style="font-size:20px">{{$user->id}}
         </p>
+        <br>
         <p>NAME <br>
-          <span style="font-size:25px">{{$user->name}}
+          <span style="font-size:20px">{{$user->name}}
         </p>
+        <br>
         <p>DATE OF BIRTH <br>
-          <span style="font-size:25px">{{$user->dob ?? 'N/A'}}
+          <span style="font-size:20px">{{$user->dob ?? 'N/A'}}
         </p>
+        <br>
         <p>EMAIL <br>
-          <span style="font-size:25px">{{$user->email}}
+          <span style="font-size:20px">{{$user->email}}
         </p>
+        <br>
         <p>CONTACT NUMBER <br>
-          <span style="font-size:25px">{{$user->contact ?? 'N/A'}}
+          <span style="font-size:20px">{{$user->contact ?? 'N/A'}}
         </p>
+        <br>
         <p>DATE JOINED <br>
-          <span style="font-size:25px">{{$user->created_at}}
+          <span style="font-size:20px">{{$user->created_at}}
         </p>
         @endforeach
       </div>
@@ -92,6 +97,7 @@
               <button class="ClaimButton" style="float:right;margin-right:20px">Claim</button>
             </p>
           </div>
+          <br>
           <div class="row">
             <p style="margin-left: 20px;">A cup of Handcraft Coffee <i class="fa fa-question-circle-o" aria-hidden="true"></i>
               <button class="ClaimedButton" style="float:right;margin-right:20px">Claimed</button>

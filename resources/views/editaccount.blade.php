@@ -48,11 +48,13 @@
             </p>
             <br>
             <p>NAME<br>
-                <span style="font-size:20px"><input type="text" name="name" value="{{$user->name}}" required>
+                <span style="font-size:20px"><input type="text" name="name" value="{{$user->name}}" required disabled hidden>
+                <span style="font-size:20px">{{$user->name}}
             </p>
             <br>
             <p>DATE OF BIRTH<br>
-                <span style="font-size:20px"><input type="date" name="dob" value="{{$user->dob}}">
+                <span style="font-size:20px"><input type="date" name="dob" value="{{$user->dob}}" disabled hidden>
+                <span style="font-size:20px">{{$user->dob}}
             </p>
             <br>
             <p>EMAIL<br>

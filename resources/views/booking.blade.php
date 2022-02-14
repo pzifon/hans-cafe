@@ -431,13 +431,14 @@
             justify-content: center;
         } */
 
-        /* .manual-btn {
+        .btn {
             border: 2px solid #fff;
             padding: 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: 1s;
-        } */
+            background-color: #77a8a4;
+        }
 
         /* .manual-btn:not(:last-child) {
             margin-right: 40px;
@@ -583,7 +584,11 @@
             </div>
         </form>
         @else
-        <div class="alert">Pls login to make reservtion</div>
+        <div class="alert">
+            <a href="{{ route('login') }}">
+                <button class="btn">Please login to make your reservation</button>
+            </a>
+        </div>
         @endauth
         @endif
         <!-- <div>

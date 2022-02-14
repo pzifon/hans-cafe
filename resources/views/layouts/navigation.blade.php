@@ -39,7 +39,7 @@
         <li style="float:right">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <a class="active" onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')" class="text-sm text-gray-700 dark:text-gray-500 underline">Log out</a>
+                <a class="active" onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')" class="text-sm text-gray-700 dark:text-gray-500 underline" style="cursor: pointer;">Log out</a>
             </form>
         </li>
         <li style="float:right"><a class="active" href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Account</a></li>

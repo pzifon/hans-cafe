@@ -82,7 +82,7 @@
                 <thead>
                     <tr class="h-12 uppercase">
                         <th class="hidden md:table-cell"></th>
-                        <th class="text-left">Code</th>
+                        <!-- <th class="text-left">Code</th> -->
                         <th class="text-left">Name</th>
                         <th class="hidden text-right md:table-cell">Price (RM)</th>
                         <th class="pl-5 text-left lg:text-right lg:pl-0">
@@ -99,9 +99,9 @@
                         <td class="hidden pb-4 md:table-cell">
                             <img src="{{asset('storage/img/'.$item->attributes->image)}}" class="w-20 rounded" alt="Thumbnail">
                         </td>
-                        <td>
+                        <!-- <td>
                             <p class="mb-2 md:ml-4">{{ $item->code }}</p>
-                        </td>
+                        </td> -->
                         <td>
                             <p class="mb-2 md:ml-4">{{ $item->name }}</p>
                         </td>
@@ -139,7 +139,7 @@
                     @endforeach
                 </tbody>
                 <tr style="font-size:20px">
-                    <td colspan=6 style='text-align:right; font-weight:bold'>Total: </td>
+                    <td colspan=5 style='text-align:right; font-weight:bold'>Total: </td>
                     <td colspan=1 style='text-align:right; font-weight:bolder'>RM {{ number_format(Cart::getTotal(),2) }}</td>
                 </tr>
             </table>

@@ -93,15 +93,7 @@
             REWARDS
           </div>
           <div class="row">
-            <p style="margin-left: 20px;">A cup of Handcraft Coffee <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-              <button class="ClaimButton" style="float:right;margin-right:20px">Claim</button>
-            </p>
-          </div>
-          <br>
-          <div class="row">
-            <p style="margin-left: 20px;">A cup of Handcraft Coffee <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-              <button class="ClaimedButton" style="float:right;margin-right:20px">Claimed</button>
-            </p>
+            <p>No reward</p>
           </div>
         </div>
       </div>

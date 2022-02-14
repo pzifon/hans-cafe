@@ -410,7 +410,7 @@
         <x-slot name="header"></x-slot>
 
         <div class="row">
-            <img src="{{ asset('storage/img/salad.jpg') }}" class="cen">
+            <img src="{{ asset('storage/img/logo.jpg') }}" class="cen">
         </div>
         <div class="row" style="text-align:center">
             <p style="font-size:28px">Our story</p>

@@ -1,77 +1,105 @@
-<title> Menu </title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style type="text/css">
-    .MenuContent {
-        margin-top: 0%;
-        /* Same width as the sidebar + left position in px */
-        font-size: 28px;
-        /* Increased text to enable scrolling */
-        padding: 0px 10px;
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    h2 {
-        margin: 0px;
-        margin-left: -50px;
-        font-size: 20px;
-    }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .des {
-        font-size: 15px;
-    }
+    <title>Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!-- Styles -->
+    <style type="text/css">
+        .MenuContent {
+            margin-top: 0%;
+            /* Same width as the sidebar + left position in px */
+            font-size: 28px;
+            /* Increased text to enable scrolling */
+            padding: 0px 10px;
+            box-sizing: border-box;
+        }
 
-    .Cal {
-        font-size: 20px;
-        margin-top: 20px;
-    }
+        h2 {
+            margin: 0px;
+            margin-left: -50px;
+            font-size: 20px;
+        }
 
-    .button {
-        background-color: #76e500;
-        border: none;
-        color: white;
-        padding: 5px 20px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        margin: 70px 2px 2px;
-        cursor: pointer;
-        border-radius: 20px;
-        float: right;
-    }
+        .des {
+            font-size: 15px;
+        }
 
-    .column {
-        float: left;
-        width: 33%;
-        padding: 5px;
-    }
+        .Cal {
+            font-size: 20px;
+            margin-top: 20px;
+        }
 
-    /* Clearfix (clear floats) */
-    .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+        .button {
+            background-color: #76e500;
+            border: none;
+            color: white;
+            padding: 5px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 70px 2px 2px;
+            cursor: pointer;
+            border-radius: 20px;
+            float: right;
+        }
 
-    .MenuLine {
-        margin-top: 0px;
-        width: 1050px;
-    }
+        .column {
+            float: left;
+            width: 33%;
+            padding: 5px;
+        }
 
-    @media screen and (max-height: 450px) {}
-</style>
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
-<x-app-layout>
-    <x-slot name="header"></x-slot>
-    @include('flash-message')
-    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%;">
-        <a href="#main" class="w3-bar-item w3-button">Main Course</a>
-        <a href="#sides" class="w3-bar-item w3-button">Sides</a>
-        <a href="#beverages" class="w3-bar-item w3-button">Beverages</a>
-        <a href="#dessert" class="w3-bar-item w3-button">Dessert</a>
+        .MenuLine {
+            margin-top: 0px;
+            width: 1050px;
+        }
+
+        @media screen and (max-height: 450px) {}
+    </style>
+</head>
+
+<body>
+    @include('layouts.navbar')
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width:150px">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="#main" class="nav-link active" aria-current="page">
+                    Main Course
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#sides" class="nav-link active" aria-current="page">
+                    Sides
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#beverages" class="nav-link active" aria-current="page">
+                    Beverages
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#dessert" class="nav-link active" aria-current="page">
+                    Dessert
+                </a>
+            </li>
+        </ul>
     </div>
-    <div style="margin-left:15%;margin-top:10px">
+    <div class="b-example-divider"></div>
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width:800px">
         <h1 id="main" style="font-size:20px">Main Course</h1>
         @foreach ($menu as $product)
         @if ($product->category == 'Main_Course')
@@ -225,4 +253,4 @@
         @endforeach
     </div>
 
-</x-app-layout>
+</html>

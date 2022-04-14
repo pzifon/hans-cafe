@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hans Cafe</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Booking</title>
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <style>
-
-        /* :root {
+    /* :root {
             --main-color: #443;
             --border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
             --border-radius-hover: 4% 95% 6% 95%/95% 4% 92% 5%;
@@ -18,7 +18,7 @@
             --border-hover: .2rem dashed var(--main-color);
         } */
 
-        /* * {
+    /* * {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -30,39 +30,39 @@
             transition: all .2s linear;
         } */
 
-        /* html {
+    /* html {
             font-size: 60%;
             overflow-x: hidden;
             scroll-padding-top: 7rem;
             scroll-behavior: smooth;
         } */
 
-        /* section {
+    /* section {
             padding: 2rem 9%;
         } */
 
-        .heading {
-            font-size: 9rem;
-            text-transform: uppercase;
-            color: transparent;
-            -webkit-text-stroke: .05rem var(--main-color);
-            letter-spacing: .2rem;
-            text-align: center;
-            pointer-events: none;
-            position: relative;
-        }
+    .heading {
+        font-size: 9rem;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: .05rem var(--main-color);
+        letter-spacing: .2rem;
+        text-align: center;
+        pointer-events: none;
+        position: relative;
+    }
 
-        .heading span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            color: var(--main-color);
-            font-size: 3rem;
-        }
+    .heading span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        color: var(--main-color);
+        font-size: 3rem;
+    }
 
-        /* .btn {
+    /* .btn {
             display: inline-block;
             padding: .9rem 1.5rem;
             border-radius: var(--border-radius);
@@ -74,12 +74,12 @@
             font-size: 1.7rem;
         } */
 
-        /* .btn:hover {
+    /* .btn:hover {
             border-radius: var(--border-radius-hover);
             border: var(--border-hover);
         } */
 
-        /* .header {
+    /* .header {
             position: fixed;
             top: 0;
             left: 0;
@@ -93,33 +93,33 @@
             padding: 2rem 9%;
         } */
 
-        /* .header .logo {
+    /* .header .logo {
             color: var(--main-color);
             font-size: 2.3rem;
         } */
 
-        /* .header .logo i {
+    /* .header .logo i {
             padding-left: .5rem;
         } */
 
-        /* .header .navbar a {
+    /* .header .navbar a {
             margin: 0 1rem;
             font-size: 1.7rem;
             color: var(--main-color);
         } */
 
-        /* .header .btn {
+    /* .header .btn {
             margin-top: 0;
         } */
 
-        /* #menu-btn {
+    /* #menu-btn {
             font-size: 3rem;
             color: var(--main-color);
             cursor: pointer;
             display: none;
         } */
 
-        /* .home {
+    /* .home {
             min-height: 100vh;
             padding-top: 12rem;
             background: url(../image/home-bg.jpg) no-repeat;
@@ -127,29 +127,29 @@
             background-size: cover;
         } */
 
-        /* .home .row {
+    /* .home .row {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             gap: 1.5rem;
         } */
 
-        /* .home .row .content {
+    /* .home .row .content {
             flex: 1 1 42rem;
         } */
 
-        /* .home .row .image {
+    /* .home .row .image {
             flex: 1 1 42rem;
             padding-top: 10rem;
             text-align: center;
         } */
 
-        /* .home .row .image img {
+    /* .home .row .image img {
             height: 35rem;
             animation: float 4s linear infinite;
         } */
 
-        /* @keyframes float {
+    /* @keyframes float {
 
             0%,
             100% {
@@ -161,29 +161,29 @@
             }
         } */
 
-        /* .home .row .content h3 {
+    /* .home .row .content h3 {
             font-size: 6.5rem;
             color: var(--main-color);
             text-transform: uppercase;
         } */
 
-        /* .home .image-slider {
+    /* .home .image-slider {
             text-align: center;
             padding: 3rem 0;
         } */
 
-        /* .home .image-slider img {
+    /* .home .image-slider img {
             height: 9rem;
             margin: 0 .5rem;
             cursor: pointer;
             margin-top: 5rem;
         } */
 
-        /* .home .image-slider img:hover {
+    /* .home .image-slider img:hover {
             transform: translateY(-2rem);
         } */
 
-        /* .book {
+    /* .book {
             background: url(../image/book-bg.jpg) no-repeat;
             background-position: center;
             background-size: cover;
@@ -218,34 +218,34 @@
             resize: none;
         } */
 
-        /* .footer .box-container {
+    /* .footer .box-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
             gap: 1.5rem;
         } */
 
-        /* .footer .box-container .box h3 {
+    /* .footer .box-container .box h3 {
             font-size: 2.5rem;
             padding: 1rem 0;
             color: var(--main-color);
         } */
 
-        /* .footer .box-container .box a {
+    /* .footer .box-container .box a {
             display: block;
             font-size: 1.5rem;
             padding: 1rem 0;
             color: var(--main-color);
         } */
 
-        /* .footer .box-container .box a i {
+    /* .footer .box-container .box a i {
             padding-right: .5rem;
         } */
 
-        /* .footer .box-container .box a:hover i {
+    /* .footer .box-container .box a:hover i {
             padding-right: 2rem;
         } */
 
-        /* .footer .credit {
+    /* .footer .credit {
             text-align: center;
             font-size: 2rem;
             padding: 2rem 1rem;
@@ -253,12 +253,12 @@
             color: var(--main-color);
         } */
 
-        /* .footer .credit span {
+    /* .footer .credit span {
             border-bottom: var(--border-hover);
         } */
 
-        /* media queries  */
-        /* @media(max-width:991px) {
+    /* media queries  */
+    /* @media(max-width:991px) {
             html {
             font-size: 55%;
             }
@@ -272,7 +272,7 @@
             }
         } */
 
-        /* @media(max-width:768px) {
+    /* @media(max-width:768px) {
             .heading {
             font-size: 6rem;
             }
@@ -330,7 +330,7 @@
             }
         } */
 
-        /* @media(max-width:450px) {
+    /* @media(max-width:450px) {
             html {
             font-size: 50%;
             }
@@ -422,8 +422,8 @@
             height: 500px;
         } */
 
-        /*css for manual slide navigation*/
-        /* .navigation-manual {
+    /*css for manual slide navigation*/
+    /* .navigation-manual {
             position: absolute;
             width: 800px;
             margin-top: -40px;
@@ -431,41 +431,41 @@
             justify-content: center;
         } */
 
-        .btn {
-            border: 2px solid #fff;
-            padding: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 1s;
-            background-color: #77a8a4;
-        }
+    .btn {
+        border: 2px solid #fff;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 1s;
+        background-color: #77a8a4;
+    }
 
-        /* .manual-btn:not(:last-child) {
+    /* .manual-btn:not(:last-child) {
             margin-right: 40px;
         } */
 
-        /* .manual-btn:hover {
+    /* .manual-btn:hover {
             background: #fff;
         } */
 
-        /* #radio1:checked~.first {
+    /* #radio1:checked~.first {
             margin-left: 0;
         } */
 
-        /* #radio2:checked~.first {
+    /* #radio2:checked~.first {
             margin-left: -20%;
         } */
 
-        /* #radio3:checked~.first {
+    /* #radio3:checked~.first {
             margin-left: -40%;
         } */
 
-        /* #radio4:checked~.first {
+    /* #radio4:checked~.first {
             margin-left: -60%;
         } */
 
-        /*css for automatic navigation*/
-        /* .navigation-auto {
+    /*css for automatic navigation*/
+    /* .navigation-auto {
             position: absolute;
             display: flex;
             width: 800px;
@@ -473,62 +473,62 @@
             margin-top: 460px;
         } */
 
-        /* .navigation-auto div {
+    /* .navigation-auto div {
             border: 2px solid #fff;
             padding: 5px;
             border-radius: 5px;
             transition: 1s;
         } */
 
-        /* .navigation-auto div:not(:last-child) {
+    /* .navigation-auto div:not(:last-child) {
             margin-right: 40px;
         } */
 
-        /* #radio1:checked~.navigtion-auto .auto-btn1 {
+    /* #radio1:checked~.navigtion-auto .auto-btn1 {
             background: #fff;
         } */
 
-        /* #radio2:checked~.navigtion-auto .auto-btn1 {
+    /* #radio2:checked~.navigtion-auto .auto-btn1 {
             background: #fff;
         } */
 
-        /* #radio3:checked~.navigtion-auto .auto-btn1 {
+    /* #radio3:checked~.navigtion-auto .auto-btn1 {
             background: #fff;
         } */
 
-        /* #radio4:checked~.navigtion-auto .auto-btn1 {
+    /* #radio4:checked~.navigtion-auto .auto-btn1 {
             background: #fff;
         } */
 
-        .column {
-            float: left;
-            width: 24%;
-            padding: 10px;
-            margin: 2px;
-        }
+    .column {
+        float: left;
+        width: 24%;
+        padding: 10px;
+        margin: 2px;
+    }
 
-        .column-2 {
-            float: left;
-            width: 48.5%;
-            padding: 10px;
-            margin: 2px;
-        }
+    .column-2 {
+        float: left;
+        width: 48.5%;
+        padding: 10px;
+        margin: 2px;
+    }
 
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 
-        .info {
-            text-align: center;
-        }
+    .info {
+        text-align: center;
+    }
 
-        .alert {
-            font-size: 20px;
-            text-align: center;
-            border-style: solid;
-        }
+    .alert {
+        font-size: 20px;
+        text-align: center;
+        border-style: solid;
+    }
     </style>
 </head>
 <!-- <header class="header"><a href="#" class="logo"> Hans Cafe </a><nav class="navbar"><a href="#home">What's Cooking</a><a href="#about">about</a><a href="#menu">menu</a><a href="#contact">contact</a></nav><a href="#" class="btn">Reservation</a><div class="icons"><div><i class="material-icons" style="font-size:36px">&#xe7fd;</i></div></div></header> -->
@@ -536,62 +536,73 @@
 <body>
     <!-- <div class="slider"><div class="slides"><input type="radio" name="radio-btn" id="radio1"><input type="radio" name="radio-btn" id="radio2"><input type="radio" name="radio-btn" id="radio3"><input type="radio" name="radio-btn" id="radio4"><div class="slide first"><img src="images/1.jpg" alt=""></div><div class="slide"><img src="images/2.jpg" alt=""></div><div class="slide"><img src="images/3.jpg" alt=""></div><div class="slide"><img src="images/4.jpg" alt=""></div><div class="navigation-auto"><div class="auto-btn1"></div><div class="auto-btn2"></div><div class="auto-btn3"></div><div class="auto-btn4"></div></div></div><div class="navigation-manual"><label for="radio1" class='manual-btn"></label><label for="radio2" class= ' manual-btn"></label><label for="radio3" class='manual-btn"></label><label for="radio4" class= ' manual-btn"></label></div></div> -->
     <!-- <section class="home" id="home"><div class="row"><div class="content"><h3>ABOUT US</h3><a href="#" class="btn">READ MORE</a></div></div></section> -->
-    <x-app-layout>
-        <x-slot name="header"></x-slot>
-        <div class="info" style="font-size:20px;text-align:center;">
-            </br>
-            <i class="material-icons">&#xe55f; LOCATION</i>
-            <h2>TB 16313, Lot B15 Tkt 1, Perdana Jaya, Tawau 91000 Malaysia.</h2>
-            </br>
-            <i class="material-icons">&#xe855; OPENING HOURS</i>
-            <h2>8:00 AM - 6:00 PM</h2>
-            </br>
-            <i class="material-icons">&#xe0b0; CONTACT NUMBER</i>
-            <h2>04-1234567</h2>
-            </br>
-        </div>
-        @if (Route::has('login'))
-        @auth
-        <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-            <div class="row">
-                <div class="column-2" style="background-color:#aaa;">
-                    <input type="number" placeholder="Number of people" name="no_of_people" class="" style="width:100%" min=1 required>
-                </div>
-                <div class="column-2" style="background-color:#bbb;">
-                    <input type="Date" placeholder="Date" name="res_date" id="res_date" class="" style="width:100%" required>
-                </div>
+    @include('layouts.navbar')
+    <div class="info" style="font-size:20px;text-align:center;">
+        </br>
+        <i class="material-icons">&#xe55f; LOCATION</i>
+        <h2>TB 16313, Lot B15 Tkt 1, Perdana Jaya, Tawau 91000 Malaysia.</h2>
+        </br>
+        <i class="material-icons">&#xe855; OPENING HOURS</i>
+        <h2>8:00 AM - 6:00 PM</h2>
+        </br>
+        <i class="material-icons">&#xe0b0; CONTACT NUMBER</i>
+        <h2>04-1234567</h2>
+        </br>
+    </div>
+    @if (Route::has('login'))
+    @auth
+    <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <div class="row">
+            <div class="column-2" style="background-color:#aaa;">
+                <input type="number" placeholder="Number of people" name="no_of_people" class="" style="width:100%"
+                    min=1 required>
             </div>
+            <div class="column-2" style="background-color:#bbb;">
+                <input type="Date" placeholder="Date" name="res_date" id="res_date" class="" style="width:100%"
+                    required>
+            </div>
+        </div>
 
-            <div class="row">
-                <input type="submit" value="08:00am" name="time_slot" class="column" style="background-color:#aaa;" onclick="return confirm('Confirm reservation at 8:00am?');">
-                <input type="submit" value="09:00am" name="time_slot" class="column" style="background-color:#bbb;" onclick="return confirm('Confirm reservation at 9:00am?');">
-                <input type="submit" value="10:00am" name="time_slot" class="column" style="background-color:#ccc;" onclick="return confirm('Confirm reservation at 10:00am?');">
-                <input type="submit" value="11:00am" name="time_slot" class="column" style="background-color:#ddd;" onclick="return confirm('Confirm reservation at 11:00am?');">
-            </div>
-            <div class="row">
-                <input type="submit" value="12:00pm" name="time_slot" class="column" style="background-color:#aaa;" onclick="return confirm('Confirm reservation at 12:00pm?');">
-                <input type="submit" value="01:00pm" name="time_slot" class="column" style="background-color:#bbb;" onclick="return confirm('Confirm reservation at 1:00pm?');">
-                <input type="submit" value="02:00pm" name="time_slot" class="column" style="background-color:#ccc;" onclick="return confirm('Confirm reservation at 2:00pm?');">
-                <input type="submit" value="03:00pm" name="time_slot" class="column" style="background-color:#ddd;" onclick="return confirm('Confirm reservation at 3:00pm?');">
-            </div>
-            <div vlass="row">
-                <div class="column"></div>
-                <input type="submit" value="04:00pm" name="time_slot" class="column" style="background-color:#bbb;" onclick="return confirm('Confirm reservation at 4:00pm?');">
-                <input type="submit" value="05:00pm" name="time_slot" class="column" style="background-color:#ccc;" onclick="return confirm('Confirm reservation at 5:00pm?');">
-                <div class="column"></div>
-            </div>
-        </form>
-        @else
-        <div class="alert">
-            <a href="{{ route('login') }}">
-                <button class="btn">Please login to make your reservation</button>
-            </a>
+        <div class="row">
+            <input type="submit" value="08:00am" name="time_slot" class="column" style="background-color:#aaa;"
+                onclick="return confirm('Confirm reservation at 8:00am?');">
+            <input type="submit" value="09:00am" name="time_slot" class="column" style="background-color:#bbb;"
+                onclick="return confirm('Confirm reservation at 9:00am?');">
+            <input type="submit" value="10:00am" name="time_slot" class="column" style="background-color:#ccc;"
+                onclick="return confirm('Confirm reservation at 10:00am?');">
+            <input type="submit" value="11:00am" name="time_slot" class="column" style="background-color:#ddd;"
+                onclick="return confirm('Confirm reservation at 11:00am?');">
         </div>
-        @endauth
-        @endif
-        <!-- <div>
+        <div class="row">
+            <input type="submit" value="12:00pm" name="time_slot" class="column" style="background-color:#aaa;"
+                onclick="return confirm('Confirm reservation at 12:00pm?');">
+            <input type="submit" value="01:00pm" name="time_slot" class="column" style="background-color:#bbb;"
+                onclick="return confirm('Confirm reservation at 1:00pm?');">
+            <input type="submit" value="02:00pm" name="time_slot" class="column" style="background-color:#ccc;"
+                onclick="return confirm('Confirm reservation at 2:00pm?');">
+            <input type="submit" value="03:00pm" name="time_slot" class="column" style="background-color:#ddd;"
+                onclick="return confirm('Confirm reservation at 3:00pm?');">
+        </div>
+        <div vlass="row">
+            <div class="column"></div>
+            <input type="submit" value="04:00pm" name="time_slot" class="column" style="background-color:#bbb;"
+                onclick="return confirm('Confirm reservation at 4:00pm?');">
+            <input type="submit" value="05:00pm" name="time_slot" class="column" style="background-color:#ccc;"
+                onclick="return confirm('Confirm reservation at 5:00pm?');">
+            <div class="column"></div>
+        </div>
+    </form>
+    @else
+    <div class="alert">
+        <a href="{{ route('login') }}">
+            <button class="btn">Please login to make your reservation</button>
+        </a>
+    </div>
+    @endauth
+    @endif
+    <!-- <div>
             <h1>Waitlist</h1>
             <button class="accordion">
                 <i class="material-icons" style="font-size:36px">&#xe7f4;</i>Waitlist </button>
@@ -600,22 +611,22 @@
             <h1>Private Events</h1>
             <button class="accordion">Request Information</button>
             </div> -->
-    </x-app-layout>
+
 
     <script>
-        var today = new Date();
-        var dd = today.getDate() + 1;
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
+    var today = new Date();
+    var dd = today.getDate() + 1;
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
 
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-        if (mm < 10) {
-            mm = '0' + mm;
-        }
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
 
-        tmr = yyyy + '-' + mm + '-' + dd;
-        document.getElementById("res_date").setAttribute("min", tmr);
+    tmr = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("res_date").setAttribute("min", tmr);
     </script>
 </body>

@@ -11,70 +11,70 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- Styles -->
-    <style type="text/css">
-        .MenuContent {
-            margin-top: 0%;
-            /* Same width as the sidebar + left position in px */
-            font-size: 28px;
-            /* Increased text to enable scrolling */
-            padding: 0px 10px;
-            box-sizing: border-box;
-        }
+    <!-- <style type="text/css">
+    .MenuContent {
+        margin-top: 0%;
+        /* Same width as the sidebar + left position in px */
+        font-size: 28px;
+        /* Increased text to enable scrolling */
+        padding: 0px 10px;
+        box-sizing: border-box;
+    }
 
-        h2 {
-            margin: 0px;
-            margin-left: -50px;
-            font-size: 20px;
-        }
+    h2 {
+        margin: 0px;
+        margin-left: -50px;
+        font-size: 20px;
+    }
 
-        .des {
-            font-size: 15px;
-        }
+    .des {
+        font-size: 15px;
+    }
 
-        .Cal {
-            font-size: 20px;
-            margin-top: 20px;
-        }
+    .Cal {
+        font-size: 20px;
+        margin-top: 20px;
+    }
 
-        .button {
-            background-color: #76e500;
-            border: none;
-            color: white;
-            padding: 5px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            margin: 70px 2px 2px;
-            cursor: pointer;
-            border-radius: 20px;
-            float: right;
-        }
+    .button {
+        background-color: #76e500;
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 70px 2px 2px;
+        cursor: pointer;
+        border-radius: 20px;
+        float: right;
+    }
 
-        .column {
-            float: left;
-            width: 33%;
-            padding: 5px;
-        }
+    .column {
+        float: left;
+        width: 33%;
+        padding: 5px;
+    }
 
-        /* Clearfix (clear floats) */
-        .row::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
+    /* Clearfix (clear floats) */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
 
-        .MenuLine {
-            margin-top: 0px;
-            width: 1050px;
-        }
+    .MenuLine {
+        margin-top: 0px;
+        width: 1050px;
+    }
 
-        @media screen and (max-height: 450px) {}
-    </style>
+    @media screen and (max-height: 450px) {}
+    </style> -->
 </head>
 
 <body>
     @include('layouts.navbar')
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width:150px">
+    <!-- <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width:150px">
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <a href="#main" class="nav-link active" aria-current="page">
@@ -97,9 +97,10 @@
                 </a>
             </li>
         </ul>
-    </div>
-    <div class="b-example-divider"></div>
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width:800px">
+    </div> -->
+    <!-- <div class="b-example-divider"></div> -->
+    <div class="container" style="width:80%">
+        <!-- <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width:800px"> -->
         <h1 id="main" style="font-size:20px">Main Course</h1>
         @foreach ($menu as $product)
         @if ($product->category == 'Main_Course')

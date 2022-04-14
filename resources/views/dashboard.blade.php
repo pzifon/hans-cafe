@@ -3,46 +3,10 @@
 
 <head>
     <title>Account Dashboard</title>
-    <!-- <link rel="stylesheet" href="loyalty.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
-    .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-
-    .column {
-        float: left;
-        width: 120px;
-    }
-
-    .column-2 {
-        float: left;
-        width: 49%;
-        padding: 10px;
-        margin: 5px;
-        margin-top: 10px;
-        border-style: solid;
-        border-width: 5px;
-    }
-
-    .ClaimButton {
-        border-radius: 25px;
-        background-color: #1abb00;
-        width: 100px;
-    }
-
-    .ClaimedButton {
-        border-radius: 25px;
-        background-color: #eaeaea;
-        font-color: green;
-        width: 100px;
-    }
     </style>
 </head>
 

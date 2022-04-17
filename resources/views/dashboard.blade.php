@@ -12,7 +12,7 @@
 <body>
     @include('layouts.navbar')
     @include('flash-message')
-    <div class="container">
+    <div class="container" style="margin-top:10px">
         <div class="row">
             <div class="col-lg-6">
                 <div class="card">

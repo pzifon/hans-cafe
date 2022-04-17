@@ -24,7 +24,7 @@ class BookingController extends Controller
         $data = array('customer_id' => $user['id'], "contact" => $user['contact'], "date" => $date, "time_slot" => $time, 'no_of_people' => $no_of_people);
         DB::table('reservation')->insert($data);
 
-        return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Successfully booked a slot!');;
+        return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Successfully booked a slot!');;
     }
 
     public function remove(Request $request)
@@ -34,6 +34,6 @@ class BookingController extends Controller
             ->where('res_id',$id)
             ->delete();
 
-        return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Cancelled reservation!');;
+        return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Cancelled reservation!');;
     }
 }

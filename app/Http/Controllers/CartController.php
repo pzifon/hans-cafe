@@ -89,6 +89,6 @@ class CartController extends Controller
         }
 
         \Cart::clear();
-        return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Order Confirmed!');;
+        return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Order Confirmed!');;
     }
 }

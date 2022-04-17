@@ -19,10 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard','App\Http\Controllers\CustAccController@index');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
+});
+// Route::get('/dashboard','App\Http\Controllers\DashboardController@index');
 
-Route::get('/editacc', 'App\Http\Controllers\CustAccController@viewinfo');
-Route::post('edit', 'App\Http\Controllers\CustAccController@editInfo');
+Route::group(['middleware' => ['auth', 'role:customer']], function() {
+    Route::get('/editacc', 'App\Http\Controllers\DashboardController@viewCustinfo')->name('editAcc');
+    Route::post('edit', 'App\Http\Controllers\DashboardController@editCustInfo')->name('editAccFunction');
+});
+// Route::get('/editacc', 'App\Http\Controllers\DashboardController@viewCustinfo');
+// Route::post('edit', 'App\Http\Controllers\DashboardController@editCustInfo');
 
 Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
 Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');

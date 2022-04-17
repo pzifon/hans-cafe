@@ -28,7 +28,7 @@
                                 </a>
                             </div>
                             @foreach ($user as $user)
-                            <p>MEMBERSHIP ID <br>
+                            <p>ADMIN USER ID <br>
                                 <span style="font-size:20px">{{$user->id}}
                             </p>
                             <br>

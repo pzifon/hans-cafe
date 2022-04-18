@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Requests;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
-class CustAccController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
@@ -29,19 +27,26 @@ class CustAccController extends Controller
             ->where('customer_id', Auth::id())
             ->where('date', '<', date("Y-m-d"))
             ->get();
-        return view('dashboard', compact('user', 'total_purchases', 'upcoming_res', 'past_res',));
+
+        if(Auth::user()->hasRole('admin')){
+            return view('admin.dashboard', compact('user'));
+        }elseif(Auth::user()->hasRole('employee')){
+            return view('employee.dashboard', compact('user'));
+        }elseif(Auth::user()->hasRole('customer')){
+            return view('cust.dashboard', compact('user', 'total_purchases', 'upcoming_res', 'past_res',));
+        }
     }
 
-    public function viewinfo()
+    public function viewCustinfo()
     {
         $user = DB::table('users')
             ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
             ->where('id', Auth::id())
             ->get();
-        return view('editaccount', compact('user'));
+        return view('cust.editaccount', compact('user'));
     }
 
-    public function editInfo(Request $request)
+    public function editCustInfo(Request $request)
     {
         $email = $request->input('email');
         $contact = $request->input('contact');
@@ -49,6 +54,6 @@ class CustAccController extends Controller
             ->where('id', Auth::id())
             ->update(['email' => $email, "contact" => $contact, "updated_at" => date("Y-m-d h:i:s")]);
         // echo "Sucessfully updated!";
-        return redirect()->action('App\Http\Controllers\CustAccController@index')->with('success','Account info updated successfully!');;
+        return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Account info updated successfully!');;
     }
 }

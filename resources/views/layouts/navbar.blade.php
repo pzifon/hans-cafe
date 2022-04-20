@@ -19,19 +19,29 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 @if (Route::has('login'))
                 @auth
+                @if (Auth::user()->hasRole('employee'))
+                <li class="nav-item">
+                    <a class="btn btn-light" aria-current="page" href="#">Clock in</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/order') }}">Order</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/cart') }}">Cart</a>
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
+                </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a class="nav-link active" onclick="event.preventDefault();this.closest('form').submit();"
-                            :href="route('logout')" class="text-sm text-gray-700 dark:text-gray-500 underline"
+                        <a class="btn btn-outline-success"
+                            onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')"
                             style="cursor: pointer;">Log out</a>
                     </form>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('/cart') }}">Cart</a>
                 </li>
                 @else
                 <li class="nav-item">

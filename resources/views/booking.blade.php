@@ -6,68 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        /* .heading {
-        font-size: 9rem;
-        text-transform: uppercase;
-        color: transparent;
-        -webkit-text-stroke: .05rem var(--main-color);
-        letter-spacing: .2rem;
-        text-align: center;
-        pointer-events: none;
-        position: relative;
-    }
-
-    .heading span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        color: var(--main-color);
-        font-size: 3rem;
-    }
-
-    .btn {
-        border: 2px solid #fff;
-        padding: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 1s;
-        background-color: #77a8a4;
-    }
-
-    .column {
-        float: left;
-        width: 24%;
-        padding: 10px;
-        margin: 2px;
-    }
-
-    .column-2 {
-        float: left;
-        width: 48.5%;
-        padding: 10px;
-        margin: 2px;
-    }
-
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .info {
-        text-align: center;
-    } */
-
-        .alert {
-            font-size: 20px;
-            text-align: center;
-            border-style: solid;
-        }
-    </style>
 </head>
 
 <body>

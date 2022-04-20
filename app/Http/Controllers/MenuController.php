@@ -12,4 +12,10 @@ class MenuController extends Controller
         $menu = Menu::all();
         return view('menu', compact('menu'));
     }
+
+    public function orderMenu()
+    {
+        $menu = Menu::all();
+        return view('order', compact('menu'));
+    }
 } 

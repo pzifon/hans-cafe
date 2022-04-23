@@ -11,7 +11,7 @@
 
 <body>
     @include('layouts.navbar')
-    <div stlye="height:50px"></div>
+    <div stlye="height:500px"></div>
     <div class="container">
         <h1 style="font-size:20px">Main Course</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">

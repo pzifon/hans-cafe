@@ -46,12 +46,11 @@ Route::post('cancel','App\Http\Controllers\BookingController@remove');
 Route::get('/menu', [MenuController::class, 'menuList'])->name('menu.list');
 
 Route::group(['middleware' => ['auth', 'role:employee']], function() {
-    Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
     Route::get('/clockIn', 'App\Http\Controllers\ClockInController@clockIn');
     Route::get('/clockOut', 'App\Http\Controllers\ClockInController@clockOut');
 });
 
-Route::group(['middleware' => ['auth', 'role:admin']], function() {
+Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
 });
 require __DIR__.'/auth.php';

@@ -20,10 +20,19 @@
                 @if (Route::has('login'))
                 @auth
                 @if (Auth::user()->hasRole('employee'))
+                    @if (App\Http\Controllers\ClockInController::check())
+                    <li class="nav-item">
+                        <a class="btn btn-light" aria-current="page" href="{{ url('/clockOut') }}">Clock Out</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="btn btn-light" aria-current="page" href="{{ url('/clockIn')}}">Clock In</a>
+                    </li>
+                    @endif
                 <li class="nav-item">
-                    <a class="btn btn-light" aria-current="page" href="#">Clock in</a>
+                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/order') }}">Order</a>
                 </li>
-
+                @elseif (Auth::user()->hasRole('admin'))
                 <li class="nav-item">
                     <a class="btn btn-outline-success" aria-current="page" href="{{ url('/order') }}">Order</a>
                 </li>

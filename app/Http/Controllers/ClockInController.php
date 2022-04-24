@@ -30,7 +30,7 @@ class ClockInController extends Controller
 
     public function clockIn()
     {
-        $data = array("emp_id" => Auth::id(), "date" => date("Y-m-d"), "clock_in_time" => date("G:i:s"));
+        $data = array("emp_id" => Auth::id(), "date" => date("Y-m-d"), "clock_in_time" => date("H:i:s"));
         DB::table('clockIn')->insert($data);
         return redirect()->back();
     }
@@ -41,7 +41,7 @@ class ClockInController extends Controller
               ->where('emp_id', Auth::id())
               ->where('date', '=', date("Y-m-d"))
               ->where('clock_out_time', '=', null)
-              ->update(['clock_out_time' => date("h:i:s")]);
+              ->update(['clock_out_time' => date("H:i:s")]);
         return redirect()->back();
     }
 } 

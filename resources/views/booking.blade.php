@@ -65,11 +65,11 @@
         @if (Route::has('login'))
         @auth
         <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            @csrf
+            @csrf
             <div class="row g-3">
                 <div class="col">
-                    <input type="number" placeholder="Number of people" name="no_of_people" class="form-control" style="width:100%" min=1 required>
+                    <input type="number" placeholder="Number of people" name="no_of_people" class="form-control" style="width:100%" min=1 max=20 required>
                 </div>
                 <div class="col">
                     <input type="Date" placeholder="Date" name="res_date" id="res_date" class="form-control" style="width:100%" required>

@@ -10,8 +10,8 @@
 <x-app-layout>
     <x-slot name="header"></x-slot>
     <form action="/viewDetails" method="post" action="/action_page.php">
-        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        @csrf
+        @csrf
 
         <table class="tbl">
             <tr>

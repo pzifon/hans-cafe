@@ -10,9 +10,17 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/menu">Menu</a>
                 </li>
+                @auth
+                @if (Auth::user()->hasRole('customer'))
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url('/reservation') }}">Reservation</a>
+                </li>
+                @endif
+                @endauth
             </ul>
         </div>
         <div class="d-flex">

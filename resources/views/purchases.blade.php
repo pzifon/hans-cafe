@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <title>Purchases</title>
+=======
+    <title>View Purchases</title>
+>>>>>>> e89875c85b5c63151a64ad94ad40a75763065517
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -14,7 +18,12 @@
     <form action="/viewDetails" method="post" action="/action_page.php">
         @csrf
         @csrf
+<<<<<<< HEAD
         <table class="">
+=======
+
+        <table>
+>>>>>>> e89875c85b5c63151a64ad94ad40a75763065517
             <tr>
                 <td>ID</td>
                 <td>Date</td>
@@ -44,7 +53,11 @@
     <br><br>
 
     @if (isset($orders))
+<<<<<<< HEAD
     <table class="">
+=======
+    <table>
+>>>>>>> e89875c85b5c63151a64ad94ad40a75763065517
         <tr>
             <td>Order Items</td>
             <td>Name</td>

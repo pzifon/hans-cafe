@@ -92,8 +92,8 @@
                                 </tr>
 
                                 <form action="/cancel" method="post" action="/action_page.php">
-                                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                    @csrf
+                                    @csrf
                                     @foreach ($upcoming_res as $upcoming_res)
                                     <tr>
                                         <td>{{ $upcoming_res->res_id }}</td>
@@ -133,4 +133,4 @@
     </div>
 </body>
 
-</html>
+</html> 

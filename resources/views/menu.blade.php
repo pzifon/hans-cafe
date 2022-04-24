@@ -141,4 +141,7 @@
             @endforeach
         </div>
     </div>
+
+</body>
+
 </html>

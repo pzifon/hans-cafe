@@ -37,39 +37,7 @@
                             </div>
                         </div>
                         @endforeach
-                        <!-- @foreach ($menu as $product)
-                        @if ($product->category == 'Sides')
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $product->name }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
-                        @foreach ($menu as $product)
-                        @if ($product->category == 'Beverages')
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $product->name }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
-                        @foreach ($menu as $product)
-                        @if ($product->category == 'Dessert')
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $product->name }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach -->
+                        
                     </div>
                 </div>
             </div>

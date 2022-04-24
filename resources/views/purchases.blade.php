@@ -1,19 +1,21 @@
-<title>View Purchases</title>
-<style>
-    .tbl {
-        width: 50%;
-        border: 2px solid;
-        margin: auto;
-        margin-top: 50px;
-    }
-</style>
-<x-app-layout>
-    <x-slot name="header"></x-slot>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Purchases</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    @include('layouts.navbar')
     <form action="/viewDetails" method="post" action="/action_page.php">
         @csrf
         @csrf
 
-        <table class="tbl">
+        <table>
             <tr>
                 <td>ID</td>
                 <td>Date</td>
@@ -32,17 +34,18 @@
                 <td>Unpaid</td>
                 @endif
                 <td>
-                    <button type="submit" style="text-decoration:underline" value="{{$purchases->id}}" name="view_details" class="column">View Details</button>
+                    <button type="submit" style="text-decoration:underline" value="{{$purchases->id}}"
+                        name="view_details" class="column">View Details</button>
                 </td>
             </tr>
             @endforeach
-
+        </table>
     </form>
-    </table>
+
     <br><br>
 
     @if (isset($orders))
-    <table class="tbl">
+    <table>
         <tr>
             <td>Order Items</td>
             <td>Name</td>
@@ -65,4 +68,6 @@
         </tr>
     </table>
     @endif
-</x-app-layout>
+</body>
+
+</html>

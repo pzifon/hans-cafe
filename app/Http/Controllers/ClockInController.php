@@ -30,7 +30,7 @@ class ClockInController extends Controller
 
     public function clockIn()
     {
-        $data = array("emp_id" => Auth::id(), "date" => date("Y-m-d"), "clock_in_time" => date("h:i:s"));
+        $data = array("emp_id" => Auth::id(), "date" => date("Y-m-d"), "clock_in_time" => date("G:i:s"));
         DB::table('clockIn')->insert($data);
         return redirect()->back();
     }

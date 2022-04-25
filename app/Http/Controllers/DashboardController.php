@@ -20,12 +20,14 @@ class DashboardController extends Controller
         $upcoming_res = DB::table('reservation')
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
-            ->where('date', '>', date("Y-m-d"))
+            ->where('date', '>=', date("Y-m-d"))
+            ->where('time_slot', '>=', date("H:i:s"))
             ->get();
         $past_res = DB::table('reservation')
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
             ->where('date', '<', date("Y-m-d"))
+            ->where('time_slot', '<', date("H:i:s"))
             ->get();
 
         if(Auth::user()->hasRole('admin')){
@@ -49,10 +51,9 @@ class DashboardController extends Controller
     public function editCustInfo(Request $request)
     {
         $email = $request->input('email');
-        $contact = $request->input('contact');
         DB::table('users')
             ->where('id', Auth::id())
-            ->update(['email' => $email, "contact" => $contact, "updated_at" => date("Y-m-d h:i:s")]);
+            ->update(['email' => $email, "updated_at" => date("Y-m-d H:i:s")]);
         // echo "Sucessfully updated!";
         return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Account info updated successfully!');;
     }

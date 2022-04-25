@@ -28,7 +28,7 @@
                                 </a>
                             </div>
                             @foreach ($user as $user)
-                            <p>ADMIN USER ID <br>
+                            <p>MEMBERSHIP ID <br>
                                 <span style="font-size:20px">{{$user->id}}
                             </p>
                             <br>
@@ -40,12 +40,12 @@
                                 <span style="font-size:20px">{{$user->dob ?? 'N/A'}}
                             </p>
                             <br>
-                            <p>EMAIL <br>
-                                <span style="font-size:20px">{{$user->email}}
-                            </p>
-                            <br>
                             <p>CONTACT NUMBER <br>
                                 <span style="font-size:20px">{{$user->contact ?? 'N/A'}}
+                            </p>
+                            <br>
+                            <p>EMAIL <br>
+                                <span style="font-size:20px">{{$user->email}}
                             </p>
                             <br>
                             <p>DATE JOINED <br>
@@ -92,8 +92,8 @@
                                 </tr>
 
                                 <form action="/cancel" method="post" action="/action_page.php">
-                                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                    @csrf
+                                    @csrf
                                     @foreach ($upcoming_res as $upcoming_res)
                                     <tr>
                                         <td>{{ $upcoming_res->res_id }}</td>
@@ -133,4 +133,4 @@
     </div>
 </body>
 
-</html>
+</html> 

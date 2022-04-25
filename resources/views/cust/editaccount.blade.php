@@ -40,8 +40,8 @@
     <div class="row">
         <div style="font-weight:bold">Account Details</div>
         <form action="/edit" method="post" action="/action_page.php" id="edit">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            @csrf
+            @csrf
             @foreach ($user as $user)
             <p>MEMBERSHIP ID<br>
                 <span style="font-size:20px">{{$user->id}}
@@ -57,12 +57,13 @@
                 <span style="font-size:20px">{{$user->dob}}
             </p>
             <br>
-            <p>EMAIL<br>
-                <span style="font-size:20px"><input type="text" name="email" value="{{$user->email}}" required>
+            <p>CONTACT NUMBER<br>
+                <span style="font-size:20px">
+                <span style="font-size:20px">{{$user->contact}}
             </p>
             <br>
-            <p>CONTACT NUMBER<br>
-                <span style="font-size:20px"><input type="text" name="contact" value="{{$user->contact}}">
+            <p>EMAIL<br>
+                <span style="font-size:20px"><input type="text" name="email" value="{{$user->email}}" required>
             </p>
             <br>
             <p>DATE JOINED<br>

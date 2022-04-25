@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
 <body>
     @include('layouts.navbar')
-    <div stlye="height:500px"></div>
+    <div style="height:50px"></div>
     <div class="container">
         <h1 style="font-size:20px">Main Course</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -141,4 +141,8 @@
             @endforeach
         </div>
     </div>
+    <br>
+    @include('layouts.footer')
+</body>
+
 </html>

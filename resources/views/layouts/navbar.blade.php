@@ -10,16 +10,23 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/menu">Menu</a>
                 </li>
+                @if (Route::has('login'))
                 @auth
-                @if (Auth::user()->hasRole('customer'))
+                    @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url('/reservation') }}">Reservation</a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
+                    </li>
+                    @endif
+                @else
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
                 </li>
-                @else
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('/reservation') }}">Reservation</a>
-                </li>
                 @endif
+                @else
                 @endauth
             </ul>
         </div>

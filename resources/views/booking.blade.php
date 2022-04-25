@@ -143,4 +143,5 @@
         tmr = yyyy + '-' + mm + '-' + dd;
         document.getElementById("res_date").setAttribute("min", tmr);
     </script>
+    @include('layouts.footer')
 </body>

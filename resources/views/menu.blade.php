@@ -141,7 +141,8 @@
             @endforeach
         </div>
     </div>
-
+    <br>
+    @include('layouts.footer')
 </body>
 
 </html>

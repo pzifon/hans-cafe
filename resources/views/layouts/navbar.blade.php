@@ -12,15 +12,15 @@
                 </li>
                 @if (Route::has('login'))
                 @auth
-                    @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('/reservation') }}">Reservation</a>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
-                    </li>
-                    @endif
+                @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url('/reservation') }}">Reservation</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
+                </li>
+                @endif
                 @else
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
@@ -35,15 +35,15 @@
                 @if (Route::has('login'))
                 @auth
                 @if (Auth::user()->hasRole('employee'))
-                    @if (App\Http\Controllers\ClockInController::check())
-                    <li class="nav-item">
-                        <a class="btn btn-light me-md-2" aria-current="page" href="{{ url('/clockOut') }}">Clock Out</a>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="btn btn-light me-md-2" aria-current="page" href="{{ url('/clockIn')}}">Clock In</a>
-                    </li>
-                    @endif
+                @if (App\Http\Controllers\ClockInController::check())
+                <li class="nav-item">
+                    <a class="btn btn-light me-md-2" aria-current="page" href="{{ url('/clockOut') }}">Clock Out</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="btn btn-light me-md-2" aria-current="page" href="{{ url('/clockIn')}}">Clock In</a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a class="btn btn-outline-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
                 </li>
@@ -57,12 +57,14 @@
                 </li>
                 @endif
                 <li class="nav-item">
-  <a class="btn btn-outline-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
-  <a class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" me-md-2" aria-current="page"><span class="visually-hidden">Toggle Dropdown</span></a>
-  <ul class="dropdown-menu">
-    <!-- Dropdown menu links -->
-  </ul>
-</li>
+                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
+                    <a class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                        aria-expanded="false" me-md-2" aria-current="page"><span class="visually-hidden">Toggle
+                            Dropdown</span></a>
+                    <ul class="dropdown-menu">
+                        <!-- Dropdown menu links -->
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

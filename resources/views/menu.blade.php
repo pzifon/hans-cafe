@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="position:relative;min-height:89vh">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="margin-bottom:60px">
     @include('layouts.navbar')
     <div style="height:50px"></div>
     <div class="container">
@@ -170,7 +170,7 @@
         </div>
     </div>
     <br>
-    @include('layouts.footer')
+    <div class="footer w-100 position-absolute mt-5" style="bottom:0;height:110px">@include('layouts.footer')</div>
 </body>
 
 </html>

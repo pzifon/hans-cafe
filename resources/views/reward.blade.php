@@ -2,7 +2,7 @@
 <html style="position:relative;min-height:89vh">
 
 <head>
-    <title>Account Dashboard</title>
+    <title>Reward</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -15,11 +15,10 @@
     @include('layouts.navbar')
     <div class="container" style="margin-top:20px; margin-bottom: 20px">
         <div class="row">
-        <h2>Rewards</h2>
+            <h2>Rewards</h2>
         </div>
-
-        <div class="row">
-            <div class="col">
+        <div class="row mb-1">
+            <div class="col-6">
                 @foreach ($user as $user)
                 <table class="table table-bordered">
                     <thead>
@@ -60,6 +59,20 @@
                     </tbody>
                 </table>
                 @endforeach
+            </div>
+            
+            <div class="col-6">
+                <div class="container" style="border:1px solid black">
+                    <div class="d-flex justify-content-center">
+                        <a href="/" style="margin-left: auto; margin-right: auto;">
+                            <img src="{{ asset('storage/img/logo.png') }}" class="mx-auto" alt=""
+                                style="max-width: 200px; max-height:200px; margin: auto;">
+                        </a>
+                        
+                    </div>
+<br>
+                    <h2 class="text-center">FREE COFFEE OR TEA</h2>
+                </div>
             </div>
         </div>
     </div>

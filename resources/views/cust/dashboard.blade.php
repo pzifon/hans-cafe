@@ -16,8 +16,9 @@
     @include('flash-message')
     <div class="container" style="margin-top:20px; margin-bottom: 20px">
         <div class="row">
+        <h2>Account Dashboard</h2>
             <a class=" btn btn-outline-dark col" style="margin:20px;padding:0px" href="/purchases">
-                <div class="row" style="margin:0px;height: 150px;">
+                <div class="row" style="margin:0px">
                     <div class="col-4 py-4" style="Background:#FF6767;">
                         <i class="bi bi-wallet2" style="font-size:60px"></i>
                     </div>
@@ -32,8 +33,8 @@
                 </div>
             </a>
 
-            <a class="btn btn-outline-dark col" style="margin:20px;padding:0px" href="#">
-                <div class="row" style="margin:0px;height: 150px;">
+            <a class="btn btn-outline-dark col" style="margin:20px;padding:0px" href="/reward">
+                <div class="row" style="margin:0px;">
                     <div class="col-4 py-4" style="Background:#FF6767;">
                         <i class="bi bi-award" style="font-size:60px"></i>
                     </div>
@@ -97,7 +98,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div style="text-align: center">
-                            RESERVATIONS
+                            <b>RESERVATIONS</b>
                         </div>
                         <div>
                             <b>UPCOMING</b>

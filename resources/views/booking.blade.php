@@ -2,203 +2,158 @@
 <html>
 
 <head>
-    <title>Account Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    </style>
 </head>
 
 <body>
     @include('layouts.navbar')
-    @include('flash-message')
-    <p class="fw-light fs-1" style="font-style:italic;margin: 30px 0 30px 70px;text-align:left">Account Dashboard</p>
-
-    <div class="container" style="margin-top:10px">
+    <div class="container">
+        <div style="height:50px"></div>
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-boy">
-                        <div class="row m-1">
-                            <button type="button" class="btn btn-secondary btn-lg" style="height:150px;">
-                                <i class="bi bi-currency-exchange float-start"
-                                    style="font-size: 80px;margin-left: 25px;margin-bottom: 20px;"> &nbsp|</i>
-                                <div class="row">
-                                    <p class="fs-1">12</p>
-                                    <div class="row">
-                                        <p>Total Purchases</p>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
+            <div class="col">
+                <div class="mapouter">
+                    <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=Tawau%2091000%20Malaysia&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                            href="https://putlocker-is.org">putlocker</a><br>
+                        <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 500px;
+                            width: 600px;
+                        }
+                        </style><a href="https://www.embedgooglemap.net"></a>
+                        <style>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 500px;
+                            width: 600px;
+                        }
+                        </style>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-6">
-                <div class="card">
-
-                    <div class="row m-1">
-                        <button type="button" class="btn btn-secondary btn-lg" style="height:150px">
-                            <i class="bi bi-gift float-start"
-                                style="font-size: 80px;margin-left: 25px;margin-bottom: 20px;">&nbsp|</i>
-                            <div class="row">
-                                <p class="fs-1"> 2</p>
-                                <div class="row">
-                                    <p>Rewards</p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-
+            <div class="col" style="margin: auto;">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
+                    LOCATION
+                    <h2>TB 16313, Lot B15 Tkt 1,</br>Perdana Jaya, Tawau 91000 Malaysia.</h2>
                 </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="container" style="margin-top:10px;">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-boy">
-                        <div class="row">
-                            <table>
-
-                                @foreach ($user as $user)
-                                <tr>
-                                    <td>
-                                        <p>MEMBERSHIP ID <br>
-                                    </td>
-                                    <td><span style="font-size:20px">{{$user->id}} </td>
-                                    </p>
-                                </tr>
-                                <br>
-                                <tr>
-                                    <td>
-                                        <p>NAME <br>
-                                    </td>
-                                    <td><span style="font-size:20px">{{$user->name}} </td>
-                                    </p>
-                                </tr>
-
-                                <br>
-                                <tr>
-                                    <td>
-                                        <p>DATE OF BIRTH <br>
-                                    </td>
-                                    <td> <span style="font-size:20px">{{$user->dob ?? 'N/A'}} </td>
-                                    </p>
-                                </tr>
-                                <br>
-                                <tr>
-                                    <td>
-                                        <p>CONTACT NUMBER <br>
-                                    </td>
-                                    <td><span style="font-size:20px">{{$user->contact ?? 'N/A'}} </td>
-                                    </p>
-                                </tr>
-                                <br>
-                                <tr>
-                                    <td>
-                                        <p>EMAIL <br>
-                                    </td>
-                                    <td><span style="font-size:20px">{{$user->email}} </td>
-                                    </p>
-                                </tr>
-                                <br>
-                                <tr>
-                                    <td>
-                                        <p>DATE JOINED <br>
-                                    </td>
-                                    <td> <span style="font-size:20px">{{$user->created_at}} </td>
-                                    </p>
-                                </tr>
-                                @endforeach
-                            </table>
-                        </div>
-                    </div>
+                </br>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                        <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                    </svg>
+                    OPENING HOURS
+                    <h2>8:00 AM - 6:00 PM</h2>
+                </div>
+                </br>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                    CONTACT NUMBER
+                    <h2>04-1234567</h2>
                 </div>
             </div>
         </div>
-    </div>
 
-    <style>
-    table,
-    th,
-    td {
-        border: 1px solid;
-    }
-    </style>
+        <div style="height: 50px"></div>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-boy">
-                    <div class="row">
-                        <div class="row">
-                            RESERVATIONS
-                        </div>
-                        <table>
-                            <th colspan="5">UPCOMING</th>
-                            <tr>
-                                <th style="width:8%">ID</th>
-                                <th style="width:30%">Date</th>
-                                <th style="width:22%">Time</th>
-                                <th style="width:40%">No of people</th>
-                            </tr>
-
-                            <form action="/cancel" method="post" action="/action_page.php">
-                                @csrf
-                                @csrf
-                                @foreach ($upcoming_res as $upcoming_res)
-                                <tr>
-                                    <td>{{ $upcoming_res->res_id }}</td>
-                                    <td>{{ $upcoming_res->date }}</td>
-                                    <td>{{ date('h:ia', strtotime($upcoming_res->time_slot)) }}</td>
-                                    <td style="text-align:right;">{{ $upcoming_res->no_of_people }}</td>
-                                    <td>
-                                        <button type="submit" value="{{$upcoming_res->res_id}}" name="res_id"
-                                            class="column">Cancel</button>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </form>
-                        </table>
-                        <table>
-                            <th colspan="5">PAST</th>
-                            <tr>
-                                <th style="width:8%">ID</th>
-                                <th style="width:30%">Date</th>
-                                <th style="width:22%">Time</th>
-                                <th style="width:40%">No of people</th>
-                            </tr>
-                            @foreach ($past_res as $past_res)
-                            <tr>
-                                <td>{{ $past_res->res_id }}</td>
-                                <td>{{ $past_res->date }}</td>
-                                <td>{{ date('h:ia', strtotime($past_res->time_slot)) }}</td>
-                                <td style="text-align:right;">{{ $past_res->no_of_people }}</td>
-                                <td></td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    </div>
+        @if (Route::has('login'))
+        @auth
+        <form action="/create" method="post" style="width:80%;margin:auto" action="/action_page.php">
+            @csrf
+            @csrf
+            <div class="row g-3">
+                <div class="col">
+                    <input type="number" placeholder="Number of people" name="no_of_people" class="form-control"
+                        style="width:100%" min=1 max=20 required>
+                </div>
+                <div class="col">
+                    <input type="Date" placeholder="Date" name="res_date" id="res_date" class="form-control"
+                        style="width:100%" required>
                 </div>
             </div>
+            </br>
+            <div class="row g-3">
+                <div class="col">
+                    <input type="submit" value="08:00am" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 8:00am?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="09:00am" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 9:00am?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="10:00am" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 10:00am?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="11:00am" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 11:00am?');">
+                </div>
+            </div>
+            </br>
+            <div class="row g-3">
+                <div class="col">
+                    <input type="submit" value="12:00pm" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 12:00pm?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="01:00pm" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 01:00pm?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="02:00pm" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 02:00pm?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="03:00pm" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 03:00pm?');">
+                </div>
+            </div>
+            </br>
+            <div class="row g-3">
+                <div class="col"></div>
+                <div class="col">
+                    <input type="submit" value="04:00pm" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 04:00pm?');">
+                </div>
+                <div class="col">
+                    <input type="submit" value="05:00pm" name="time_slot" class="btn btn-secondary" style="width:100%"
+                        onclick="return confirm('Confirm reservation at 05:00pm?');">
+                </div>
+                <div class="col"></div>
+            </div>
+        </form>
+        @else
+        <div class="alert">
+            <a href="{{ route('login') }}">
+                <button class="btn">Please login to make your reservation</button>
+            </a>
         </div>
+        @endauth
+        @endif
     </div>
-    </div>
-    </div>
-</body>
 
     <div style="height: 50px"></div>
 

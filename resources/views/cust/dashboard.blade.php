@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="position:relative;min-height:89vh">
+<html>
 
 <head>
     <title>Account Dashboard</title>
@@ -11,18 +11,18 @@
     </style>
 </head>
 
-<body style="margin-bottom:60px">
+<body>
     @include('layouts.navbar')
     @include('flash-message')
     <div class="container" style="margin-top:20px; margin-bottom: 20px">
-        <div class="row">
+        <div class="row"">
             <button class=" btn btn-success col" style="margin:10px" href="/purchases">
-                <div class="row">
-                    <div class="col"><i class="bi bi-wallet2"></i></div>
-                    <div class="col">{{ $total_purchases}}</br>Total Purchase</div>
-                </div>
+            <div class="row">
+                <div class="col"><i class="bi bi-wallet2"></i></div>
+                <div class="col">{{ $total_purchases}}</br>Total Purchase</div>
+            </div>
             </button>
-            <button class="btn btn-success col" style="margin:10px" href="/reward">
+            <button class="btn btn-success col" style="margin:10px" href="#">
                 <div class="row">
                     <div class="col"><i class="bi bi-award"></i></div>
                     <div class="col">2</br>Rewards</div>
@@ -144,8 +144,9 @@
             </div>
         </div>
     </div>
-    <br>
-    
+    <div class="mt-auto">
+    @include('layouts.footer')
+    </div>
 </body>
 
 </html>

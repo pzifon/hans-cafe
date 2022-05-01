@@ -5,24 +5,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-
-
-
-
-<footer class="footer text-center text-dark mt-5" style="background-color: #cdefea;">
-  <!-- Grid container -->
-  <div class="container p-3 pb-0">
-    <!-- Section: Social media -->
-    <section class="mb-2">
-      <!-- Facebook -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #3b5998;"
-        href="#!"
-        role="button"
-        ><i class="bi bi-facebook"></i
-      ></a>
+<footer class="text-center text-dark" style="background-color: #cdefea;width:100%;position:relative;bottom:0;">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i
+                    class="bi bi-facebook"></i></a>
 
             <!-- Instagram -->
             <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
@@ -47,14 +37,13 @@
     </div>
     <!-- Grid container -->
 
-  <!-- Copyright -->
- 
-    <p style="bottom;margin-bottom: 0px;">Copyright © 2022 Hans Cafe. All Right Reserved.  Photos are for reference only
+    <!-- Copyright -->
+
+    <p>
+        Copyright © 2022 Hans Cafe. All Right Reserved. Photos are for reference only
+        <br>
+        Privacy Policy Terms & Conditions Cookies Policy
+    </p>
     <br>
-    Privacy Policy   Terms & Conditions   Cookies Policy</p><br>
-
-  <!-- Copyright -->
+    <!-- Copyright -->
 </footer>
-
-
-</body>

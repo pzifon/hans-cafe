@@ -53,30 +53,22 @@
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/cart') }}">Cart</a>
+                    <a class="btn btn-outline-success me-md-2" aria-current="page" href="{{ url('/cart') }}">Cart</a>
                 </li>
                 @endif
                 <li class="nav-item">
-                    <div class="btn-group btn-outline-success dropdown me-md-2">
-                        <a type="button" class="btn btn-success" aria-current="page" 
-                            href="{{ url('/dashboard') }}">Account</a>
-                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
-                            data-bs-toggle="dropdown" aria-expanded="false" aria-current="page"><span
-                                class="visually-hidden">Toggle Dropdown</span></button>
-                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-sm">
-                            <li>
-                                <a class="dropdown-item text-center" href="{{ url('/purchases') }}">Purchase History</a>
-                            </li>
-                            <a class="dropdown-item text-center" href="{{ url('#') }}">Rewards</a>
-                            <li>
-                            </li>
-                        </ul>
-                    </div>
+                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
+                    <a class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                        aria-expanded="false" me-md-2" aria-current="page"><span class="visually-hidden">Toggle
+                            Dropdown</span></a>
+                    <ul class="dropdown-menu">
+                        <!-- Dropdown menu links -->
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a class="btn btn-success"
+                        <a class="btn btn-outline-success"
                             onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')"
                             style="cursor: pointer;">Log out</a>
                     </form>

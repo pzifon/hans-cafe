@@ -12,12 +12,10 @@
 
 <body>
     <div class="container" style="max-width: 450px;">
-    <div class="d-flex justify-content-center">
         <a href="/" style="margin-left: auto; margin-right: auto;">
             <img src="{{ asset('storage/img/logo.png') }}" class="mx-auto" alt=""
                 style="max-width: 200px; max-height:200px; margin: auto;">
         </a>
-</div>
         <div class="card" style="padding-left: 20px; padding-right: 20px;">
             <div class="card-body">
                 <!-- Session Status -->

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="position:relative;min-height:89vh">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -7,14 +7,15 @@
     <title>View Purchases</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body style="margin-bottom:60px">
+<body>
     @include('layouts.navbar')
-    <div class="footer w-100 position-absolute" style="bottom:0;height:110px">@include('layouts.footer')</div>
 
-    <div class="row" style="text-align:center;display:block;width: auto;height:400px;margin:50px;border: 1px solid black;border-radius:30px">
+    <div class="row"
+        style="text-align:center;display:block;width: auto;height:400px;margin:50px;border: 1px solid black;border-radius:30px">
 
         <p class="fw-light fs-1" style="font-style:italic;margin: 25px 0 10px 20px;text-align:left">Purchase History</p>
 
@@ -23,8 +24,6 @@
             <form style="margin:20px;" action="/viewDetails" method="post" action="/action_page.php">
                 @csrf
                 @csrf
-
-
                 <table class="m-auto table table-responsive ">
                     <tr style="border:0px solid black;">
                         <td style="border-bottom:1px solid black;border-right:1px solid black;width: 100px">ID</td>
@@ -47,8 +46,9 @@
                         <td style="border-bottom:1px solid black;border-right:1px solid black">Unpaid</td>
                         @endif
                         <td>
-                            <div type="submit" value="{{$purchases->id}}" name="view_details" class="btn btn-primary"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Details</div>
+                            <button type="submit" style="text-decoration:underline" value="{{$purchases->id}}"
+                                name="view_details" class="column" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">View Details</button>
                         </td>
                     </tr>
                     @endforeach
@@ -56,9 +56,8 @@
             </form>
         </div>
 
-
+    
         <!-- Modal -->
-
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -67,12 +66,10 @@
                         <h5 class="modal-title" id="staticBackdropLabel">Order Detail</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
-
                     <div class="modal-body">
+                        @if (isset($orders))
                         <div class="row" style="text-align:center;display:block;width: auto;margin:10px;">
-                         @if (isset($orders))   
-                        <table>
+                            <table>
                                 <tr style="border:0px solid black">
                                     <td style="border-bottom:1px solid black;border-right:1px solid black;width: 100px">
                                         Order Items</td>
@@ -104,8 +101,8 @@
                                 </tr>
                             </table>
                         </div>
+                        @endif
                     </div>
-                    @endif  
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Understood</button>
@@ -114,15 +111,7 @@
             </div>
         </div>
     </div>
-  
-
-
-
+    @include('layouts.footer')
 </body>
-<script type="text/javascript">
-var staticBackdrop = new bootstrap.Modal(document.getElementById('staticBackdrop'), {})
-staticBackdrop.ontoggle($orders)
-</script>
-
 
 </html>

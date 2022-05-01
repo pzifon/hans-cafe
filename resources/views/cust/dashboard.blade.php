@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="position:relative;min-height:89vh">
+<html>
 
 <head>
     <title>Account Dashboard</title>
@@ -11,44 +11,23 @@
     </style>
 </head>
 
-<body style="margin-bottom:60px">
+<body>
     @include('layouts.navbar')
     @include('flash-message')
     <div class="container" style="margin-top:20px; margin-bottom: 20px">
-        <div class="row">
-        <h2>Account Dashboard</h2>
-            <a class=" btn btn-outline-dark col" style="margin:20px;padding:0px" href="/purchases">
-                <div class="row" style="margin:0px">
-                    <div class="col-4 py-4" style="Background:#FF6767;">
-                        <i class="bi bi-wallet2" style="font-size:60px"></i>
-                    </div>
-                    <div class="col-8">
-                        <div class="row">
-                            <p class="fs-1" style="margin-top:10px">{{ $total_purchases}}</p>
-                        </div>
-                        <div class="row">
-                            <p class="fs-3" style="margin-top:10px">Total Purchases</p>
-                        </div>
-                    </div>
+        <div class="row"">
+            <button class=" btn btn-success col" style="margin:10px" href="/purchases">
+            <div class="row">
+                <div class="col"><i class="bi bi-wallet2"></i></div>
+                <div class="col">{{ $total_purchases}}</br>Total Purchase</div>
+            </div>
+            </button>
+            <button class="btn btn-success col" style="margin:10px" href="#">
+                <div class="row">
+                    <div class="col"><i class="bi bi-award"></i></div>
+                    <div class="col">2</br>Rewards</div>
                 </div>
-            </a>
-
-            <a class="btn btn-outline-dark col" style="margin:20px;padding:0px" href="/reward">
-                <div class="row" style="margin:0px;">
-                    <div class="col-4 py-4" style="Background:#FF6767;">
-                        <i class="bi bi-award" style="font-size:60px"></i>
-                    </div>
-                    <div class="col-8">
-                        <div class="row">
-                            <p class="fs-1" style="margin-top:10px">2</p>
-                        </div>
-                        <div class="row">
-                            <p class="fs-3" style="margin-top:10px">Rewards</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
+            </button>
         </div>
 
         <div class="row">
@@ -98,7 +77,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div style="text-align: center">
-                            <b>RESERVATIONS</b>
+                            RESERVATIONS
                         </div>
                         <div>
                             <b>UPCOMING</b>
@@ -165,8 +144,9 @@
             </div>
         </div>
     </div>
-    <br>
-    <div class="footer w-100 position-absolute mt-5" style="bottom:0;height:110px">@include('layouts.footer')</div>
+    <div class="mt-auto">
+    @include('layouts.footer')
+    </div>
 </body>
 
 </html>

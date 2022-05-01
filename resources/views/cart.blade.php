@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="position:relative;min-height:89vh">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 
-<body>
+<body style="margin-bottom:60px">
     <!-- <ul>
         <li><a href="/">Hans Cafe</a></li>
         <li><a href="/menu">Menu</a></li>
@@ -137,6 +137,7 @@
             </div>
         </div>
     </div>
+    <div class="footer w-100 position-absolute" style="bottom:0;height:110px">@include('layouts.footer')</div>
 </body>
 
 </html>

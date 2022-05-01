@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="position:relative;min-height:89vh">
 
 <head>
     <meta charset="utf-8">
@@ -10,72 +10,37 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body class="antialiased">
-    @include('layouts.navbar')
-    <div class="container">
-        <div class="slideshow" style="text-align:center;display:block;width: auto;border: 1px solid white">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://source.unsplash.com/random/100x80?sig=1" class="d-block w-100"
-                            style="height:92vh">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/random/100x80?sig=2" class="d-block w-100"
-                            style="height:92vh">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/random/100x80?sig=3" class="d-block w-100"
-                            style="height:92vh">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        <div class="row-sm" style="text-align:center;display:block;width: auto;height:92vh;border: 1px solid white">
-            <p class="fw-light fs-1" style="font-style:italic;margin: 50px 0 0 0">- On The Menu - </p>
-            <div class="container-md" style="margin-top:50px">
-                <div class="row">
-                    <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=1" width="1000">
-                        <p class="fw-normal fs-4 p-3">Egg Benedict</p>
-                    </div>
-                    <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=2" width="1000">
-                        <p class="fw-normal fs-4 p-3">Spaghetti Cabonara</p>
-                    </div>
-                    <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=3" width="1000">
-                        <p class="fw-normal fs-4 p-3">Nasi Lemak Bungkus</p>
-                    </div>
-                    <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=4" width="1000">
-                        <p class="fw-normal fs-4 p-3">Healthy Vegan Salad</p>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-secondary"
-                style="border-radius:50px;margin-top: 90px;padding:10px 50px" width="1000">
-                <p class="align-middle fs-4" style="margin-bottom: 0px;">See More</p>
-            </button>
-        </div>
+<body class="antialiased" style="margin-bottom:60px">
+  @include('layouts.navbar')
+  <div class="slideshow" style="text-align:center;display:block;width: auto;border: 1px solid white">
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+       <div class="carousel-item active">
+        <img src="https://source.unsplash.com/random/100x80?sig=1" class="d-block w-100" style="height:92vh">
+       </div>
+      <div class="carousel-item">
+       <img src="https://source.unsplash.com/random/100x80?sig=2" class="d-block w-100" style="height:92vh">
+      </div>
+      <div class="carousel-item">
+       <img src="https://source.unsplash.com/random/100x80?sig=3" class="d-block w-100" style="height:92vh">
+     </div>
+    </div>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+   </button>
+   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+   </button>
+  </div>
+</div>
 
         <div class="row-sm" style="text-align:center;display:block;width: auto;height:92vh;border: 1px solid white">
             <div class="row"
@@ -149,7 +114,8 @@
             </p>
         </div>
     </div>
-    @include('layouts.footer')
+</div>
+<div class="footer w-100 position-absolute" style="bottom:0;height:110px">@include('layouts.footer')</div>
 </body>
 
 </html>

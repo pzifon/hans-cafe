@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth', 'role:customer']], function() {
 Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
 Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
 
+Route::get('/reward','App\Http\Controllers\RewardController@index')->name('reward');
+
 Route::get('/menu', [MenuController::class, 'menuList'])->name('menu.list');
 
 Route::get('/booking', function () {

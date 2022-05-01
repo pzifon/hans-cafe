@@ -54,7 +54,7 @@
             <br>
             <p>DATE OF BIRTH<br>
                 <span style="font-size:20px">
-                <span style="font-size:20px">{{$user->dob}}
+                <input type="date" name="dob" value="{{$user->dob}}" required>
             </p>
             <br>
             <p>CONTACT NUMBER<br>
@@ -74,3 +74,20 @@
         <button type="submit" form="edit" id="update" value="Update">Update</button>
     </div>
 </x-app-layout>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+    dd = '0' + dd;
+}
+if (mm < 10) {
+    mm = '0' + mm;
+}
+
+date = yyyy + '-' + mm + '-' + dd;
+document.getElementById("dob").setAttribute("max", date);
+</script>

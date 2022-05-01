@@ -40,9 +40,11 @@
     <!-- Copyright -->
 
     <p>
-        Copyright © 2022 Hans Cafe. All Right Reserved. Photos are for reference only
+        Copyright © 2022 Hans Cafe. All Right Reserved. | Photos are for reference only
         <br>
-        Privacy Policy Terms & Conditions Cookies Policy
+        <a href="#!">Privacy Policy</a>
+        <a href="#!">Terms & Conditions</a>
+        <a href="#!">Cookies Policy</a>
     </p>
     <br>
     <!-- Copyright -->

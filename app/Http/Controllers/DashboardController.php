@@ -49,11 +49,12 @@ class DashboardController extends Controller
     }
 
     public function editCustInfo(Request $request)
-    {
+    {   
+        $dob = $request->input("dob");
         $email = $request->input('email');
         DB::table('users')
             ->where('id', Auth::id())
-            ->update(['email' => $email, "updated_at" => date("Y-m-d H:i:s")]);
+            ->update(['dob' => $dob,'email' => $email, "updated_at" => date("Y-m-d H:i:s")]);
         // echo "Sucessfully updated!";
         return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Account info updated successfully!');;
     }

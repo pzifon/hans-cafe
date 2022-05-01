@@ -71,10 +71,12 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary"
-                style="border-radius:50px;margin-top: 90px;padding:10px 50px" width="1000">
-                <p class="align-middle fs-4" style="margin-bottom: 0px;">See More</p>
-            </button>
+            <a href="/menu">
+                <button type="button" class="btn btn-secondary"
+                    style="border-radius:50px;margin-top:30px;padding:10px 50px" width="1000">
+                    <p class="align-middle fs-4" style="margin-bottom: 0px;">See More</p>
+                </button>
+            </a>
         </div>
 
         <div class="row-sm" style="text-align:center;display:block;width: auto;height:92vh;border: 1px solid white">
@@ -120,7 +122,7 @@
             </div>
         </div>
 
-        <div class="row-sm" style="text-align:center;display:block;width: auto;height:92vh;border: 1px solid white">
+        <div class="row-sm" style="text-align:center;display:block;width: auto;height:85vh;border: 1px solid white">
             <p class="fw-light fs-1" style="font-style:italic;margin: 40px 0 0 0">- Our Story -</p>
             <p style="text-align:justify; margin: auto;padding:0;display:block;width:80%"><br>
                 &emsp;&emsp;Han's café, one of the pillars of sustainable food services, is proud to have achieved local

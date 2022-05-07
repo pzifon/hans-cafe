@@ -29,12 +29,6 @@
                         <input type="text" class="form-control" id="name" name="name" :value="old('name')" required />
                     </div>
 
-                    <!-- Date of birth -->
-                    <label for="dob" class="form-label">Date of birth</label>
-                    <div class="input-group mb-3">
-                        <input type="date" class="form-control" id="dob" name="dob" :value="old('dob')" />
-                    </div>
-
                     <!-- Contact number -->
                     <label for="contact" class="form-label">Contact</label>
                     <div class="input-group mb-3">
@@ -82,20 +76,3 @@
 </body>
 
 </html>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1; //January is 0!
-var yyyy = today.getFullYear();
-
-if (dd < 10) {
-    dd = '0' + dd;
-}
-if (mm < 10) {
-    mm = '0' + mm;
-}
-
-date = yyyy + '-' + mm + '-' + dd;
-document.getElementById("dob").setAttribute("max", date);
-</script>

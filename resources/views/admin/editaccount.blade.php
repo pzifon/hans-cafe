@@ -54,7 +54,7 @@
             <br>
             <p>DATE OF BIRTH<br>
                 <span style="font-size:20px">
-                <span style="font-size:20px">{{$user->dob}}
+                <input type="date" name="dob" value="{{$user->dob}}" required>
             </p>
             <br>
             <p>CONTACT NUMBER<br>

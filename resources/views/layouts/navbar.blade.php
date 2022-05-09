@@ -45,41 +45,49 @@
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a class="btn btn-outline-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
+                    <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
                 </li>
                 @elseif (Auth::user()->hasRole('admin'))
                 <li class="nav-item">
-                    <a class="btn btn-outline-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
+                    <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="btn btn-outline-success me-md-2" aria-current="page" href="{{ url('/cart') }}">Cart</a>
+                    <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/cart') }}">Cart</a>
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a class="btn btn-outline-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
-                    <a class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-                        aria-expanded="false" me-md-2" aria-current="page"><span class="visually-hidden">Toggle
-                            Dropdown</span></a>
-                    <ul class="dropdown-menu">
-                        <!-- Dropdown menu links -->
-                    </ul>
+                    <div class="btn-group btn-outline-success dropdown me-md-2">
+                        <button type="button" class="btn btn-success" aria-current="page" 
+                            href="{{ url('/dashboard') }}">Account</button>
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false" aria-current="page"><span
+                                class="visually-hidden">Toggle Dropdown</span></button>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-sm">
+                            <li>
+                                <a class="dropdown-item text-center" href="{{ url('/purchases') }}">Purchase History</a>
+                            </li>
+                            <a class="dropdown-item text-center" href="{{ url('/reward') }}">Rewards</a>
+                            <li>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a class="btn btn-outline-success"
+                        <a class="btn btn-success"
                             onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')"
                             style="cursor: pointer;">Log out</a>
                     </form>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="btn btn-outline-light me-md-2" aria-current="page" href="{{ route('login') }}">Log In</a>
+                    <a class="btn btn-success me-md-2" aria-current="page" href="{{ route('login') }}">Log In</a>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="btn btn-outline-light" aria-current="page" href="{{ route('register') }}">Register</a>
+                    <a class="btn btn-success" aria-current="page" href="{{ route('register') }}">Register</a>
                 </li>
                 @endif
                 @endauth

@@ -113,7 +113,7 @@
                             <p class="fs-1" style="margin-top:10px"></p>
                         </div>
                         <div class="row">
-                            <p class="fs-3" style="margin-top:10px">Total Purchases</p>
+                            <p class="fs-3" style="margin-top:10px">View Customer Info</p>
                         </div>
                     </div>
                 </div>

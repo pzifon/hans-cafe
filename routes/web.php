@@ -58,4 +58,13 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
     Route::get('/reservation', 'App\Http\Controllers\BookingController@viewReservation');
 });
+
+Route::get('/customerinfo', function () {
+    return view('customerinfo');
+});
+
+Route::get('/orderlist', function () {
+    return view('orderlist');
+});
+
 require __DIR__.'/auth.php';

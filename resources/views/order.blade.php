@@ -22,9 +22,8 @@
                     type="button" role="tab" aria-controls="dine-in" aria-selected="true">Dine in</button>
                 <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away"
                     type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>   
-            </div>
-            <a class="nav-link text-end" id="order-list-tab" data-bs-toggle="tab" data-bs-target="#order-list"
-                    type="button" role="tab" aria-controls="order-list" aria-selected="false" href="{{ url('/orderlist') }}">Order List</a> 
+            </div class="col-md-6 float-md-end">
+            <a class="text-end btn btn-success" aria-current="page" href="/orderlist">Order List</a> 
         </nav>
 
         <div class="row mt-3">

@@ -23,7 +23,7 @@
                 <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away"
                     type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>   
             </div>
-            <a class="text-end btn btn-outline-dark" href="{{ url('/orderlist') }}">Order List</a> 
+            <a class="text-end btn btn-outline-dark" href="/orderlist">Order List</a> 
         </nav>
 
 

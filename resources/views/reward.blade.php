@@ -88,55 +88,37 @@
                     <div style="text-align:center">
                         <div class="row justify-content-center">
                             <div class="row justify-content-center">
-                                <img src="{{ asset('storage/img/stamp.png') }}"
-                                    class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </img><br>
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </div><br>
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
+                                @for ($i = 1; $i < 10; $i++) 
+                                @if ($i%3 == 1) 
                                 </div>
-                            </div>
-                            <div class="row justify-content-center">
-
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </div><br>
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </div><br>
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
+                                <div class="row justify-content-center">
+                                @else
+                                    <br>
+                                @endif
+                                        @if ($i <= $records) 
+                                            <img src="{{ asset('storage/img/stamp.png') }}"
+                                            class="col-3 rounded-circle border border-dark"
+                                            style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
+                                            </img>
+                                            @else
+                                            <div class="col-3 rounded-circle border border-dark"
+                                                style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
+                                            </div>
+                                            @endif
+                                @endfor
                                 </div>
+                                @if($records == 9)
+                                <button type="button" class="btn btn-danger">CLAIM REWARD!</button>
+                                @endif
                             </div>
-                            <div class="row justify-content-center">
-
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </div><br>
-                                <div class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </div><br>
-                                <img src="{{ asset('storage/img/gift.png') }}"
-                                    class="col-3 rounded-circle border border-dark"
-                                    style="width:100px;height:100px;border-radius:50%;margin: 25px;padding: 12px;">
-                                </img>
-                            </div>
-
-                            <div>
-                            </div>
-                            <button type="button" class="btn btn-danger">STAMP ME!</button>
                         </div>
                     </div>
                 </div>
+
+
             </div>
-
-
         </div>
-    </div>
-    <br>
+        <br>
 
 </body>
 

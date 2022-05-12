@@ -15,119 +15,243 @@
 
 <body>
     @include('layouts.navbar')
-    <div class="container">
-        <nav>
+    <div class="row mt-2 mx-1">
+        <nav class="row">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="dine-in-tab" data-bs-toggle="tab" data-bs-target="#dine-in"
                     type="button" role="tab" aria-controls="dine-in" aria-selected="true">Dine in</button>
                 <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away"
-                    type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>
+                    type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>   
             </div>
+            <a class="nav-link text-end" id="order-list-tab" data-bs-toggle="tab" data-bs-target="#order-list"
+                    type="button" role="tab" aria-controls="order-list" aria-selected="false" href="{{ url('/orderlist') }}">Order List</a> 
         </nav>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="dine-in" role="tabpanel" aria-labelledby="dine-in-tab">
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                        <div class="row row-cols-5">
-                            @foreach ($menu as $product)
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
+
+        <div class="row mt-3">
+            <div class="col-8">
+
+                <div class="row tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="dine-in" role="tabpanel" aria-labelledby="dine-in-tab">
+                        <div class="tab-content border border-dark p-3 pb-0" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                                <div class="row row-cols-5">
+                                    @foreach ($menu as $product)
+                                    <div class="col mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body bg-light">
+                                                <p class="card-title h6 text-center">{{ $product->name }}</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="main-course" role="tabpanel" aria-labelledby="main-course-tab">
-                        <div class="row row-cols-5">
-                            @foreach ($menu as $product)
-                            @if ($product->category == 'Main_Course')
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
+                            <div class="tab-pane fade" id="main-course" role="tabpanel"
+                                aria-labelledby="main-course-tab">
+                                <div class="row row-cols-5">
+                                    @foreach ($menu as $product)
+                                    @if ($product->category == 'Main_Course')
+                                    <div class="col mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body bg-light">
+                                                <p class="card-title h6 text-center">{{ $product->name }}</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
                             </div>
-                            @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="sides" role="tabpanel" aria-labelledby="sides-tab">
-                        <div class="row row-cols-5">
-                            @foreach ($menu as $product)
-                            @if ($product->category == 'Sides')
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
+                            <div class="tab-pane fade" id="sides" role="tabpanel" aria-labelledby="sides-tab">
+                                <div class="row row-cols-5">
+                                    @foreach ($menu as $product)
+                                    @if ($product->category == 'Sides')
+                                    <div class="col mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body bg-light">
+                                                <p class="card-title h6 text-center">{{ $product->name }}</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
                             </div>
-                            @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="beverages" role="tabpanel" aria-labelledby="beverages-tab">
-                        <div class="row row-cols-5">
-                            @foreach ($menu as $product)
-                            @if ($product->category == 'Beverages')
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
+                            <div class="tab-pane fade" id="beverages" role="tabpanel" aria-labelledby="beverages-tab">
+                                <div class="row row-cols-5">
+                                    @foreach ($menu as $product)
+                                    @if ($product->category == 'Beverages')
+                                    <div class="col mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body bg-light">
+                                                <p class="card-title h6 text-center">{{ $product->name }}</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
                             </div>
-                            @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="dessert-tab">
-                        <div class="row row-cols-5">
-                            @foreach ($menu as $product)
-                            @if ($product->category == 'Dessert')
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
+                            <div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="dessert-tab">
+                                <div class="row row-cols-5">
+                                    @foreach ($menu as $product)
+                                    @if ($product->category == 'Dessert')
+                                    <div class="col mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-body bg-light">
+                                                <p class="card-title h6 text-center">{{ $product->name }}</p>
+                                            </div>
+                                        </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
                             </div>
-                            @endif
-                            @endforeach
                         </div>
                     </div>
                 </div>
-                <ul class="nav nav-pills row" id="pills-tab" role="tablist">
-                    <li class="nav-item col" role="presentation">
-                        <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all"
-                            type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
-                    </li>
-                    <li class="nav-item col" role="presentation">
-                        <button class="nav-link" id="main-course-tab" data-bs-toggle="pill"
-                            data-bs-target="#main-course" type="button" role="tab" aria-controls="main-course"
-                            aria-selected="false">Main Course</button>
-                    </li>
-                    <li class="nav-item col" role="presentation">
-                        <button class="nav-link" id="sides-tab" data-bs-toggle="pill" data-bs-target="#sides"
-                            type="button" role="tab" aria-controls="sides" aria-selected="false">Sides</button>
-                    </li>
-                    <li class="nav-item col" role="presentation">
-                        <button class="nav-link" id="beverages-tab" data-bs-toggle="pill" data-bs-target="#beverages"
-                            type="button" role="tab" aria-controls="beverages" aria-selected="false">Beverages</button>
-                    </li>
-                    <li class="nav-item col" role="presentation">
-                        <button class="nav-link" id="dessert-tab" data-bs-toggle="pill" data-bs-target="#dessert"
-                            type="button" role="tab" aria-controls="dessert" aria-selected="false">Dessert</button>
-                    </li>
-                </ul>
+
+                <div class="row mt-3">
+                    <div class="border border-dark">
+                        <ul class="nav nav-pills m-2" id="pills-tab" role="tablist">
+
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link active mx-auto my-2" id="all-tab" data-bs-toggle="pill"
+                                    data-bs-target="#all" type="button" role="tab" aria-controls="all"
+                                    aria-selected="true">All</button>
+                            </li>
+
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="main-course-tab" data-bs-toggle="pill"
+                                    data-bs-target="#main-course" type="button" role="tab" aria-controls="main-course"
+                                    aria-selected="false">Main Course</button>
+                            </li>
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="sides-tab" data-bs-toggle="pill"
+                                    data-bs-target="#sides" type="button" role="tab" aria-controls="sides"
+                                    aria-selected="false">Sides</button>
+                            </li>
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="beverages-tab" data-bs-toggle="pill"
+                                    data-bs-target="#beverages" type="button" role="tab" aria-controls="beverages"
+                                    aria-selected="false">Beverages</button>
+                            </li>
+                            <li class="nav-item col border border-dark">
+                                <button class="nav-link mx-auto mt-2" id="dessert-tab" data-bs-toggle="pill"
+                                    data-bs-target="#dessert" type="button" role="tab" aria-controls="dessert"
+                                    aria-selected="false">Dessert</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="take-away" role="tabpanel" aria-labelledby="take-away-tab">fuck you</div>
+
+
+            <div class="col-4 border border-dark">
+                <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+</button>
+                            </td>
+                            <td>Egg Benedict</td>
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </td>
+                            <td>1</td>
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path
+                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg></td>
+                            <td>RM 5.90</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </td>
+                            <td>Egg Benedict</td>
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </td>
+                            <td>1</td>
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path
+                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg></td>
+                            <td>RM 5.90</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </td>
+                            <td>Egg Benedict</td>
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </td>
+                            <td>1</td>
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path
+                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg></td>
+                            <td>RM 5.90</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+
+        <div class="border border-0 p-3 mt-5">
+
+            <div class="text-end">
+                <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+            </div>
+
+        </div>
+        
+
     </div>
+
+
 </body>
 
 </html>

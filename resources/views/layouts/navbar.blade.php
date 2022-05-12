@@ -16,6 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ url('/reservation') }}">Reservation</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inventory</a>
+                </li>
                 @else
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/booking">Booking</a>
@@ -58,7 +61,7 @@
                 @endif
                 <li class="nav-item">
                     <div class="btn-group btn-outline-success dropdown me-md-2">
-                        <button type="button" class="btn btn-success" aria-current="page" 
+                        <button type="button" class="btn btn-success" aria-current="page"
                             href="{{ url('/dashboard') }}">Account</button>
                         <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
                             data-bs-toggle="dropdown" aria-expanded="false" aria-current="page"><span
@@ -76,9 +79,8 @@
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <a class="btn btn-success"
-                            onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')"
-                            style="cursor: pointer;">Log out</a>
+                        <a class="btn btn-success" onclick="event.preventDefault();this.closest('form').submit();"
+                            :href="route('logout')" style="cursor: pointer;">Log out</a>
                     </form>
                 </li>
                 @else

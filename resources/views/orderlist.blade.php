@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order</title>
+    <title>Order List</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -23,8 +23,7 @@
                 <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away"
                     type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>   
             </div>
-            <a class="nav-link text-end" id="order-list-tab" data-bs-toggle="tab" data-bs-target="#order-list"
-                    type="button" role="tab" aria-controls="order-list" aria-selected="false" href="{{ url('/orderlist') }}">Order List</a> 
+            <a class="text-end btn btn-outline-dark" href="{{ url('/orderlist') }}">Order List</a> 
         </nav>
 
 

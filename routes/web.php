@@ -49,6 +49,18 @@ Route::get('/booking', function () {
     return view('booking');
 });
 
+Route::get('/inventory', function () {
+    return view('inventory');
+});
+
+Route::get('/orderlist', function () {
+    return view('orderlist');
+});
+
+Route::get('/customerinfo', function () {
+    return view('customerinfo');
+});
+
 Route::group(['middleware' => ['auth', 'role:employee']], function() {
     Route::get('/clockIn', 'App\Http\Controllers\ClockInController@clockIn');
     Route::get('/clockOut', 'App\Http\Controllers\ClockInController@clockOut');

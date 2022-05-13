@@ -29,7 +29,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
     Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
     Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
-    Route::get('/reward','App\Http\Controllers\RewardController@index')->name('reward');
 });
 
 Route::group(['middleware' => ['auth', 'role:customer']], function() {
@@ -45,6 +44,9 @@ Route::group(['middleware' => ['auth', 'role:customer']], function() {
 
     Route::post('create','App\Http\Controllers\BookingController@insert');
     Route::post('cancel','App\Http\Controllers\BookingController@remove');
+
+    Route::get('/reward','App\Http\Controllers\RewardController@index')->name('reward');
+    Route::post('claim','App\Http\Controllers\RewardController@claim');
 });
 
 Route::group(['middleware' => ['auth', 'role:employee']], function() {

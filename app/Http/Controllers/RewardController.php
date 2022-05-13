@@ -29,5 +29,24 @@ class RewardController extends Controller
             return view('reward', compact('user', 'records'));
         }
     }
+
+    public function claim(){
+        $ids = DB::table('purchases')
+            ->select('id')
+            ->where('customer_id', Auth::id())
+            ->where('payment_status',true)
+            ->where('claimed',false)
+            ->orderBy('id')
+            ->limit(9)
+            ->get()
+            ->toArray();
+        foreach ($ids as $id) {
+            DB::table('purchases')
+            ->where('id', $id->id)
+            ->update(['claimed' => true]);
+        }
+        return redirect()->action('App\Http\Controllers\RewardController@index')->with('success','Reward Claimed!');;
+    
+    }
     
 }

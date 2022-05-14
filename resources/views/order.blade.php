@@ -16,14 +16,18 @@
 <body>
     @include('layouts.navbar')
     <div class="row mt-2 mx-1">
-        <nav class="row">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="dine-in-tab" data-bs-toggle="tab" data-bs-target="#dine-in"
-                    type="button" role="tab" aria-controls="dine-in" aria-selected="true">Dine in</button>
-                <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away"
-                    type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>   
-            </div class="col-md-6 float-md-end">
-            <a class="text-end btn btn-success" aria-current="page" href="/orderlist">Order List</a> 
+    <nav class="row">
+            <div class="col-11">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="dine-in-tab" data-bs-toggle="tab" data-bs-target="#dine-in"
+                        type="button" role="tab" aria-controls="dine-in" aria-selected="true">Dine in</button>
+                    <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away"
+                        type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>
+                </div>
+            </div>
+            <div class="col-1">
+                <a class="text-end btn btn-success" aria-current="page" href="/orderlist">Order List</a>
+            </div>
         </nav>
 
         <div class="row mt-3">
@@ -151,19 +155,17 @@
 
                     <tbody>
                         <tr>
-                            <td>
-                                <button type="button" class="btn btn-success">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                        <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                                 </svg>
-</button>
                             </td>
+
                             <td>Egg Benedict</td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -171,7 +173,7 @@
                             </td>
                             <td>1</td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    class="bi bi-plus-square bg-success" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path
@@ -182,7 +184,7 @@
                         <tr>
                             <td>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -190,7 +192,7 @@
                             </td>
                             <td>Egg Benedict</td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -198,7 +200,7 @@
                             </td>
                             <td>1</td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    class="bi bi-plus-square bg-success" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path
@@ -209,7 +211,7 @@
                         <tr>
                             <td>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -217,7 +219,7 @@
                             </td>
                             <td>Egg Benedict</td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-dash-square" viewBox="0 0 16 16">
+                                    class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -225,7 +227,7 @@
                             </td>
                             <td>1</td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-plus-square" viewBox="0 0 16 16">
+                                    class="bi bi-plus-square bg-success" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                     <path

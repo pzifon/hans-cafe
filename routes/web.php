@@ -63,6 +63,14 @@ Route::get('/customerinfo', function () {
     return view('customerinfo');
 });
 
+Route::get('/inventory', function () {
+    return view('inventory');
+});
+
+Route::get('/edit_inventory', function () {
+    return view('edit_webinventory');
+});
+
 Route::get('/orderlist', function () {
     return view('orderlist');
 });

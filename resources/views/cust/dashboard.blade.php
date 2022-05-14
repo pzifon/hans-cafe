@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-8">
                         <div class="row">
-                            <p class="fs-1" style="margin-top:10px">2</p>
+                            <p class="fs-1" style="margin-top:10px">{{ $reward/9 }}</p>
                         </div>
                         <div class="row">
                             <p class="fs-3" style="margin-top:10px">Rewards</p>
@@ -132,7 +132,6 @@
                                 </form>
                             </tbody>
                         </table>
-
                         <div>
                             <b>PAST</b>
                         </div>
@@ -146,9 +145,6 @@
                                 </tr>
                             </thead>
                             <tbody class="table-bordered">
-                                <form action="/cancel" method="post" action="/action_page.php">
-                                    @csrf
-                                    @csrf
                                     @foreach ($past_res as $past_res)
                                     <tr>
                                         <td>{{ $past_res->res_id }}</td>
@@ -157,7 +153,6 @@
                                         <td style="text-align:right;">{{ $past_res->no_of_people }}</td>
                                     </tr>
                                     @endforeach
-                                </form>
                             </tbody>
                         </table>
                     </div>

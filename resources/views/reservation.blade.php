@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="position:relative;min-height:89vh">
 
 <head>
     <meta charset="UTF-8">
@@ -13,28 +13,49 @@
     </script>
 </head>
 
-<body>
+<body style="margin-bottom:60px">
     @include('layouts.navbar')
-    <table>
-        <tr>
-            <td>Reservation ID</td>
-            <td>Date</td>
-            <td>Time</td>
-            <td>No of people</td>
-            <td>Customer Name</td>
-            <td>Contact Number</td>
-        </tr>
-        @foreach ($reservation as $res)
-        <tr>
-            <td>{{ $res->res_id }}</td>
-            <td>{{ $res->date }}</td>
-            <td>{{ $res->time_slot }}</td>
-            <td>{{ $res->no_of_people }}</td>
-            <td>{{ $res->name }}</td>
-            <td>{{ $res->contact }}</td>
-        </tr>
-        @endforeach
-    </table>
+
+    <div class="row"
+        style="text-align:center;display:block;width: auto;height:470px;margin:50px;border: 1px solid black;border-radius:30px">
+
+        <p class="fw-light fs-1" style="font-style:italic;margin: 25px 0 10px 20px;text-align:left">Reservations</p>
+
+        <div class="table-scrollable" style="overflow-x: auto;  max-width: auto; max-height:275px;">
+
+            <form style="margin:20px;" method="view">
+
+                <table class="m-auto table table-responsive ">
+                    <tr style="border:0px solid black;">
+                        <td style="border-bottom:1px solid black;border-right:1px solid black;width: 200px">Reservation
+                            ID</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black;width: 200px">Date</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black;width: 200px">Time</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black;width: 200px">No of people
+                        </td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black;width: 200px">Customer
+                            Name</td>
+                        <td style="border-bottom:1px solid black;width: 200px">Contact
+                            Number</td>
+                    </tr>
+
+
+                    <tr style="border:0px solid black">
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">1</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">16/05/22</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">10:00</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">1</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">Ali</td>
+                        <td style="border-bottom:1px solid black">012-3456789</td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+
 </body>
+<div class="footer w-100 position-absolute mt-5" style="bottom:0;height:110px;top: 570px;">@include('layouts.footer')
+</div>
 
 </html>

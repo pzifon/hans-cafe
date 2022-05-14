@@ -16,7 +16,7 @@
 <body>
     @include('layouts.navbar')
     <div class="row mt-2 mx-1">
-        <nav class="row">
+    <nav class="row">
             <div class="col-11">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="dine-in-tab" data-bs-toggle="tab" data-bs-target="#dine-in"
@@ -118,29 +118,29 @@
                     <div class="border border-dark">
                         <ul class="nav nav-pills m-2" id="pills-tab" role="tablist">
 
-                            <li class="nav-item col me-3 bg-success">
-                                <button class="nav-link active mx-auto mt-2 bg-success" id="all-tab" data-bs-toggle="pill"
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link active mx-auto my-2" id="all-tab" data-bs-toggle="pill"
                                     data-bs-target="#all" type="button" role="tab" aria-controls="all"
-                                    aria-selected="true" >All</button>
+                                    aria-selected="true">All</button>
                             </li>
 
-                            <li class="nav-item col me-3 bg-success">
-                                <button class="nav-link mx-auto mt-2 bg-success" id="main-course-tab" data-bs-toggle="pill"
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="main-course-tab" data-bs-toggle="pill"
                                     data-bs-target="#main-course" type="button" role="tab" aria-controls="main-course"
                                     aria-selected="false">Main Course</button>
                             </li>
-                            <li class="nav-item col me-3 bg-success">
-                                <button class="nav-link mx-auto mt-2 bg-success" id="sides-tab" data-bs-toggle="pill"
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="sides-tab" data-bs-toggle="pill"
                                     data-bs-target="#sides" type="button" role="tab" aria-controls="sides"
                                     aria-selected="false">Sides</button>
                             </li>
-                            <li class="nav-item col me-3 bg-success">
-                                <button class="nav-link mx-auto mt-2 bg-success" id="beverages-tab" data-bs-toggle="pill"
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="beverages-tab" data-bs-toggle="pill"
                                     data-bs-target="#beverages" type="button" role="tab" aria-controls="beverages"
                                     aria-selected="false">Beverages</button>
                             </li>
-                            <li class="nav-item col me-3 bg-success">
-                                <button class="nav-link mx-auto mt-2 bg-success" id="dessert-tab" data-bs-toggle="pill"
+                            <li class="nav-item col border border-dark">
+                                <button class="nav-link mx-auto mt-2" id="dessert-tab" data-bs-toggle="pill"
                                     data-bs-target="#dessert" type="button" role="tab" aria-controls="dessert"
                                     aria-selected="false">Dessert</button>
                             </li>
@@ -155,7 +155,7 @@
 
                     <tbody>
                         <tr>
-                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -244,12 +244,10 @@
         <div class="border border-0 p-3 mt-5">
 
             <div class="text-end">
-                <input class="btn btn-success btn-lg" type="submit" value="SUBMIT ORDER">
+                <input class="btn btn-primary btn-lg" type="submit" value="Submit">
             </div>
 
         </div>
-
-
     </div>
 
 

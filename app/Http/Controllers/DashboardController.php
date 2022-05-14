@@ -29,13 +29,18 @@ class DashboardController extends Controller
             ->where('date', '<', date("Y-m-d"))
             ->where('time_slot', '<', date("H:i:s"))
             ->get();
-
+        $reward = DB::table('purchases')
+            ->select('*')
+            ->where('customer_id', Auth::id())
+            ->where('payment_status', true)
+            ->where('claimed', false)
+            ->count();
         if(Auth::user()->hasRole('admin')){
             return view('admin.dashboard', compact('user'));
         }elseif(Auth::user()->hasRole('employee')){
             return view('employee.dashboard', compact('user'));
         }elseif(Auth::user()->hasRole('customer')){
-            return view('cust.dashboard', compact('user', 'total_purchases', 'upcoming_res', 'past_res',));
+            return view('cust.dashboard', compact('user', 'total_purchases', 'reward', 'upcoming_res', 'past_res',));
         }
     }
 

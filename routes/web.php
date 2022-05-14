@@ -19,8 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/menu', [MenuController::class, 'menuList'])->name('menu.list');
+
+Route::get('/booking', function () {
+    return view('booking');
+});
+
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
+    Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
+    Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
 });
 
 Route::group(['middleware' => ['auth', 'role:customer']], function() {
@@ -36,17 +44,17 @@ Route::group(['middleware' => ['auth', 'role:customer']], function() {
 
     Route::post('create','App\Http\Controllers\BookingController@insert');
     Route::post('cancel','App\Http\Controllers\BookingController@remove');
+
+    Route::get('/reward','App\Http\Controllers\RewardController@index')->name('reward');
+    Route::post('claim','App\Http\Controllers\RewardController@claim');
 });
 
-Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
-Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
+Route::get('/orderlist', function () {
+    return view('orderlist');
+});
 
-Route::get('/reward','App\Http\Controllers\RewardController@index')->name('reward');
-
-Route::get('/menu', [MenuController::class, 'menuList'])->name('menu.list');
-
-Route::get('/booking', function () {
-    return view('booking');
+Route::get('/customerinfo', function () {
+    return view('customerinfo');
 });
 
 Route::group(['middleware' => ['auth', 'role:employee']], function() {
@@ -57,22 +65,12 @@ Route::group(['middleware' => ['auth', 'role:employee']], function() {
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
     Route::get('/reservation', 'App\Http\Controllers\BookingController@viewReservation');
-});
-
-Route::get('/customerinfo', function () {
-    return view('customerinfo');
-});
-
-Route::get('/inventory', function () {
-    return view('inventory');
-});
-
-Route::get('/edit_inventory', function () {
-    return view('edit_webinventory');
-});
-
-Route::get('/orderlist', function () {
-    return view('orderlist');
+    Route::get('/inventory', function () {
+        return view('inventory');
+    });
+    Route::get('/edit_inventory', function () {
+        return view('edit_inventory');
+    });
 });
 
 require __DIR__.'/auth.php';

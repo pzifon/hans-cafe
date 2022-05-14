@@ -59,6 +59,7 @@
                     <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/cart') }}">Cart</a>
                 </li>
                 @endif
+                @if (Auth::user()->hasRole('customer'))
                 <li class="nav-item">
                     <div class="btn-group btn-outline-success dropdown me-md-2">
                         <button type="button" class="btn btn-success" aria-current="page"
@@ -76,6 +77,11 @@
                         </ul>
                     </div>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

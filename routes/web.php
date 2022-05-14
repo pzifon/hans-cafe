@@ -49,10 +49,6 @@ Route::group(['middleware' => ['auth', 'role:customer']], function() {
     Route::post('claim','App\Http\Controllers\RewardController@claim');
 });
 
-Route::get('/inventory', function () {
-    return view('inventory');
-});
-
 Route::get('/orderlist', function () {
     return view('orderlist');
 });
@@ -69,5 +65,12 @@ Route::group(['middleware' => ['auth', 'role:employee']], function() {
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
     Route::get('/reservation', 'App\Http\Controllers\BookingController@viewReservation');
+    Route::get('/inventory', function () {
+        return view('inventory');
+    });
+    Route::get('/edit_inventory', function () {
+        return view('edit_inventory');
+    });
 });
+
 require __DIR__.'/auth.php';

@@ -32,8 +32,8 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::group(['middleware' => ['auth', 'role:customer']], function() {
-    Route::get('/editacc', 'App\Http\Controllers\DashboardController@viewCustinfo')->name('editAcc');
-    Route::post('edit', 'App\Http\Controllers\DashboardController@editCustInfo')->name('editAccFunction');
+    Route::get('/editacc', 'App\Http\Controllers\DashboardController@reviewInfo')->name('editAcc');
+    Route::post('edit', 'App\Http\Controllers\DashboardController@editCustInfo');
 
     Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
     Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
@@ -67,9 +67,7 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/edit_inventory', function () {
         return view('edit_inventory');
     });
-    Route::get('/customerinfo', function () {
-        return view('customerinfo');
-    });
+    Route::get('/customerinfo', 'App\Http\Controllers\DashboardController@custList');
 });
 
 require __DIR__.'/auth.php';

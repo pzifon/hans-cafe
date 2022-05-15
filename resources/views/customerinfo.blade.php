@@ -32,17 +32,18 @@
                             Number</td>
                         <td style="width: 200px"></td>
                     </tr>
-
+                    @foreach ($list as $customer)
                     <tr style="border:0px solid black">
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">id</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">name</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">email</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">Number</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->id }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->name }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->email }}</td>
+                    <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->contact ?? 'N/A' }}</td>
                         <td>
                             <button type="submit" style="text-decoration:underline" name="view_details" class="column"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">More</button>
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button>
                         </td>
                     </tr>
+                    @endforeach
 
                 </table>
             </form>

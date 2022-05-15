@@ -27,15 +27,12 @@
                         <tr>
                             <th colspan="2">
                                 Account Details
-                                <a href="/editacc" style="float: right">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>MEMBERSHIP ID</td>
+                            <td>EMPLOYEE ID</td>
                             <td>{{$user->id}}</td>
                         </tr>
                         <tr>

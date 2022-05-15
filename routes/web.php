@@ -49,13 +49,6 @@ Route::group(['middleware' => ['auth', 'role:customer']], function() {
     Route::post('claim','App\Http\Controllers\RewardController@claim');
 });
 
-Route::get('/orderlist', function () {
-    return view('orderlist');
-});
-
-Route::get('/customerinfo', function () {
-    return view('customerinfo');
-});
 
 Route::group(['middleware' => ['auth', 'role:employee']], function() {
     Route::get('/clockIn', 'App\Http\Controllers\ClockInController@clockIn');
@@ -64,12 +57,18 @@ Route::group(['middleware' => ['auth', 'role:employee']], function() {
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
+    Route::get('/orderlist', function () {
+        return view('orderlist');
+    });
     Route::get('/reservation', 'App\Http\Controllers\BookingController@viewReservation');
     Route::get('/inventory', function () {
         return view('inventory');
     });
     Route::get('/edit_inventory', function () {
         return view('edit_inventory');
+    });
+    Route::get('/customerinfo', function () {
+        return view('customerinfo');
     });
 });
 

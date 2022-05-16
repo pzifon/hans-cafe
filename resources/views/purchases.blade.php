@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
 
     <div class="row"

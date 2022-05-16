@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="position:relative;min-height:89vh">
+<html>
 
 <head>
     <title>Reward</title>
@@ -11,12 +11,10 @@
     </style>
 </head>
 
-<body style="margin-bottom:60px">
+<body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     @include('flash-message')
-    <div class="footer w-100 position-absolute mt-5" style="bottom:0;height:110px">@include('layouts.footer')
-    </div>
-    <div class="container" style="margin-top:20px; margin-bottom: 20px">
+    <div class="container">
         <div class="row">
             <h2>Rewards</h2>
         </div>
@@ -79,7 +77,6 @@
                 <div class="container  shadow p-3 mb-5 bg-body rounded">
                     <div class="d-flex justify-content-center">
                         <a href="/" style="margin-left: auto; margin-right: auto;">
-
                             <img src="{{ asset('storage/img/logo.png') }}" class="mx-auto" alt=""
                                 style="max-width: 200px; max-height:200px; margin: auto;">
                         </a>
@@ -106,7 +103,7 @@
                                             @endfor
                                     </div>
                                     @if($records == 9)
-                                    <form action="/claim" method="POST" action="/action_page.php" >
+                                    <form action="/claim" method="POST" action="/action_page.php">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">CLAIM REWARD!</button>
                                     </form>
@@ -115,12 +112,11 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
         <br>
-
+    </div>
+    @include('layouts.footer')
 </body>
 
 </html>

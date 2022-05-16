@@ -1,79 +1,73 @@
-<title>Edit</title>
-<style>
-    .row {
-        width: 50%;
-        padding: 10px;
-        margin: auto;
-        margin-top: 10px;
-        border-style: solid;
-        border-width: 5px;
-        text-align:center;
-    }
+<!DOCTYPE html>
+<html style="position:relative;min-height:89vh">
 
-    .row::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+<head>
+    <title>Edit Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    </style>
+</head>
 
-    .column {
-        float: left;
-        width: 120px;
-    }
 
-    #update {
-        background-color: #77a8a4;
-        border: none;
-        color: white;
-        padding: 5px 20px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        margin: 10px 20px;
-        cursor: pointer;
-        border-radius: 20px;
-    }
-</style>
-<x-app-layout>
-    <x-slot name="header"></x-slot>
-
-    <div class="row">
-        <div style="font-weight:bold">Account Details</div>
+<body class="d-flex flex-column min-vh-100">
+    @include('layouts.navbar')
+    <div class="container">
         <form action="/edit" method="post" action="/action_page.php" id="edit">
             @csrf
             @csrf
             @foreach ($user as $user)
-            <p>MEMBERSHIP ID<br>
-                <span style="font-size:20px">{{$user->id}}
-            </p>
-            <br>
-            <p>NAME<br>
-                <span style="font-size:20px">
-                <span style="font-size:20px">{{$user->name}}
-            </p>
-            <br>
-            <p>DATE OF BIRTH<br>
-                <span style="font-size:20px">
-                <input type="date" name="dob" value="{{$user->dob}}" required>
-            </p>
-            <br>
-            <p>CONTACT NUMBER<br>
-                <span style="font-size:20px">
-                <span style="font-size:20px">{{$user->contact}}
-            </p>
-            <br>
-            <p>EMAIL<br>
-                <span style="font-size:20px"><input type="text" name="email" value="{{$user->email}}" required>
-            </p>
-            <br>
-            <p>DATE JOINED<br>
-                <span style="font-size:20px">{{$user->created_at}}
-            </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Account Details
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MEMBERSHIP ID</td>
+                        <td>{{$user->id}}</td>
+                    </tr>
+                    <tr>
+                        <td>NAME</td>
+                        <td>{{$user->name}}</td>
+                    </tr>
+                    <tr>
+                        <td>DATE OF BIRTH</td>
+                        <td>
+                            <div class="input-group">
+                                <input type="date" class="form-control" name="dob" value="{{$user->dob}}" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL</td>
+                        <td>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="email" value="{{$user->email}}" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CONTACT</td>
+                        <td>{{$user->contact ?? 'N/A'}}</td>
+                    </tr>
+                    <tr>
+                        <td>DATE JOINED</td>
+                        <td>{{$user->created_at}}</td>
+                    </tr>
+                </tbody>
+            </table>
             @endforeach
         </form>
-        <button type="submit" form="edit" id="update" value="Update">Update</button>
+        <button type="submit" class="btn btn-secondary" form="edit" id="update" value="Update">Update</button>
     </div>
-</x-app-layout>
+    @include('layouts.footer')
+</body>
 
 <script>
 var today = new Date();

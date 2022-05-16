@@ -44,7 +44,7 @@ class DashboardController extends Controller
         }
     }
 
-    public function viewCustinfo()
+    public function reviewInfo()
     {
         $user = DB::table('users')
             ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
@@ -62,5 +62,23 @@ class DashboardController extends Controller
             ->update(['dob' => $dob,'email' => $email, "updated_at" => date("Y-m-d H:i:s")]);
         // echo "Sucessfully updated!";
         return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Account info updated successfully!');;
+    }
+
+    public function custList(){
+        $ids = DB::table('role_user')
+            ->select('user_id')
+            ->where('role_id',3)
+            ->get()
+            ->toArray();
+        $id_list = array();
+        foreach ($ids as $id) {
+            array_push($id_list, $id->user_id);
+        }
+        $list = DB::table('users')
+            ->select('id', 'name', 'email', 'contact')
+            ->whereIn('id', $id_list)
+            ->get();
+
+        return view('customerinfo', compact('list'));
     }
 }

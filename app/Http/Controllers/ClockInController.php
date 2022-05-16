@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ClockIn;
-use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 

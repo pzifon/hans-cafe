@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Purchases</title>
+    <title>Customer Information</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,17 +32,18 @@
                             Number</td>
                         <td style="width: 200px"></td>
                     </tr>
-
+                    @foreach ($list as $customer)
                     <tr style="border:0px solid black">
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">id</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">name</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">email</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">Number</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->id }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->name }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->email }}</td>
+                    <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->contact ?? 'N/A' }}</td>
                         <td>
                             <button type="submit" style="text-decoration:underline" name="view_details" class="column"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">More</button>
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button>
                         </td>
                     </tr>
+                    @endforeach
 
                 </table>
             </form>

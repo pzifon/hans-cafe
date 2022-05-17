@@ -45,7 +45,7 @@ class RewardController extends Controller
             ->where('id', $id->id)
             ->update(['claimed' => true]);
         }
-        return redirect()->action('App\Http\Controllers\RewardController@index')->with('success','Reward Claimed!');;
+        return redirect()->action('App\Http\Controllers\RewardController@index')->with('success','Reward Claimed!');
     
     }
     

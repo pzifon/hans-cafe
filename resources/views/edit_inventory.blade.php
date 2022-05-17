@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" style="position:relative;min-height:89vh">
 
+<?php
+    $edit_section = '$_GET[edit]';
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,123 +43,154 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-8">
-            <button type="button" class="btn btn-outline-dark me-5" style="float: right;">SUBMIT CHANGES</button>
-        </div>
     </div>
 
     <div class="row mx-0 mt-2">
         <div class="col-sm-4 px-5">
             <p class="fs-5">&nbsp;<b>Condiment</b></p>
+            @if ($category == "condiment")
+            <form action="/update" method="post" action="/action_page.php">
+            @csrf
+                <div class="card">
+                    <i class="bi bi-pencil-fill text-end"></i>
+                    <div class="border border-secondary\ m-3 mt-0">
+                        <div class="card-body">
+                            <dl class="row mb-0 p-3 card-text">
+                                @foreach ($condiment as $item)
+                                <dd class="col-sm-9">{{ $item->name }}</dd>
+                                <dd class="col-sm-3 text-center">
+                                    <input type="hidden" name="item_code[]" value="{{ $item->item_code }}">
+                                    <input type="number" name="item_qty[]" class="form-control" style="width:100%"
+                                        value="{{ $item->stock }}" min=1 max=100 required>
+                                </dd>
+                                @endforeach
+                            </dl>
+                        </div>
+                    </div>
+                    <button type="submit" name="category" value="condiment" class="btn btn-outline-dark me-5"
+                        style="float: right;">UPDATE</button>
+                </div>
+            </form>
+            @else
             <div class="card">
                 <i class="bi bi-pencil-fill text-end"></i>
                 <div class="border border-secondary\ m-3 mt-0">
                     <div class="card-body">
                         <dl class="row mb-0 p-3 card-text">
-                            <dd class="col-sm-9 ">Pepper</dd>
-                            <dd class="col-sm-3 text-center"> <input type="number" name="no_of_item"
-                                    class="form-control" style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Salt</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Soy Sauce</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Ketchup</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Mustard</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9 ">Chilli</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Bay Leaves</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
+                            @foreach ($condiment as $item)
+                            @if ($item->stock == 0)
+                            <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                            <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                            @elseif ($item->stock < 5) <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
                         </dl>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
 
         <div class="col-sm-4 px-5">
             <p class="fs-5">&nbsp;<b>Dairy</b></p>
+            @if ($category == "dairy")
+            <form action="/update" method="post" action="/action_page.php">
+            @csrf
+                <div class="card">
+                    <i class="bi bi-pencil-fill text-end"></i>
+                    <div class="border border-secondary\ m-3 mt-0">
+                        <div class="card-body">
+                            <dl class="row mb-0 p-3 card-text">
+                                @foreach ($dairy as $item)
+                                <dd class="col-sm-9">{{ $item->name }}</dd>
+                                <dd class="col-sm-3 text-center">
+                                    <input type="hidden" name="item_code[]" value="{{ $item->item_code }}">
+                                    <input type="number" name="item_qty[]" class="form-control" style="width:100%"
+                                        value="{{ $item->stock }}" min=1 max=100 required>
+                                </dd>
+                                @endforeach
+                            </dl>
+                        </div>
+                    </div>
+                    <button type="submit" name="category" value="dairy" class="btn btn-outline-dark me-5"
+                        style="float: right;">UPDATE</button>
+                </div>
+            </form>
+            @else
             <div class="card">
                 <i class="bi bi-pencil-fill text-end"></i>
                 <div class="border border-secondary\ m-3 mt-0">
                     <div class="card-body">
                         <dl class="row mb-0 p-3 card-text">
-                            <dd class="col-sm-9">Cheese</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Egg</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Milk</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-10">Yogurt</dd>
-                            <dd class="col-sm-2 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Butter</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
+                            @foreach ($dairy as $item)
+                            @if ($item->stock == 0)
+                            <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                            <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                            @elseif ($item->stock < 5) <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
                         </dl>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
 
         <div class="col-sm-4 px-5">
             <p class="fs-5">&nbsp;<b>Meat</b></p>
+            @if ($category == "meat")
+            <form action="/update" method="post" action="/action_page.php">
+            @csrf
+                <div class="card">
+                    <i class="bi bi-pencil-fill text-end"></i>
+                    <div class="border border-secondary\ m-3 mt-0">
+                        <div class="card-body">
+                            <dl class="row mb-0 p-3 card-text">
+                                @foreach ($meat as $item)
+                                <dd class="col-sm-9">{{ $item->name }}</dd>
+                                <dd class="col-sm-3 text-center">
+                                    <input type="hidden" name="item_code[]" value="{{ $item->item_code }}">
+                                    <input type="number" name="item_qty[]" class="form-control" style="width:100%"
+                                        value="{{ $item->stock }}" min=1 max=100 required>
+                                </dd>
+                                @endforeach
+                            </dl>
+                        </div>
+                    </div>
+                    <button type="submit" name="category" value="meat" class="btn btn-outline-dark me-5"
+                        style="float: right;">UPDATE</button>
+                </div>
+            </form>
+            @else
             <div class="card">
                 <i class="bi bi-pencil-fill text-end"></i>
                 <div class="border border-secondary\ m-3 mt-0">
                     <div class="card-body">
                         <dl class="row mb-0 p-3 card-text">
-                            <dd class="col-sm-9">Ham</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Bacon</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Chicken</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Tuna</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Salmon</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Beef</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
-
-                            <dd class="col-sm-9">Lamb</dd>
-                            <dd class="col-sm-3 text-center"><input type="number" name="no_of_item" class="form-control"
-                                    style="width:100%" min=1 max=100 required></dd>
+                            @foreach ($meat as $item)
+                            @if ($item->stock == 0)
+                            <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                            <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                            @elseif ($item->stock < 5) <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
                         </dl>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 

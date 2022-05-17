@@ -21,13 +21,24 @@ class DashboardController extends Controller
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
             ->where('date', '>=', date("Y-m-d"))
-            ->where('time_slot', '>=', date("H:i:s"))
+            ->orWhere(function ($query) {
+                $query->where('date', '>=', date("Y-m-d"))
+                        ->where('time_slot', '>=', date("H:i:s"));
+            })
+            ->orderBy('reservation.date')
+            ->orderBy('reservation.time_slot')
             ->get();
         $past_res = DB::table('reservation')
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
             ->where('date', '<', date("Y-m-d"))
-            ->where('time_slot', '<', date("H:i:s"))
+            ->orWhere(function ($query) {
+                $query->where('date', '<', date("Y-m-d"))
+                        ->where('time_slot', '<', date("H:i:s"));
+            })
+            ->orderBy('reservation.date')
+            ->orderBy('reservation.time_slot')
+            ->limit(5)
             ->get();
         $reward = DB::table('purchases')
             ->select('*')

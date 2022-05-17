@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-8">
                         <div class="row">
-                            <p class="fs-1" style="margin-top:10px">{{ $reward/9 }}</p>
+                            <p class="fs-1" style="margin-top:10px">{{ intdiv($reward,9) }}</p>
                         </div>
                         <div class="row">
                             <p class="fs-3" style="margin-top:10px">Rewards</p>

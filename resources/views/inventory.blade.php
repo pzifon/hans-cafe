@@ -39,34 +39,27 @@
                 </div>
             </div>
         </div>
+        @include('flash-message')
         <div class="row mx-0 mt-2">
             <div class="col-sm-4 px-5">
                 <p class="fs-5">&nbsp;<b>Condiment</b></p>
                 <div class="card">
-                    <a href="/edit_inventory" class="bi bi-pencil-fill text-end"></a>
+                    <a href="/edit_inventory/condiment" class="bi bi-pencil-fill text-end"></a>
                     <div class="border border-secondary\ m-3 mt-0">
                         <div class="card-body">
                             <dl class="row mb-0 p-3 card-text">
-                                <dd class="col-sm-10 text-warning">Pepper</dd>
-                                <dd class="col-sm-2 text-center text-warning">3</dd>
-
-                                <dd class="col-sm-10">Salt</dd>
-                                <dd class="col-sm-2 text-center">13</dd>
-
-                                <dd class="col-sm-10">Soy Sauce</dd>
-                                <dd class="col-sm-2 text-center">20</dd>
-
-                                <dd class="col-sm-10">Ketchup</dd>
-                                <dd class="col-sm-2 text-center">16</dd>
-
-                                <dd class="col-sm-10">Mustard</dd>
-                                <dd class="col-sm-2 text-center">18</dd>
-
-                                <dd class="col-sm-10 text-danger">Chilli</dd>
-                                <dd class="col-sm-2 text-center text-danger">0</dd>
-
-                                <dd class="col-sm-10">Bay Leaves</dd>
-                                <dd class="col-sm-2 text-center">121</dd>
+                                @foreach ($condiment as $item)
+                                @if ($item->stock == 0)
+                                <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                                @elseif ($item->stock < 5) 
+                                <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
                             </dl>
                         </div>
                     </div>
@@ -76,24 +69,22 @@
             <div class="col-sm-4 px-5">
                 <p class="fs-5">&nbsp;<b>Dairy</b></p>
                 <div class="card">
-                    <a href="/edit_inventory" class="bi bi-pencil-fill text-end"></a>
+                    <a href="/edit_inventory/dairy" class="bi bi-pencil-fill text-end"></a>
                     <div class="border border-secondary\ m-3 mt-0">
                         <div class="card-body">
                             <dl class="row mb-0 p-3 card-text">
-                                <dd class="col-sm-10">Cheese</dd>
-                                <dd class="col-sm-2 text-center">50</dd>
-
-                                <dd class="col-sm-10 text-danger">Egg</dd>
-                                <dd class="col-sm-2 text-center text-danger">0</dd>
-
-                                <dd class="col-sm-10">Milk</dd>
-                                <dd class="col-sm-2 text-center">43</dd>
-
-                                <dd class="col-sm-10">Yogurt</dd>
-                                <dd class="col-sm-2 text-center">174</dd>
-
-                                <dd class="col-sm-10 text-warning">Butter</dd>
-                                <dd class="col-sm-2 text-center text-warning">9</dd>
+                                @foreach ($dairy as $item)
+                                @if ($item->stock == 0)
+                                <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                                @elseif ($item->stock < 5) 
+                                <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
                             </dl>
                         </div>
                     </div>
@@ -103,30 +94,22 @@
             <div class="col-sm-4 px-5">
                 <p class="fs-5">&nbsp;<b>Meat</b></p>
                 <div class="card">
-                    <a href="/edit_inventory" class="bi bi-pencil-fill text-end"></a>
+                    <a href="/edit_inventory/meat" class="bi bi-pencil-fill text-end"></a>
                     <div class="border border-secondary\ m-3 mt-0">
                         <div class="card-body">
                             <dl class="row mb-0 p-3 card-text">
-                                <dd class="col-sm-10">Ham</dd>
-                                <dd class="col-sm-2 text-center">134</dd>
-
-                                <dd class="col-sm-10 text-warning">Bacon</dd>
-                                <dd class="col-sm-2 text-center text-warning">13</dd>
-
-                                <dd class="col-sm-10 text-warning">Chicken</dd>
-                                <dd class="col-sm-2 text-center text-warning">19</dd>
-
-                                <dd class="col-sm-10 text-danger">Tuna</dd>
-                                <dd class="col-sm-2 text-center text-danger">0</dd>
-
-                                <dd class="col-sm-10 text-danger">Salmon</dd>
-                                <dd class="col-sm-2 text-center text-danger">0</dd>
-
-                                <dd class="col-sm-10">Beef</dd>
-                                <dd class="col-sm-2 text-center">56</dd>
-
-                                <dd class="col-sm-10">Lamb</dd>
-                                <dd class="col-sm-2 text-center">78</dd>
+                                @foreach ($meat as $item)
+                                @if ($item->stock == 0)
+                                <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                                @elseif ($item->stock < 5) 
+                                <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
                             </dl>
                         </div>
                     </div>

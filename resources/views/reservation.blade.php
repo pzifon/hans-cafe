@@ -38,16 +38,16 @@
                         <td style="border-bottom:1px solid black;width: 200px">Contact
                             Number</td>
                     </tr>
-
-
+                    @foreach ($reservation as $res)
                     <tr style="border:0px solid black">
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">1</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">16/05/22</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">10:00</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">1</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">Ali</td>
-                        <td style="border-bottom:1px solid black">012-3456789</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $res->res_id }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $res->date }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $res->time_slot }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $res->no_of_people }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $res->name }}</td>
+                        <td style="border-bottom:1px solid black">{{ $res->contact }}</td>
                     </tr>
+                    @endforeach
                 </table>
             </form>
         </div>

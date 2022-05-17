@@ -60,13 +60,10 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/orderlist', function () {
         return view('orderlist');
     });
-    Route::get('/reservation', 'App\Http\Controllers\BookingController@viewReservation');
-    Route::get('/inventory', function () {
-        return view('inventory');
-    });
-    Route::get('/edit_inventory', function () {
-        return view('edit_inventory');
-    });
+    Route::get('/reservation', 'App\Http\Controllers\BookingController@index');
+    Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
+    Route::get('/edit_inventory/{category}', 'App\Http\Controllers\InventoryController@edit');
+    Route::post('update','App\Http\Controllers\InventoryController@update');
     Route::get('/customerinfo', 'App\Http\Controllers\DashboardController@custList');
 });
 

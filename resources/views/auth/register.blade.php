@@ -24,7 +24,7 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <!-- Name -->
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">Full Name</label>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" id="name" name="name" :value="old('name')" required />
                     </div>

@@ -10,6 +10,22 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
+    public function index(){
+        $reservation = DB::table('reservation')
+            ->join('users', 'reservation.customer_id', '=', 'users.id')
+            ->select('reservation.res_id', 'reservation.date', 'reservation.time_slot', 'reservation.no_of_people', 'users.name', 'reservation.contact')
+            ->where('reservation.date', '>=', date("Y-m-d"))
+            ->orWhere(function ($query) {
+                $query->where('reservation.date', '>=', date("Y-m-d"))
+                        ->where('reservation.time_slot', '>=', date("H:i:s"));
+            })
+            ->orderBy('reservation.date')
+            ->orderBy('reservation.time_slot')
+            // ->orderBy(array('reservation.date'=>'asc', 'reservation.time_slot'=>'asc'))
+            ->get();
+        return view('reservation', compact('reservation'));
+    }
+    
     public function insert(Request $request)
     {
         $user = DB::table('users')
@@ -35,18 +51,5 @@ class BookingController extends Controller
             ->delete();
 
         return redirect()->action('App\Http\Controllers\DashboardController@index')->with('success','Cancelled reservation!');;
-    }
-
-    public function viewReservation(){
-        $reservation = DB::table('reservation')
-            ->join('users', 'reservation.customer_id', '=', 'users.id')
-            ->select('reservation.res_id', 'reservation.date', 'reservation.time_slot', 'reservation.no_of_people', 'users.name', 'reservation.contact')
-            ->where('reservation.date', '>=', date("Y-m-d"))
-            ->where('reservation.time_slot', '>=', date("H:i:s"))
-            ->orderBy('reservation.date')
-            ->orderBy('reservation.time_slot')
-            // ->orderBy(array('reservation.date'=>'asc', 'reservation.time_slot'=>'asc'))
-            ->get();
-        return view('reservation', compact('reservation'));
     }
 }

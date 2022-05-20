@@ -20,10 +20,12 @@ class DashboardController extends Controller
         $upcoming_res = DB::table('reservation')
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
-            ->where('date', '>=', date("Y-m-d"))
-            ->orWhere(function ($query) {
-                $query->where('date', '>=', date("Y-m-d"))
-                        ->where('time_slot', '>=', date("H:i:s"));
+            ->where(function ($query) {
+                $query->where('date', '>', date("Y-m-d"))
+                    ->orWhere(function ($qry) {
+                        $qry->where('date', '=', date("Y-m-d"))
+                            ->Where('time_slot', '>=', date("H:i:s"));
+                    });
             })
             ->orderBy('reservation.date')
             ->orderBy('reservation.time_slot')
@@ -31,10 +33,12 @@ class DashboardController extends Controller
         $past_res = DB::table('reservation')
             ->select('res_id', 'date', 'time_slot', 'no_of_people')
             ->where('customer_id', Auth::id())
-            ->where('date', '<', date("Y-m-d"))
-            ->orWhere(function ($query) {
+            ->where(function ($query) {
                 $query->where('date', '<', date("Y-m-d"))
-                        ->where('time_slot', '<', date("H:i:s"));
+                    ->orWhere(function ($qry) {
+                        $qry->where('date', '=', date("Y-m-d"))
+                            ->Where('time_slot', '<=', date("H:i:s"));
+                    });
             })
             ->orderBy('reservation.date')
             ->orderBy('reservation.time_slot')
@@ -91,5 +95,50 @@ class DashboardController extends Controller
             ->get();
 
         return view('customerinfo', compact('list'));
+    }
+
+    public function viewCust($id){
+        $user = DB::table('users')
+            ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
+            ->where('id', $id)
+            ->get();
+        $total_purchases = DB::table('purchases')
+                ->where('customer_id', $id)
+                ->count();
+        $upcoming_res = DB::table('reservation')
+            ->select('res_id', 'date', 'time_slot', 'no_of_people')
+            ->where('customer_id', $id)
+            ->where(function ($query) {
+                $query->where('date', '>', date("Y-m-d"))
+                    ->orWhere(function ($qry) {
+                        $qry->where('date', '=', date("Y-m-d"))
+                            ->Where('time_slot', '>=', date("H:i:s"));
+                    });
+            })
+            ->orderBy('reservation.date')
+            ->orderBy('reservation.time_slot')
+            ->get();
+        $past_res = DB::table('reservation')
+            ->select('res_id', 'date', 'time_slot', 'no_of_people')
+            ->where('customer_id', $id)
+            ->where(function ($query) {
+                $query->where('date', '<', date("Y-m-d"))
+                    ->orWhere(function ($qry) {
+                        $qry->where('date', '=', date("Y-m-d"))
+                            ->Where('time_slot', '<=', date("H:i:s"));
+                    });
+            })
+            ->orderBy('reservation.date')
+            ->orderBy('reservation.time_slot')
+            ->limit(5)
+            ->get();
+        $reward = DB::table('purchases')
+            ->select('*')
+            ->where('customer_id', $id)
+            ->where('payment_status', true)
+            ->where('claimed', false)
+            ->count();
+            
+        return view('cust.dashboard', compact('user', 'total_purchases', 'reward', 'upcoming_res', 'past_res',));
     }
 }

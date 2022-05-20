@@ -26,9 +26,11 @@
                         <tr>
                             <th colspan="2">
                                 Account Details
+                                @if (Auth::user()->hasRole('customer'))
                                 <a href="/editacc" style="float: right">
                                     <i class="bi bi-pencil"></i>
                                 </a>
+                                @endif
                             </th>
                         </tr>
                     </thead>
@@ -103,10 +105,12 @@
                                             @endfor
                                     </div>
                                     @if($records == 9)
+                                    @if (Auth::user()->hasRole('customer'))
                                     <form action="/claim" method="POST" action="/action_page.php">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">CLAIM REWARD!</button>
                                     </form>
+                                    @endif
                                     @endif
                             </div>
                         </div>

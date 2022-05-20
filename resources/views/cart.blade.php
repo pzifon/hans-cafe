@@ -14,28 +14,6 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <!-- <ul>
-        <li><a href="/">Hans Cafe</a></li>
-        <li><a href="/menu">Menu</a></li>
-        <li><a href="/booking">Booking</a></li>
-        @if (Route::has('login'))
-        @auth
-        <li style="float:right">
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a class="active" onclick="event.preventDefault();this.closest('form').submit();" :href="route('logout')" class="text-sm text-gray-700 dark:text-gray-500">Log out</a>
-            </form>
-        </li>
-        <li style="float:right"><a class="active" href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500">Account</a></li>
-        <li style="float:right"><a class="active" href="{{ url('/cart') }}" class="text-sm text-gray-700 dark:text-gray-500">Cart</a></li>
-        @else
-        <li style="float:right"><a class="active" href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500">Log in</a></li>
-        @if (Route::has('register'))
-        <li style="float:right"><a class="active" href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Register</a></li>
-        @endif
-        @endauth
-        @endif
-    </ul> -->
     @include('layouts.navbar')
     <div class="container">
         </br>

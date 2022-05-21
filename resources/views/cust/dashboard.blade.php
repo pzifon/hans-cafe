@@ -11,7 +11,7 @@
     </style>
 </head>
 
-<body style="margin-bottom:60px">
+<body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     @include('flash-message')
     <div class="container" style="margin-top:20px; margin-bottom: 20px">
@@ -173,7 +173,7 @@
         </div>
     </div>
     <br>
-    <div class="footer w-100 position-absolute mt-5" style="bottom:0;height:110px">@include('layouts.footer')</div>
+    @include('layouts.footer')
 </body>
 
 </html>

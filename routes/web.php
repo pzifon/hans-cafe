@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,11 @@ Route::get('/booking', function () {
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
     Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
-    Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
+    //Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
+    //Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
 });
+
+Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
 
 Route::group(['middleware' => ['auth', 'role:customer']], function() {
     Route::get('/editacc', 'App\Http\Controllers\DashboardController@reviewInfo')->name('editAcc');

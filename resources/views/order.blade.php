@@ -11,12 +11,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function() {
+
+        // fecthitem();
+
+        // function fetchitem() {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "/fetch-item",
+        //         dataType: "json",
+        //         success: function(response) {
+        //             console.log(response);
+        //         }
+        //     });
+        // }
+
+        $(document).on('click', '.item', function(e) {
+            e.preventDefault();
+            console.log("hello")
+        });
+
+    });
+    </script>
 </head>
 
 <body>
     @include('layouts.navbar')
     <div class="row mt-2 mx-1">
-    <nav class="row">
+        <nav class="row">
             <div class="col-11">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="dine-in-tab" data-bs-toggle="tab" data-bs-target="#dine-in"
@@ -32,7 +58,6 @@
 
         <div class="row mt-3">
             <div class="col-8">
-
                 <div class="row tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="dine-in" role="tabpanel" aria-labelledby="dine-in-tab">
                         <div class="tab-content border border-dark p-3 pb-0" id="pills-tabContent">
@@ -42,7 +67,7 @@
                                     <div class="col mb-3">
                                         <div class="card h-100">
                                             <div class="card-body bg-light">
-                                                <p class="card-title h6 text-center">{{ $product->name }}</p>
+                                                <p class="card-title h6 text-center item">{{ $product->name }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -111,19 +136,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="border border-dark">
                         <ul class="nav nav-pills m-2" id="pills-tab" role="tablist">
-
                             <li class="nav-item col border border-dark me-3">
                                 <button class="nav-link active mx-auto my-2" id="all-tab" data-bs-toggle="pill"
                                     data-bs-target="#all" type="button" role="tab" aria-controls="all"
                                     aria-selected="true">All</button>
                             </li>
-
                             <li class="nav-item col border border-dark me-3">
                                 <button class="nav-link mx-auto mt-2" id="main-course-tab" data-bs-toggle="pill"
                                     data-bs-target="#main-course" type="button" role="tab" aria-controls="main-course"
@@ -146,16 +164,49 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="tab-pane fade" id="take-away" role="tabpanel" aria-labelledby="take-away-tab">fuck you
+                    </div>
                 </div>
-            </div>
 
+                <!-- <div class="row mt-3">
+                    <div class="border border-dark">
+                        <ul class="nav nav-pills m-2" id="pills-tab" role="tablist">
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link active mx-auto my-2" id="all-tab" data-bs-toggle="pill"
+                                    data-bs-target="#all" type="button" role="tab" aria-controls="all"
+                                    aria-selected="true">All</button>
+                            </li>
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="main-course-tab" data-bs-toggle="pill"
+                                    data-bs-target="#main-course" type="button" role="tab" aria-controls="main-course"
+                                    aria-selected="false">Main Course</button>
+                            </li>
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="sides-tab" data-bs-toggle="pill"
+                                    data-bs-target="#sides" type="button" role="tab" aria-controls="sides"
+                                    aria-selected="false">Sides</button>
+                            </li>
+                            <li class="nav-item col border border-dark me-3">
+                                <button class="nav-link mx-auto mt-2" id="beverages-tab" data-bs-toggle="pill"
+                                    data-bs-target="#beverages" type="button" role="tab" aria-controls="beverages"
+                                    aria-selected="false">Beverages</button>
+                            </li>
+                            <li class="nav-item col border border-dark">
+                                <button class="nav-link mx-auto mt-2" id="dessert-tab" data-bs-toggle="pill"
+                                    data-bs-target="#dessert" type="button" role="tab" aria-controls="dessert"
+                                    aria-selected="false">Dessert</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
 
             <div class="col-4 border border-dark">
                 <table class="table">
 
                     <tbody>
                         <tr>
-                        <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
                                         d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -163,7 +214,9 @@
                                 </svg>
                             </td>
 
-                            <td>Egg Benedict</td>
+                            <td>
+                                <p id="demo"></p>
+                            </td>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path

@@ -64,7 +64,10 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
     Route::get('/edit_inventory/{category}', 'App\Http\Controllers\InventoryController@edit');
     Route::post('update','App\Http\Controllers\InventoryController@update');
+    
     Route::get('/customerinfo', 'App\Http\Controllers\DashboardController@custList');
+    Route::get('/viewCust/{id}', 'App\Http\Controllers\DashboardController@viewCust');
+    Route::get('/viewCustReward/{id}','App\Http\Controllers\RewardController@viewCustReward');
 });
 
 require __DIR__.'/auth.php';

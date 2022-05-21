@@ -35,55 +35,23 @@
                     @foreach ($list as $customer)
                     <tr style="border:0px solid black">
                         <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->id }}</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->name }}</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->email }}</td>
-                    <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->contact ?? 'N/A' }}</td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->name }}
+                        </td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->email }}
+                        </td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black">
+                            {{ $customer->contact ?? 'N/A' }}</td>
                         <td>
-                            <button type="submit" style="text-decoration:underline" name="view_details" class="column"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button>
+                            <a href="{{ url('/viewCust/'.$customer->id) }}">
+                            <!-- <a href="/viewCust/.$customer->id"> -->
+                                <button type="button" class="column">View</button>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
 
                 </table>
             </form>
-        </div>
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Customer Info</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row" style="text-align:center;display:block;width: auto;margin:10px;">
-                            <table>
-                                <tr style="border:0px solid black">
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black;width: 100px">
-                                        Purchase History</td>
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black;width: 100px">
-                                        Rewards</td>
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black;width: 100px">
-                                        Booking History</td>
-                                </tr>
-
-                                <tr>
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black">2</td>
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black">2</td>
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black">2</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     @include('layouts.footer')

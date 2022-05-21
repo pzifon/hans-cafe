@@ -33,7 +33,13 @@
                 </div>
             </a>
 
+            @if (Auth::user()->hasRole('customer'))
             <a class="btn btn-outline-dark col" style="margin:20px;padding:0px" href="/reward">
+            @else
+            @foreach ($user as $customer)
+            <a class="btn btn-outline-dark col" style="margin:20px;padding:0px" href="{{ url('/viewCustReward/'.$customer->id) }}">
+            @endforeach
+            @endif
                 <div class="row" style="margin:0px;">
                     <div class="col-4 py-4" style="Background:#FF6767;">
                         <i class="bi bi-award" style="font-size:60px"></i>
@@ -59,9 +65,11 @@
                         <tr>
                             <th colspan="2">
                                 Account Details
+                                @if (Auth::user()->hasRole('customer'))
                                 <a href="/editacc" style="float: right">
                                     <i class="bi bi-pencil"></i>
                                 </a>
+                                @endif
                             </th>
                         </tr>
                     </thead>
@@ -110,7 +118,9 @@
                                     <th style="width:30%">Date</th>
                                     <th style="width:22%">Time</th>
                                     <th style="width:40%">No of people</th>
-                                    <th style="width:40%">Action</th>
+                                    @if (Auth::user()->hasRole('customer'))
+                                    <th>Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody class="table-bordered">
@@ -123,10 +133,12 @@
                                         <td>{{ $upcoming_res->date }}</td>
                                         <td>{{ date('h:ia', strtotime($upcoming_res->time_slot)) }}</td>
                                         <td style="text-align:right;">{{ $upcoming_res->no_of_people }}</td>
+                                        @if (Auth::user()->hasRole('customer'))
                                         <td>
                                             <button type="submit" value="{{$upcoming_res->res_id}}" name="res_id"
                                                 class="btn btn-danger">Cancel</button>
                                         </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </form>

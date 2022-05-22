@@ -17,22 +17,20 @@
     <script>
     $(document).ready(function() {
 
-        // fecthitem();
-
-        // function fetchitem() {
-        //     $.ajax({
-        //         type: "GET",
-        //         url: "/fetch-item",
-        //         dataType: "json",
-        //         success: function(response) {
-        //             console.log(response);
-        //         }
-        //     });
-        // }
-
-        $(document).on('click', '.item', function(e) {
+        $(document).on('click', '.itemid', function(e) {
             e.preventDefault();
-            console.log("hello")
+            var menu_code = $(this).val();
+            console.log(menu_code);
+            $.ajax({
+                type: "GET",
+                url: "/additem/" + menu_code,
+                success: function(response) {
+                    console.log(response);
+                    // if (response.status == 404) {
+
+                    // } else {}
+                }
+            });
         });
 
     });
@@ -64,13 +62,17 @@
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <div class="row row-cols-5">
                                     @foreach ($menu as $product)
-                                    <div class="col mb-3">
-                                        <div class="card h-100">
+                                    <button class="itemid card h-100" value="{{ $product->menu_code }}">
+                                        {{ $product->name }}
+                                    </button>
+                                    <!-- <div class="col mb-3">
+                                        <div class="card h-100 itemid" value="{{ $product->name }}">
                                             <div class="card-body bg-light">
-                                                <p class="card-title h6 text-center item">{{ $product->name }}</p>
+                                                <p class="card-title h6 text-center item">
+                                                    {{ $product->name }}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     @endforeach
                                 </div>
                             </div>

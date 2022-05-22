@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use DB;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -17,5 +18,27 @@ class MenuController extends Controller
     {
         $menu = Menu::all();
         return view('order', compact('menu'));
+    }
+
+    public function additem($menu_code){
+
+        $menu = Menu::all();
+        $menu_details = DB::table('menus')
+            ->select('*')
+            ->where('menu_code', $menu_code)
+            ->get();
+        if($menu){
+            return response()->json([   
+                'status'=>200,
+                'code'=>$menu_code,
+                'details'=>$menu_details,
+            ]);
+        }
+        else {
+            return response()->json([
+                'status'=>404,
+                'order'=>'error',
+            ]);
+        }
     }
 } 

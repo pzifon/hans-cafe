@@ -24,17 +24,14 @@
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="{{asset('storage/img/cafe.jpg')}}" class="d-block w-100" style="height:80vh">
+                    </div>
                     <div class="carousel-item active">
-                        <img src="https://source.unsplash.com/random/100x80?sig=1" class="d-block w-100"
-                            style="height:92vh">
+                        <img src="{{asset('storage/img/logo.jpeg')}}" class="d-block w-100" style="height:80vh">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://source.unsplash.com/random/100x80?sig=2" class="d-block w-100"
-                            style="height:92vh">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://source.unsplash.com/random/100x80?sig=3" class="d-block w-100"
-                            style="height:92vh">
+                        <img src="{{asset('storage/img/coffee.jpg')}}" class="d-block w-100" style="height:80vh">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -49,24 +46,27 @@
                 </button>
             </div>
         </div>
-        <div class="row-sm" style="text-align:center;display:block;width: auto;height:92vh;border: 1px solid white">
+        <div class="row-sm" style="text-align:center;display:block;width: auto;height:80vh;border: 1px solid white">
             <p class="fw-light fs-1" style="font-style:italic;margin: 50px 0 0 0">- On The Menu - </p>
             <div class="container-md" style="margin-top:50px">
                 <div class="row">
                     <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=1" width="1000">
+                        <img class="img-fluid p-3" src="{{asset('storage/img/eggs-benedict.jpg')}}"
+                            style="max-height: 200px">
                         <p class="fw-normal fs-4 p-3">Egg Benedict</p>
                     </div>
                     <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=2" width="1000">
+                        <img class="img-fluid p-3" src="{{asset('storage/img/carbonara.jpg')}}"
+                            style="max-height: 200px">
                         <p class="fw-normal fs-4 p-3">Spaghetti Cabonara</p>
                     </div>
                     <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=3" width="1000">
+                        <img class="img-fluid p-3" src="{{asset('storage/img/NasiLemak.webp')}}"
+                            style="max-height: 200px">
                         <p class="fw-normal fs-4 p-3">Nasi Lemak Bungkus</p>
                     </div>
                     <div class="col">
-                        <img class="img-fluid p-3" src="https://source.unsplash.com/random/100x80?sig=4" width="1000">
+                        <img class="img-fluid p-3" src="{{asset('storage/img/salad.jpg')}}" style="max-height: 200px">
                         <p class="fw-normal fs-4 p-3">Healthy Vegan Salad</p>
                     </div>
                 </div>

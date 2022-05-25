@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +32,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
     //Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
     //Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
+    Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
 });
 
-Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
+
 
 Route::group(['middleware' => ['auth', 'role:customer']], function() {
     Route::get('/editacc', 'App\Http\Controllers\DashboardController@reviewInfo')->name('editAcc');
@@ -73,5 +75,7 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/viewCust/{id}', 'App\Http\Controllers\DashboardController@viewCust');
     Route::get('/viewCustReward/{id}','App\Http\Controllers\RewardController@viewCustReward');
 });
+
+Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
 
 require __DIR__.'/auth.php';

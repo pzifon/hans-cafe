@@ -40,8 +40,9 @@
                     if (response.status == 404) {
 
                     } else {
+                        $('#detailbody').html('');
                         $.each(response.order, function(key, item) {
-                            $('#detailbody').html('<tr>\
+                            $('#detailbody').append('<tr>\
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">' + item
                                 .name + '</td>\
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">' + item
@@ -51,17 +52,16 @@
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">' + item
                                 .quantity + '</td>\
                                     <td style="border-bottom:1px solid black;">' + item.subtotal + '</td>\
-                                </tr>\
-                                <tr style="border-top: 1px solid black">\
-                                    <td colspan="3"></td>\
-                                    <td colspan="2">Total: RM '+ item.total+'</td>\
                                 </tr>');
                         });
+                        $('#detailbody').append('<tr style="border-top: 1px solid black">\
+                                    <td colspan="3"></td>\
+                                    <td colspan="2">Total: RM ' + response.total + '</td>\
+                                </tr>');
                     }
                 }
             });
         });
-
     });
     </script>
 </head>
@@ -104,13 +104,10 @@
                         <button type="button" value="{{$purchases->id}}" class="view btn btn-primary"
                             name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View
                             Details</button>
-                        <!-- <button type="button" value="{{$purchases->id}}" class="view btn btn-primary"
-                            data-toggle="modal" data-target="#exampleModal">View Details</button> -->
                     </td>
                 </tr>
                 @endforeach
             </table>
-            <!-- </form> -->
         </div>
 
 

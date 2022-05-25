@@ -17,22 +17,27 @@
     <script>
     $(document).ready(function() {
 
-        // fecthitem();
-
-        // function fetchitem() {
-        //     $.ajax({
-        //         type: "GET",
-        //         url: "/fetch-item",
-        //         dataType: "json",
-        //         success: function(response) {
-        //             console.log(response);
-        //         }
-        //     });
-        // }
-
-        $(document).on('click', '.item', function(e) {
+        $(document).on('click', '.itemid', function(e) {
             e.preventDefault();
-            console.log("hello")
+            var menu_code = $(this).val();
+            console.log(menu_code);
+            $.ajax({
+                type: "GET",
+                url: "/additem/" + menu_code,
+                success: function(response) {
+                    console.log(response);
+                    if (response.status == 404) {
+
+                    } else {
+                        $.each(response.details, function(key, item) {
+                            $('#detailbody').append('<tr>\
+                                    <td>' + item.name + '</td>\
+                                    <td>' + item.price + '</td>\
+                                </tr>');
+                        });
+                    }
+                }
+            });
         });
 
     });
@@ -64,13 +69,17 @@
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <div class="row row-cols-5">
                                     @foreach ($menu as $product)
-                                    <div class="col mb-3">
-                                        <div class="card h-100">
+                                    <button class="itemid card h-100" value="{{ $product->menu_code }}">
+                                        {{ $product->name }}
+                                    </button>
+                                    <!-- <div class="col mb-3">
+                                        <div class="card h-100 itemid" value="{{ $product->name }}">
                                             <div class="card-body bg-light">
-                                                <p class="card-title h6 text-center item">{{ $product->name }}</p>
+                                                <p class="card-title h6 text-center item">
+                                                    {{ $product->name }}</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     @endforeach
                                 </div>
                             </div>
@@ -205,7 +214,7 @@
                 <table class="table">
 
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-dash-square bg-danger" viewBox="0 0 16 16">
                                     <path
@@ -287,6 +296,8 @@
                                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                 </svg></td>
                             <td>RM 5.90</td>
+                        </tr> -->
+                        <tr id="detailbody">
                         </tr>
                     </tbody>
                 </table>

@@ -40,8 +40,9 @@
                     if (response.status == 404) {
 
                     } else {
+                        $('#detailbody').html('');
                         $.each(response.order, function(key, item) {
-                            $('#detailbody').html('<tr>\
+                            $('#detailbody').append('<tr>\
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">' + item
                                 .name + '</td>\
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">' + item

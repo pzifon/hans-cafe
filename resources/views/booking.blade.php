@@ -146,9 +146,9 @@
             </div>
         </form>
         @else
-        <div class="alert">
+        <div class="d-flex justify-content-center">
             <a href="{{ route('login') }}">
-                <button class="btn">Please login to make your reservation</button>
+                <button class="btn btn-secondary">Please login to make your reservation</button>
             </a>
         </div>
         @endauth

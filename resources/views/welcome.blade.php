@@ -24,11 +24,11 @@
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                         <img src="{{asset('storage/img/cafe.jpg')}}" class="d-block w-100" style="height:80vh">
                     </div>
-                    <div class="carousel-item active">
-                        <img src="{{asset('storage/img/logo.jpeg')}}" class="d-block w-100" style="height:80vh">
+                    <div class="carousel-item">
+                        <img src="{{asset('storage/img/coffee1.jpg')}}" class="d-block w-100" style="height:80vh">
                     </div>
                     <div class="carousel-item">
                         <img src="{{asset('storage/img/coffee.jpg')}}" class="d-block w-100" style="height:80vh">

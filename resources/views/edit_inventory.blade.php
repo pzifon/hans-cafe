@@ -61,7 +61,7 @@
                                 <dd class="col-sm-3 text-center">
                                     <input type="hidden" name="item_code[]" value="{{ $item->item_code }}">
                                     <input type="number" name="item_qty[]" class="form-control" style="width:100%"
-                                        value="{{ $item->stock }}" min=1 max=100 required>
+                                        value="{{ $item->stock }}" min=0 max=100 required>
                                 </dd>
                                 @endforeach
                             </dl>
@@ -110,7 +110,7 @@
                                 <dd class="col-sm-3 text-center">
                                     <input type="hidden" name="item_code[]" value="{{ $item->item_code }}">
                                     <input type="number" name="item_qty[]" class="form-control" style="width:100%"
-                                        value="{{ $item->stock }}" min=1 max=100 required>
+                                        value="{{ $item->stock }}" min=0 max=100 required>
                                 </dd>
                                 @endforeach
                             </dl>
@@ -159,7 +159,7 @@
                                 <dd class="col-sm-3 text-center">
                                     <input type="hidden" name="item_code[]" value="{{ $item->item_code }}">
                                     <input type="number" name="item_qty[]" class="form-control" style="width:100%"
-                                        value="{{ $item->stock }}" min=1 max=100 required>
+                                        value="{{ $item->stock }}" min=0 max=100 required>
                                 </dd>
                                 @endforeach
                             </dl>

@@ -109,8 +109,9 @@
                             <b>RESERVATIONS</b>
                         </div>
                         <div>
-                            <b>UPCOMING</b>
+                            <b class="text-center">UPCOMING</b>
                         </div>
+                        @if($past_res->isNotEmpty())
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -144,9 +145,13 @@
                                 </form>
                             </tbody>
                         </table>
+                        @else
+                        <h6 class="text-center">No Record</h6>
+                        @endif
                         <div>
-                            <b>PAST</b>
+                            <b class="text-center">PAST</b>
                         </div>
+                        @if($past_res->isNotEmpty())
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -167,6 +172,9 @@
                                     @endforeach
                             </tbody>
                         </table>
+                        @else
+                        <h6 class="text-center">No Record</h6>
+                        @endif
                     </div>
                 </div>
             </div>

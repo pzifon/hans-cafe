@@ -62,8 +62,7 @@
                 @if (Auth::user()->hasRole('customer'))
                 <li class="nav-item">
                     <div class="btn-group btn-outline-success dropdown me-md-2">
-                        <button type="button" class="btn btn-success" aria-current="page"
-                            href="{{ url('/dashboard') }}">Account</button>
+                        <a class="btn btn-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
                         <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
                             data-bs-toggle="dropdown" aria-expanded="false" aria-current="page"><span
                                 class="visually-hidden">Toggle Dropdown</span></button>
@@ -71,7 +70,7 @@
                             <li>
                                 <a class="dropdown-item text-center" href="{{ url('/purchases') }}">Purchase History</a>
                             </li>
-                            <a class="dropdown-item text-center" href="{{ url('/reward') }}">Rewards</a>
+                                <a class="dropdown-item text-center" href="{{ url('/reward') }}">Rewards</a>
                             <li>
                             </li>
                         </ul>

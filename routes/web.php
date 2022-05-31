@@ -30,8 +30,6 @@ Route::get('/booking', function () {
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard','App\Http\Controllers\DashboardController@index')->name('dashboard');
     Route::get('/purchases', 'App\Http\Controllers\PurchaseController@index');
-    //Route::post('viewDetails','App\Http\Controllers\PurchaseController@viewDetails');
-    //Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
     Route::get('viewDetails/{id}', [PurchaseController::class, 'viewDetails']);
 });
 

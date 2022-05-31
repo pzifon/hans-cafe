@@ -43,7 +43,6 @@
                             {{ $customer->contact ?? 'N/A' }}</td>
                         <td>
                             <a href="{{ url('/viewCust/'.$customer->id) }}">
-                            <!-- <a href="/viewCust/.$customer->id"> -->
                                 <button type="button" class="column">View</button>
                             </a>
                         </td>

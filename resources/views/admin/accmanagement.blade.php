@@ -46,22 +46,22 @@
                             Number</td>
                         <td style="width: 200px"></td>
                     </tr>
-                    @foreach ($list as $customer)
+                    <!--@foreach ($list as $customer)-->
                     <tr style="border:0px solid black">
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->id }}</td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->name }}
+                        <td style="border-bottom:1px solid black;border-right:1px solid black"><!--{{ $customer->id }}--></td>
+                        <td style="border-bottom:1px solid black;border-right:1px solid black"><!--{{ $customer->name }}-->
                         </td>
-                        <td style="border-bottom:1px solid black;border-right:1px solid black">{{ $customer->email }}
+                        <td style="border-bottom:1px solid black;border-right:1px solid black"><!--{{ $customer->email }}-->
                         </td>
                         <td style="border-bottom:1px solid black;border-right:1px solid black">
-                            {{ $customer->contact ?? 'N/A' }}</td>
+                            <!--{{ $customer->contact ?? 'N/A' }}--></td>
                         <td>
                             <a href="{{ url('/viewCust/'.$customer->id) }}">
                                 <button type="button" class="column">View</button>
                             </a>
                         </td>
                     </tr>
-                    @endforeach
+                    <!--@endforeach-->
 
                 </table>
             </form>

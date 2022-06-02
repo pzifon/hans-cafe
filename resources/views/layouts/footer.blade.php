@@ -5,6 +5,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/js/bootstrap.min.js"></script>
 </head>
 
+
 <footer class="text-center text-dark mt-auto" style="background-color: #cdefea;width:100%;position:relative;bottom:0;">
     <!-- Grid container -->
     <div class="container p-3 pb-0">

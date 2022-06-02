@@ -44,7 +44,7 @@
     </script>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     <div class="row mt-2 mx-1">
         <nav class="row">

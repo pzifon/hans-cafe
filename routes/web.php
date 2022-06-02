@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
 Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
 
 Route::get('/accmanagement', function () {
-    return view('accmanagement');
+    return view('admin/accmanagement');
 });
 
 require __DIR__.'/auth.php';

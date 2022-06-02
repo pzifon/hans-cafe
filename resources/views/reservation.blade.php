@@ -13,7 +13,7 @@
     </script>
 </head>
 
-<body style="margin-bottom:60px">
+<body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
 
     <div class="row"
@@ -53,9 +53,6 @@
         </div>
     </div>
 
-
+@include('layouts.footer')
 </body>
-<div class="footer w-100 position-absolute mt-5" style="bottom:0;height:110px;top: 570px;">@include('layouts.footer')
-</div>
-
 </html>

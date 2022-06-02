@@ -186,7 +186,7 @@
             </div>
             <div class="row m-0 p-0 h-100 w-100 d-inline-block"">
                 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
-                <div id="container" class="m-0 p-0 h-75 d-inline-block"></div>
+                <div id="container1" class="m-0 p-0 h-75 d-inline-block"></div>
                 <script>
                 anychart.onDocumentReady(function() {
 

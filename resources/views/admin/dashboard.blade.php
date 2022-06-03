@@ -56,7 +56,7 @@
                 </div>
             </div>
         </a>
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="">
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/payroll">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
                     <i class="bi bi-wallet2" style="font-size:60px"></i>
@@ -186,7 +186,7 @@
             </div>
             <div class="row m-0 p-0 h-100 w-100 d-inline-block"">
                 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
-                <div id="container1" class="m-0 p-0 h-75 d-inline-block"></div>
+                <div id="container" class="m-0 p-0 h-75 d-inline-block"></div>
                 <script>
                 anychart.onDocumentReady(function() {
 

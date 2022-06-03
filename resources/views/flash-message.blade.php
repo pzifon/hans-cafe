@@ -3,17 +3,19 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="/js/app.js"></script>
 <style type="text/css">
-    .alert{
-        margin:20px;
-        padding:10px;
-        text-align:center;
-    }
-    #success{
-        background-color: #77a8a4;
-    }
-    #error{
-        background-color: red;
-    }
+.alert {
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+#success {
+    background-color: #77a8a4;
+}
+
+#error {
+    background-color: red;
+}
 </style>
 
 @if ($message = Session::get('success'))

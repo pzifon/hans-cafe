@@ -81,4 +81,8 @@ Route::get('/accmanagement', function () {
     return view('admin/accmanagement');
 });
 
+Route::get('/payroll', function () {
+    return view('admin/payroll');
+});
+
 require __DIR__.'/auth.php';

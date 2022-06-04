@@ -70,7 +70,7 @@
                             <li>
                                 <a class="dropdown-item text-center" href="{{ url('/purchases') }}">Purchase History</a>
                             </li>
-                                <a class="dropdown-item text-center" href="{{ url('/reward') }}">Rewards</a>
+                            <a class="dropdown-item text-center" href="{{ url('/reward') }}">Rewards</a>
                             <li>
                             </li>
                         </ul>

@@ -18,9 +18,11 @@
             <h1 class="col-10" style="font-size:20px">Main Course</h1>
 
             <div class="col-2 text-end mb-1">
+            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
                 <button type="button" class="btn btn-danger tab-pane fade show active" id="AddMenu" role="tabpanel"
                     aria-labelledby="add-menu-tab" name="add_menu" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop2">+ Add Menu</button>
+            @endif
 
                 <script type='text/javascript'>
                 function myFunction2() {

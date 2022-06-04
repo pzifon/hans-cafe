@@ -39,84 +39,142 @@
                 </div>
             </div>
         </div>
-        @include('flash-message')
-        <div class="row mx-0 mt-2">
-            <div class="col-sm-4 px-5">
-                <p class="fs-5">&nbsp;<b>Condiment</b></p>
-                <div class="card">
-                    <a href="/edit_inventory/condiment" class="bi bi-pencil-fill text-end"></a>
-                    <div class="border border-secondary\ m-3 mt-0">
-                        <div class="card-body">
-                            <dl class="row mb-0 p-3 card-text">
-                                @foreach ($condiment as $item)
-                                @if ($item->stock == 0)
-                                <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
-                                @elseif ($item->stock < 5) 
-                                <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
-                                @else
-                                <dd class="col-sm-10">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
-                                @endif
-                                @endforeach
-                            </dl>
+        <div class="col-8 text-end mb-1">
+            <button type="button" class="btn btn-danger tab-pane fade show active" id="AddIngredients" role="tabpanel"
+                aria-labelledby="add-ingredients-tab" name="add_ingredients" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop2">+ Add Ingredients</button>
+
+            <script type='text/javascript'>
+            function myFunction2() {
+                document.getElementById("AddIngredients").style.display = "none";
+            }
+
+            function myFunction1() {
+                document.getElementById("AddIngredients").style.display = "block";
+            }
+            </script>
+        </div>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Ingredients</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Inventory Category</span>
+                                <input class="form-control" list="datalistOptions" id="exampleDataList"
+                                    placeholder="Type to search...">
+                                <datalist id="datalistOptions">
+                                    <option value="Condiment">
+                                    <option value="Diary">
+                                    <option value="Meat">
+                                </datalist>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Ingredients Name</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Number Of Stock</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-sm-4 px-5">
-                <p class="fs-5">&nbsp;<b>Dairy</b></p>
-                <div class="card">
-                    <a href="/edit_inventory/dairy" class="bi bi-pencil-fill text-end"></a>
-                    <div class="border border-secondary\ m-3 mt-0">
-                        <div class="card-body">
-                            <dl class="row mb-0 p-3 card-text">
-                                @foreach ($dairy as $item)
-                                @if ($item->stock == 0)
-                                <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
-                                @elseif ($item->stock < 5) 
-                                <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
-                                @else
-                                <dd class="col-sm-10">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
-                                @endif
-                                @endforeach
-                            </dl>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add</button>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- end of Modal -->
 
-            <div class="col-sm-4 px-5">
-                <p class="fs-5">&nbsp;<b>Meat</b></p>
-                <div class="card">
-                    <a href="/edit_inventory/meat" class="bi bi-pencil-fill text-end"></a>
-                    <div class="border border-secondary\ m-3 mt-0">
-                        <div class="card-body">
-                            <dl class="row mb-0 p-3 card-text">
-                                @foreach ($meat as $item)
-                                @if ($item->stock == 0)
-                                <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
-                                <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
-                                @elseif ($item->stock < 5) 
-                                <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+    @include('flash-message')
+    <div class="row mx-0 mt-2">
+        <div class="col-sm-4 px-5">
+            <p class="fs-5">&nbsp;<b>Condiment</b></p>
+            <div class="card">
+                <a href="/edit_inventory/condiment" class="bi bi-pencil-fill text-end"></a>
+                <div class="border border-secondary\ m-3 mt-0">
+                    <div class="card-body">
+                        <dl class="row mb-0 p-3 card-text">
+                            @foreach ($condiment as $item)
+                            @if ($item->stock == 0)
+                            <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                            <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                            @elseif ($item->stock < 5) <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
                                 <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
                                 @else
                                 <dd class="col-sm-10">{{ $item->name }}</dd>
                                 <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
                                 @endif
                                 @endforeach
-                            </dl>
-                        </div>
+                        </dl>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-@include('layouts.footer')
+
+        <div class="col-sm-4 px-5">
+            <p class="fs-5">&nbsp;<b>Dairy</b></p>
+            <div class="card">
+                <a href="/edit_inventory/dairy" class="bi bi-pencil-fill text-end"></a>
+                <div class="border border-secondary\ m-3 mt-0">
+                    <div class="card-body">
+                        <dl class="row mb-0 p-3 card-text">
+                            @foreach ($dairy as $item)
+                            @if ($item->stock == 0)
+                            <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                            <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                            @elseif ($item->stock < 5) <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 px-5">
+            <p class="fs-5">&nbsp;<b>Meat</b></p>
+            <div class="card">
+                <a href="/edit_inventory/meat" class="bi bi-pencil-fill text-end"></a>
+                <div class="border border-secondary\ m-3 mt-0">
+                    <div class="card-body">
+                        <dl class="row mb-0 p-3 card-text">
+                            @foreach ($meat as $item)
+                            @if ($item->stock == 0)
+                            <dd class="col-sm-10 text-danger">{{ $item->name }}</dd>
+                            <dd class="col-sm-2 text-center text-danger">{{ $item->stock }}</dd>
+                            @elseif ($item->stock < 5) <dd class="col-sm-10 text-warning">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center text-warning">{{ $item->stock }}</dd>
+                                @else
+                                <dd class="col-sm-10">{{ $item->name }}</dd>
+                                <dd class="col-sm-2 text-center">{{ $item->stock }}</dd>
+                                @endif
+                                @endforeach
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    @include('layouts.footer')
 </body>
+
 </html>

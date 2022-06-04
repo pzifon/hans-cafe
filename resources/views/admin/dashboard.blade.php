@@ -26,7 +26,7 @@
                 </div>
             </div>
         </a>
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="">
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/revenue">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
                     <i class="bi bi-wallet2" style="font-size:60px"></i>

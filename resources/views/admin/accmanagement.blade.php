@@ -90,7 +90,7 @@
                                                     id="inputGroup-sizing-default">Email</span>
                                                 <input type="email" class="form-control"
                                                     aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default">
+                                                    aria-describedby="inputGroup-sizing-default" placeholder="name@example.com">
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Contact

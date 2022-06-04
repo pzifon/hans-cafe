@@ -85,4 +85,8 @@ Route::get('/revenue', function () {
     return view('admin/revenue');
 });
 
+Route::get('/payroll', function () {
+    return view('admin/payroll');
+});
+
 require __DIR__.'/auth.php';

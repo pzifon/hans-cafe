@@ -59,6 +59,21 @@ Route::group(['middleware' => ['auth', 'role:employee']], function() {
     Route::get('/clockOut', 'App\Http\Controllers\ClockInController@clockOut');
 });
 
+
+Route::group(['middleware' => ['auth', 'role:admin']], function() {
+    Route::get('/accmanagement', function () {
+        return view('admin/accmanagement');
+    });
+
+    Route::get('/revenue', function () {
+        return view('admin/revenue');
+    });
+
+    Route::get('/payroll', function () {
+        return view('admin/payroll');
+    });
+});
+
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
     Route::get('/orderlist', function () {
@@ -73,20 +88,8 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/customerinfo', 'App\Http\Controllers\DashboardController@custList');
     Route::get('/viewCust/{id}', 'App\Http\Controllers\DashboardController@viewCust');
     Route::get('/viewCustReward/{id}','App\Http\Controllers\RewardController@viewCustReward');
-});
 
-Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
-
-Route::get('/accmanagement', function () {
-    return view('admin/accmanagement');
-});
-
-Route::get('/revenue', function () {
-    return view('admin/revenue');
-});
-
-Route::get('/payroll', function () {
-    return view('admin/payroll');
+    Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
 });
 
 require __DIR__.'/auth.php';

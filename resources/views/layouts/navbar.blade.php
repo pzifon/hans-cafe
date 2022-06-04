@@ -76,6 +76,23 @@
                         </ul>
                     </div>
                 </li>
+                @elseif (Auth::user()->hasRole('admin'))
+                <li class="nav-item">
+                    <div class="btn-group btn-outline-success dropdown me-md-2">
+                        <a class="btn btn-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false" aria-current="page"><span
+                                class="visually-hidden">Toggle Dropdown</span></button>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-sm">
+                            <li>
+                                <a class="dropdown-item text-center" href="{{ url('/revenue') }}">Revenue Analysis</a>
+                            </li>
+                            <a class="dropdown-item text-center" href="{{ url('/payroll') }}">Employee Payroll</a>
+                            <li>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 @else
                 <li class="nav-item">
                     <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/dashboard') }}">Account</a>

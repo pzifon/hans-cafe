@@ -42,6 +42,17 @@ class InventoryController extends Controller
         return view('edit_inventory', compact('category', 'condiment', 'dairy', 'meat'));
     }
 
+    public function add(Request $request){
+        $code = $request->input("code");
+        $expiry = $request->input("expiry");
+        $name = $request->input('name');
+        $category = $request->input('category');
+        $stock = $request->input('no_of_stock');
+        $data = array('item_code' => $code, 'expiry_date' => $expiry , "name" => $name,'category' => $category, "stock" => $stock);
+        DB::table('inventory')->insert($data);
+        return redirect()->action('App\Http\Controllers\InventoryController@index')->with('success','Ingredient Added!');
+    }
+
     public function update(Request $request){
         $item_code = $request->item_code;
         $qty = $request->item_qty;

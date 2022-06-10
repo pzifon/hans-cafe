@@ -27,6 +27,11 @@
                         <tr>
                             <th colspan="2">
                                 Account Details
+                                @if (Auth::user()->hasRole('admin'))
+                                <a href="{{ url('/editEmpAcc/'.$user->id) }}" style="float: right">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                @endif
                             </th>
                         </tr>
                     </thead>

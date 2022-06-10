@@ -64,9 +64,9 @@
                                 <div class="modal-body">
                                     <div class="container">
                                         <div class="row">
-                                        <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Employee ID</span>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Employee
+                                                    ID</span>
                                                 <input type="text" class="form-control"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default">
@@ -90,7 +90,8 @@
                                                     id="inputGroup-sizing-default">Email</span>
                                                 <input type="email" class="form-control"
                                                     aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default" placeholder="name@example.com">
+                                                    aria-describedby="inputGroup-sizing-default"
+                                                    placeholder="name@example.com">
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text" id="inputGroup-sizing-default">Contact
@@ -141,123 +142,30 @@
                                     <td style="width: 200px"></td>
                                 </tr>
 
+                                @foreach ($emp_list as $emp)
                                 <tr style="border:0px solid black">
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black"></td>
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $emp->id }}</td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $emp->name }}
                                     </td>
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $emp->email }}
                                     </td>
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $emp->contact ?? 'N/A' }}
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-secondary" name="view_details"
-                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button>
+                                        <a href="{{ url('/viewEmp/'.$emp->id) }}">
+                                            <button type="button" class="column">View</button>
+                                        </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </table>
                         </form>
                     </div>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Employee Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container" style="margin-top:20px; margin-bottom: 20px">
-                                    <div class="row">
-                                        <div class="col">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="2">
-                                                            Account Details
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>EMPLOYEE ID</td>
-                                                        <td>id</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>NAME</td>
-                                                        <td>name</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DATE OF BIRTH</td>
-                                                        <td>dob</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>EMAIL</td>
-                                                        <td>email</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>CONTACT</td>
-                                                        <td>contact</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DATE JOINED</td>
-                                                        <td>date joined</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body" style="padding-top: 7px;">
-                                                    <div>
-                                                        <b>Working Hours</b>
-                                                    </div>
-                                                    <div class="row mt-3">
-                                                        <div class="row ms-0">
-                                                            <div class="col border border-outline-dark me-md-3">
-                                                                <div class="row ps-2 mt-1">Total Hours Worked</div>
-                                                                <div class="row">
-                                                                    <p class="text-center fs-2 mt-1">72</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col border border-outline-dark">
-                                                                <div class="row ps-2 mt-1">Total Overtime Hours</div>
-                                                                <div class="row">
-                                                                    <p class="text-center fs-2 mt-1">3</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row ms-0 mt-3">
-                                                            <div class="col border border-outline-dark me-md-3">
-                                                                <div class="row ps-2 mt-1">Total Days Worked</div>
-                                                                <div class="row">
-                                                                    <p class="text-center fs-2 mt-1">9</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col border border-outline-dark">
-                                                                <div class="row ps-2 mt-1">Total Absence</div>
-                                                                <div class="row">
-                                                                    <p class="text-center fs-2 mt-1">1</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end of Modal -->
 
                 <div class="tab-pane fade pe-0" id="customer_info" role="tabpanel" aria-labelledby="customer-info-tab">
                     <div class="table-scrollable" style="overflow-x: auto;  max-width: auto; max-height:275px;">
@@ -278,150 +186,31 @@
                                     <td style="width: 200px"></td>
                                 </tr>
 
+                                @foreach ($cust_list as $cust)
                                 <tr style="border:0px solid black">
-                                    <td style="border-bottom:1px solid black;border-right:1px solid black"></td>
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $cust->id }}</td>
+                                    <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $cust->name }}
                                     </td>
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $cust->email }}
                                     </td>
                                     <td style="border-bottom:1px solid black;border-right:1px solid black">
+                                        {{ $cust->contact ?? 'N/A'}}
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-secondary" name="view_details1"
-                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop1">View</button>
+                                        <a href="{{ url('/viewCust/'.$cust->id) }}">
+                                            <button type="button" class="column">View</button>
+                                        </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </table>
                         </form>
                     </div>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Customer Information</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="border border-dark col" style="margin:20px;padding:0px">
-                                            <div class="row" style="margin:0px">
-                                                <div class="row">
-                                                    <p class="fs-1" style="margin-top:10px">Total Purchases</p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="fs-3" style="margin-top:10px">Total Purchases</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="border border-dark col" style="margin:20px;padding:0px">
-                                            <div class="row" style="margin:0px">
-                                                <div class="row">
-                                                    <p class="fs-1" style="margin-top:10px">reward</p>
-                                                </div>
-                                                <div class="row">
-                                                    <p class="fs-3" style="margin-top:10px">Reward</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="2">
-                                                            Account Details
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>MEMBERSHIP ID</td>
-                                                        <td>id</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>NAME</td>
-                                                        <td>name</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DATE OF BIRTH</td>
-                                                        <td>dob</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>EMAIL</td>
-                                                        <td>email</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>CONTACT</td>
-                                                        <td>contact</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>DATE JOINED</td>
-                                                        <td>date joined</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div style="text-align: center">
-                                                        <b>RESERVATIONS</b>
-                                                    </div>
-                                                    <div>
-                                                        <b class="text-center">UPCOMING</b>
-                                                    </div>
-
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width:8%">ID</th>
-                                                                <th style="width:30%">Date</th>
-                                                                <th style="width:22%">Time</th>
-                                                                <th style="width:40%">No of people</th>
-                                                                <th>Status</th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="table-bordered">
-                                                            <form action="/cancel" method="post"
-                                                                action="/action_page.php">
-
-                                                                <tr>
-                                                                    <td>id</td>
-                                                                    <td>date</td>
-                                                                    <td>time slot</td>
-                                                                    <td style="text-align:right;">no of pp</td>
-                                                                    <td>status </td>
-                                                                </tr>
-
-                                                            </form>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end of Modal -->
+                
             </div>
         </div>
     </div>

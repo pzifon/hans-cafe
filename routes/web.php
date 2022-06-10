@@ -57,13 +57,16 @@ Route::group(['middleware' => ['auth', 'role:customer']], function() {
 Route::group(['middleware' => ['auth', 'role:employee']], function() {
     Route::get('/clockIn', 'App\Http\Controllers\ClockInController@clockIn');
     Route::get('/clockOut', 'App\Http\Controllers\ClockInController@clockOut');
+    Route::get('/customerinfo', 'App\Http\Controllers\DashboardController@custList');
 });
 
 
 Route::group(['middleware' => ['auth', 'role:admin']], function() {
-    Route::get('/accmanagement', function () {
-        return view('admin/accmanagement');
-    });
+    
+    Route::get('/accmanagement', 'App\Http\Controllers\DashboardController@accManagement');
+    Route::get('/viewEmp/{id}', 'App\Http\Controllers\DashboardController@viewEmp')->name("viewEmp");
+    Route::get('/editEmpAcc/{id}', 'App\Http\Controllers\DashboardController@reviewEmpInfo')->name('editEmpAcc');
+    Route::post('editEmp', 'App\Http\Controllers\DashboardController@editEmpInfo');
 
     Route::get('/revenue', function () {
         return view('admin/revenue');
@@ -85,7 +88,6 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/edit_inventory/{category}', 'App\Http\Controllers\InventoryController@edit');
     Route::post('update','App\Http\Controllers\InventoryController@update');
     
-    Route::get('/customerinfo', 'App\Http\Controllers\DashboardController@custList');
     Route::get('/viewCust/{id}', 'App\Http\Controllers\DashboardController@viewCust');
     Route::get('/viewCustReward/{id}','App\Http\Controllers\RewardController@viewCustReward');
 

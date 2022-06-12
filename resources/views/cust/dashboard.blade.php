@@ -111,7 +111,7 @@
                         <div>
                             <b class="text-center">UPCOMING</b>
                         </div>
-                        @if($past_res->isNotEmpty())
+                        @if($upcoming_res->isNotEmpty())
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

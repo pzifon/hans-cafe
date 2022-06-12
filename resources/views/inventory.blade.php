@@ -60,6 +60,8 @@
     <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
+        <form action="/add" method="post" action="/action_page.php">
+            @csrf
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Add Ingredients</h5>
@@ -69,32 +71,43 @@
                     <div class="container">
                         <div class="row">
                             <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Item Code</span>
+                                <input type="text" name="code" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Expiry Date</span>
+                                <input type="date" name="expiry" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" required>
+                            </div>
+                            <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Inventory Category</span>
-                                <input class="form-control" list="datalistOptions" id="exampleDataList"
+                                <input name="category" class="form-control" list="datalistOptions" id="exampleDataList"
                                     placeholder="Type to search...">
                                 <datalist id="datalistOptions">
                                     <option value="Condiment">
-                                    <option value="Diary">
+                                    <option value="Dairy">
                                     <option value="Meat">
                                 </datalist>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Ingredients Name</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                <input type="text" name="name" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" required>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Number Of Stock</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                <input type="number" name="no_of_stock" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default" min=0 max=100 required>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add</button>
+                    <button type="submit" class="btn btn-secondary" name="add">Add</button>
                 </div>
             </div>
+        </form>
         </div>
     </div>
     <!-- end of Modal -->

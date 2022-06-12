@@ -86,6 +86,7 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/reservation', 'App\Http\Controllers\BookingController@index');
     Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
     Route::get('/edit_inventory/{category}', 'App\Http\Controllers\InventoryController@edit');
+    Route::post('add','App\Http\Controllers\InventoryController@add');
     Route::post('update','App\Http\Controllers\InventoryController@update');
     
     Route::get('/viewCust/{id}', 'App\Http\Controllers\DashboardController@viewCust');

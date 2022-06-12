@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use Debugbar;
 use DB;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class MenuController extends Controller
     public function menuList()
     {
         $menu = Menu::all();
+        Debugbar::info("testing");
         return view('menu', compact('menu'));
     }
 

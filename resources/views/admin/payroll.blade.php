@@ -18,8 +18,10 @@
     <div class="row" style="text-align:center;display:block;width: auto;height:400px;margin:50px;border: 1px solid black;border-radius:30px">
 
         <p class="fw-light fs-1" style="font-style:italic;margin: 25px 0 10px 20px;text-align:left">Payroll</p>
-        <div class="ms-3 text-start">
-            <input type="month" id="month" value="2022-01">
+        <div class="ms-3 text-start input-daterange">
+        <form action="/payroll/filter" method="GET">
+            <input type="month" id="month" name="month" value="<?php echo isset($_GET['month']) ? $_GET['month'] : date("Y-m") ?>">
+            <input type="submit" name="filter" id="filter" class="btn btn-info btn-sm">
         </div>
 
         <div class="table-scrollable" style="overflow-x: auto;  max-width: auto; max-height:275px;">
@@ -63,3 +65,7 @@
 </body>
 
 </html>
+
+<script>
+    document.getElementById("month").defaultValue = today.getMonth()+1;
+</script>

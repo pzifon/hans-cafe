@@ -72,9 +72,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
         return view('admin/revenue');
     });
 
-    Route::get('/payroll', function () {
-        return view('admin/payroll');
-    });
+    Route::get('/payroll', 'App\Http\Controllers\PayrollController@index');
+    Route::get('/payroll/filter', 'App\Http\Controllers\PayrollController@filter');
 });
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {

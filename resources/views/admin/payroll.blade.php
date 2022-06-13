@@ -19,8 +19,10 @@
 
         <p class="fw-light fs-1" style="font-style:italic;margin: 25px 0 10px 20px;text-align:left">Payroll</p>
         <div class="ms-3 text-start input-daterange">
-        <form action="/payroll/filter" method="GET">
-            <input type="month" id="month" name="month" value="<?php echo isset($_GET['month']) ? $_GET['month'] : date("Y-m") ?>">
+        <form action="/payroll/filter" method="POST">
+            @csrf
+            @csrf
+            <input type="month" id="month" name="month" value="<?php echo isset($_POST['month']) ? $_POST['month'] : date("Y-m") ?>">
             <input type="submit" name="filter" id="filter" class="btn btn-info btn-sm">
         </div>
 

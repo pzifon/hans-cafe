@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     });
 
     Route::get('/payroll', 'App\Http\Controllers\PayrollController@index');
-    Route::get('/payroll/filter', 'App\Http\Controllers\PayrollController@filter');
+    Route::post('/payroll/filter', 'App\Http\Controllers\PayrollController@filter');
 });
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {

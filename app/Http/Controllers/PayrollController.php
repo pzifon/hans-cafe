@@ -72,9 +72,6 @@ class PayrollController extends Controller
         $filter = $request->input("month");
         $month = Carbon::parse($filter)->format('m');
         $year = Carbon::parse($filter)->format('Y');
-        Debugbar::info("filter");
-        Debugbar::info($month);
-        Debugbar::info($year);
         foreach ($emp_id_list as $id){
             $data = DB::table("clockIn")
                     ->whereMonth('date', $month) //04 = April, 05 = May

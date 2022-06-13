@@ -12,7 +12,6 @@ class MenuController extends Controller
     public function menuList()
     {
         $menu = Menu::all();
-        Debugbar::info("testing");
         return view('menu', compact('menu'));
     }
 

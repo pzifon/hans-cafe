@@ -32,6 +32,7 @@ class PayrollController extends Controller
             $data = DB::table("clockIn")
                     ->whereMonth('date', Carbon::now()->month) //04 = April, 05 = May
                     ->whereYear('date', Carbon::now()->year)
+                    ->whereNotNull('clock_out_time')
                     ->where('emp_id', $id) 
                     ->get();
             $total_hours = 0;

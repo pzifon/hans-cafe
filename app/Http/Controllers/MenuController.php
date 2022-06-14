@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
-use Debugbar;
 use DB;
 use Illuminate\Http\Request;
 

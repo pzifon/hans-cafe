@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <img src="https://source.unsplash.com/random/100x80?sig=4"
+                            <img src="{{asset('storage/img/logo.png')}}"
                                 style="width:300px;height:300px;margin-top: 40px;">
                         </div>
                     </div>

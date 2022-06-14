@@ -13,11 +13,15 @@
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
+    @include('flash-message')
 
     <div class="row"
         style="text-align:center;display:block;width: auto;height:400px;margin:50px;border: 1px solid black;border-radius:30px">
 
         <nav class="row pe-0">
+            <div class="card-body">
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+            </div>
             <div class="col">
                 <div class="nav nav-tabs mt-2 ms-3" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="employee-info-tab" data-bs-toggle="tab"
@@ -55,65 +59,70 @@
                     <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Add New Employee</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Employee
-                                                    ID</span>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Name</span>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Date of
-                                                    Birth</span>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Email</span>
-                                                <input type="email" class="form-control"
-                                                    aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default"
-                                                    placeholder="name@example.com">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Contact
-                                                    Number</span>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default">
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Date
-                                                    Joined</span>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Sizing example input"
-                                                    aria-describedby="inputGroup-sizing-default">
+                            <form action="/addEmp" method="post" action="/action_page.php">
+                                @csrf
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Add New Employee</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Name</span>
+                                                    <input type="text" name="name" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="inputGroup-sizing-default">Date
+                                                        of Birth</span>
+                                                    <input type="date" name="dob" id="dob" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Email</span>
+                                                    <input type="email" name="email" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Contact Number</span>
+                                                    <input type="text" name="contact" class="form-control"
+                                                        pattern="^(01)[0-9]{8,9}$" placeholder="eg. 01XXXXXXXX"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Password</span>
+                                                    <input type="password" name="password" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Confirm Password</span>
+                                                    <input type="password" name="password_confirmation"
+                                                        class="form-control" aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                                </div>
+                                                <!-- Default Role -->
+                                                <input id="role" type="hidden" name="role" value="employee" />
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-secondary">Add</button>
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <!-- end of Modal -->
@@ -210,11 +219,28 @@
                         </form>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
     @include('layouts.footer')
 </body>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+    dd = '0' + dd;
+}
+if (mm < 10) {
+    mm = '0' + mm;
+}
+
+date = yyyy + '-' + mm + '-' + dd;
+document.getElementById("dob").setAttribute("max", date);
+</script>
 
 </html>

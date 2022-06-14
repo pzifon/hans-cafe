@@ -18,9 +18,16 @@ class DashboardController extends Controller
             ->get();
         
         if(Auth::user()->hasRole('admin')){
-            return view('admin.dashboard', compact('user'));
+            $total_revenue = DB::table('purchases')
+                ->whereMonth('date', "05") 
+                ->whereYear('date', Carbon::now()->year)
+                ->sum('total');
+            $total_orders = DB::table('purchases')
+                ->whereMonth('date', Carbon::now()->month) 
+                ->whereYear('date', Carbon::now()->year)
+                ->count();
+            return view('admin.dashboard', compact('user', 'total_revenue', 'total_orders'));
         }elseif(Auth::user()->hasRole('employee')){
-            // $work = DB::table('')
             $data = DB::table("clockIn")
                     ->whereMonth('date', Carbon::now()->month) //04 = April, 05 = May
                     ->whereYear('date', Carbon::now()->year)

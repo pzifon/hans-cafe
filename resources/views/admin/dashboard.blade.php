@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-8">
                     <div class="row">
-                        <p class="fs-1 mt-1">20k</p>
+                        <p class="fs-1 mt-1">RM {{ number_format($total_revenue, 2) }}</p>
                     </div>
                     <div class="row">
                         <p class="fs-3">Total Revenue</p>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-8">
                     <div class="row">
-                        <p class="fs-1 mt-1">532</p>
+                        <p class="fs-1 mt-1">{{ $total_orders }}</p>
                     </div>
                     <div class="row">
                         <p class="fs-3">Total Order</p>

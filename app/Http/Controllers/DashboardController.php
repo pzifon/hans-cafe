@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use DB;
 use Debugbar;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class DashboardController extends Controller
 {
@@ -235,5 +239,33 @@ class DashboardController extends Controller
         // echo "Sucessfully updated!";
         // return redirect()->action('App\Http\Controllers\DashboardController@viewEmp')->with('success','Employee Info updated successfully!');
         return redirect()->route('viewEmp', $id)->with('success','Employee Info updated successfully!');
+    }
+
+    public function addEmp(Request $request){
+        $name = $request->input("name");
+        $dob = $request->input("dob");
+        $email = $request->input('email');
+        $contact = $request->input('category');
+        
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'dob' => ['required'],
+            'contact' => ['required','unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::min(8)->letters()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'dob' => $request->dob,
+            'contact' => $request->contact,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $user->attachRole($request->role); 
+        event(new Registered($user));
+
+        return redirect()->action('App\Http\Controllers\DashboardController@accManagement')->with('success','Employee Added!');;
     }
 }

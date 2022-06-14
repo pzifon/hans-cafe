@@ -67,6 +67,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::get('/viewEmp/{id}', 'App\Http\Controllers\DashboardController@viewEmp')->name("viewEmp");
     Route::get('/editEmpAcc/{id}', 'App\Http\Controllers\DashboardController@reviewEmpInfo')->name('editEmpAcc');
     Route::post('editEmp', 'App\Http\Controllers\DashboardController@editEmpInfo');
+    Route::post('addEmp', 'App\Http\Controllers\DashboardController@addEmp');
 
     Route::get('/revenue', function () {
         return view('admin/revenue');

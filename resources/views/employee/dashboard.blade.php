@@ -75,55 +75,40 @@
                                 <div class="col border border-outline-dark me-md-3">
                                     <div class="row ps-2 mt-1">Total Hours Worked</div>
                                     <div class="row">
-                                        <p class="text-center fs-2 mt-1">72</p>
+                                        <p class="text-center fs-2 mt-1">{{ number_format($total_hours,0) }}</p>
                                     </div>
                                 </div>
                                 <div class="col border border-outline-dark">
-                                    <div class="row ps-2 mt-1">Total Overtime Hours</div>
-                                    <div class="row">
-                                        <p class="text-center fs-2 mt-1">3</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row ms-0 mt-3">
-                                <div class="col border border-outline-dark me-md-3">
                                     <div class="row ps-2 mt-1">Total Days Worked</div>
                                     <div class="row">
-                                        <p class="text-center fs-2 mt-1">9</p>
-                                    </div>
-                                </div>
-                                <div class="col border border-outline-dark">
-                                    <div class="row ps-2 mt-1">Total Absence</div>
-                                    <div class="row">
-                                        <p class="text-center fs-2 mt-1">1</p>
+                                        <p class="text-center fs-2 mt-1">{{ $total_days }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <a class=" btn btn-outline-dark col mb-5" style="margin:20px;padding:0px" href="/customerinfo">
+                        <div class="row" style="margin:0px">
+                            <div class="col-4 py-4" style="Background:#FF6767;">
+                                <i class="bi bi-wallet2" style="font-size:60px"></i>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <p class="fs-1" style="margin-top:10px"></p>
+                                </div>
+                                <div class="row">
+                                    <p class="fs-3" style="margin-top:10px">View Customer Info</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <a class=" btn btn-outline-dark col mb-5" style="margin:20px;padding:0px" href="/customerinfo">
-                <div class="row" style="margin:0px">
-                    <div class="col-4 py-4" style="Background:#FF6767;">
-                        <i class="bi bi-wallet2" style="font-size:60px"></i>
-                    </div>
-                    <div class="col-8">
-                        <div class="row">
-                            <p class="fs-1" style="margin-top:10px"></p>
-                        </div>
-                        <div class="row">
-                            <p class="fs-3" style="margin-top:10px">View Customer Info</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div class="col"></div>
-        </div>
     </div>
-    
+
     @include('layouts.footer')
 </body>
 

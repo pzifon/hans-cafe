@@ -8,11 +8,36 @@
     <title>Hans Cafe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        @media screen and (min-width: 601px) {
+  div {
+    font-size: 30px;
+  }
+
+  img{
+      height:  80vh;
+  }
+  a.nav-link{
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div {
+    font-size: 20px;
+  }
+
+  img{
+      height: auto;
+  }
+}
+        </style>
 </head>
 
 <body class="antialiased d-flex flex-column min-vh-100">
     @include('layouts.navbar')
-    <div class="container">
+    <div class="container text-center">
         <div class="slideshow" style="text-align:center;display:block;width: auto;border: 1px solid white">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -25,13 +50,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{asset('storage/img/cafe.jpg')}}" class="d-block w-100" style="height:80vh">
+                        <img src="{{asset('storage/img/cafe.jpg')}}" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('storage/img/coffee1.jpg')}}" class="d-block w-100" style="height:80vh">
+                        <img src="{{asset('storage/img/coffee1.jpg')}}" class="d-block w-100">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{asset('storage/img/coffee.jpg')}}" class="d-block w-100" style="height:80vh">
+                        <img src="{{asset('storage/img/coffee.jpg')}}" class="d-block w-100">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -46,8 +71,8 @@
                 </button>
             </div>
         </div>
-        <div class="row-sm" style="text-align:center;display:block;width: auto;height:80vh;border: 1px solid white">
-            <p class="fw-light fs-1" style="font-style:italic;margin: 50px 0 0 0">- On The Menu - </p>
+        <div class="row-sm mb-5">
+            <p class="fw-light fs-1 text-center" style="font-style:italic;margin: 50px 0 0 0">- On The Menu - </p>
             <div class="container-md" style="margin-top:50px">
                 <div class="row">
                     <div class="col">
@@ -72,27 +97,26 @@
                 </div>
             </div>
             <a href="/menu">
-                <button type="button" class="btn btn-secondary"
-                    style="border-radius:50px;margin-top:30px;padding:10px 50px" width="1000">
-                    <p class="align-middle fs-4" style="margin-bottom: 0px;">See More</p>
+                <button type="button" class="btn btn-secondary rounded-pill">
+                    <p class="align-middle fs-5 mb-0">See More</p>
                 </button>
             </a>
         </div>
 
-        <div class="row-sm" style="text-align:center;display:block;width: auto;height:92vh;border: 1px solid white">
-            <div class="row"
-                style="text-align:center;display:block;width: auto;height:600px;margin:50px;border: 1px solid black">
-                <p class="fw-light fs-1" style="font-style:italic;margin: 40px 0 0 0">- OPEN FOR DINE IN, TAKEOUT, AND
+        <div class="row mx-3 justify-content-center">
+            <div class="row border border-dark justify-content-center">
+                <p class="fw-light text-center mt-3">- OPEN FOR DINE IN, TAKEOUT, AND
                     DELIVERY - </p>
                 <div class="container-md" style="margin-top:50px">
                     <div class="row">
                         <div class="col">
-                            <div class="info" style="font-size:30px;text-align:left;margin-left: 200px;">
+                            <div class="info">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                                </svg> LOCATION
+                                </svg> 
+                              LOCATION
                                 <p class="fs-5">TB 16313, Lot B15 Tkt 1, <br>Perdana Jaya, Tawau 91000 Malaysia.</p>
                                 </br>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -122,9 +146,9 @@
             </div>
         </div>
 
-        <div class="row-sm" style="text-align:center;display:block;width: auto;height:85vh;border: 1px solid white">
-            <p class="fw-light fs-1" style="font-style:italic;margin: 40px 0 0 0">- Our Story -</p>
-            <p style="text-align:justify; margin: auto;padding:0;display:block;width:80%"><br>
+        <div class="row-sm justify-content-center mb-5">
+            <p class="fw-light mt-5 h1">- Our Story -</p>
+            <p class="fs-6"><br>
                 &emsp;&emsp;Han's café, one of the pillars of sustainable food services, is proud to have achieved local
                 and
                 sustainable sourcing, improved access to tap water and healthy beverages, promoted access to nutritious

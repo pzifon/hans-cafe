@@ -9,6 +9,39 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <style>
+    @media screen and (min-width: 601px) {
+        div {
+            font-size: 18px;
+        }
+
+
+        img {
+            height: 80vh;
+        }
+
+        a.nav-link {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        div {
+            font-size: 15px;
+        }
+
+        img {
+            height: auto;
+        }
+
+        div.booking{
+            text-align: center;
+        }
+        h2{
+            font-size:50px;
+        }
+    }
+    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -41,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" style="margin: auto;">
+            <div class="booking col" style="margin: auto;">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-geo-alt-fill" viewBox="0 0 16 16">

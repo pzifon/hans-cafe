@@ -64,17 +64,52 @@
         });
     });
     </script>
+    <style type="text/css">
+    @media screen and (min-width: 601px) {
+        #MobileView {
+            border: 1px solid black;
+            border-radius: 30px;
+            margin: 50px;
+        }
+
+        #info {
+            max-height: 300px;
+        }
+    }
+
+
+
+    @media screen and (max-width: 600px) {
+        #MobileView {
+            border: none;
+            border-radius: 30px;
+            max-height: 500px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        #info {
+            max-height: 500px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        td,
+        #vdb {
+            font-size: 11px;
+        }
+    }
+    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
 
-    <div class="row"
-        style="text-align:center;display:block;width: auto;height:400px;margin:50px;border: 1px solid black;border-radius:30px">
+    <div class="row text-center " id="MobileView">
 
-        <p class="fw-light fs-1" style="font-style:italic;margin: 25px 0 10px 20px;text-align:left">Purchase History</p>
+        <p class="fw-light fst-italic fs-1 text-start m-4 w-75">Purchase History</p>
 
-        <div class="table-scrollable" style="overflow-x: auto;  max-width: auto; max-height:275px;">
+        <div class="table-scrollable overflow-auto mh-75" id="info">
 
             <!-- <form style="margin:20px;" action="/viewDetails" method="post" action="/action_page.php"> -->
             @csrf
@@ -101,7 +136,7 @@
                     <td style="border-bottom:1px solid black;border-right:1px solid black">Unpaid</td>
                     @endif
                     <td>
-                        <button type="button" value="{{$purchases->id}}" class="view btn btn-primary"
+                        <button type="button" id="vdb" value="{{$purchases->id}}" class="view btn btn-primary btn-sm"
                             name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View
                             Details</button>
                     </td>
@@ -114,7 +149,7 @@
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Order Detail</h5>

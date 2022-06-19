@@ -7,6 +7,55 @@
     <title>Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+    @media screen and (min-width: 601px) {
+        div {
+            font-size: 30px;
+        }
+
+        div.card-body {
+            font-size: 20px;
+        }
+
+        p.price {
+            font-size: 18px;
+        }
+        p.product {
+            font-size: 18px;
+        }
+
+        img {
+            height: 80vh;
+        }
+
+        a.nav-link {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        div {
+            font-size: 20px;
+        }
+
+        div.card-body{
+            font-size: 20px;
+        }
+
+        p.price {
+            font-size: 15px;
+        }
+
+        p.product {
+            font-size: 15px;
+        }
+
+        img {
+            height: auto;
+        }
+    }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -18,15 +67,15 @@
             <h1 class="col-10" style="font-size:20px">Main Course</h1>
 
             <div class="col-2 text-end mb-1">
-            @if (Route::has('login'))
-            @auth
-            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                @if (Route::has('login'))
+                @auth
+                @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
                 <button type="button" class="btn btn-danger tab-pane fade show active" id="AddMenu" role="tabpanel"
                     aria-labelledby="add-menu-tab" name="add_menu" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop2">+ Add Menu</button>
-            @endif
-            @endauth
-            @endif
+                @endif
+                @endauth
+                @endif
 
                 <script type='text/javascript'>
                 function myFunction2() {
@@ -159,23 +208,23 @@
                     <div class="card-body">
                         <div class="row">
                             <h5 class="col-10 card-title">{{ $product->name }}</h5>
-            @if (Route::has('login'))
-            @auth
-            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                            @if (Route::has('login'))
+                            @auth
+                            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
                             <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop1"></i>
                             <i class="col-1 bi bi-trash3-fill "></i>
-            @endif
-            @endauth
-            @endif
+                            @endif
+                            @endauth
+                            @endif
                         </div>
-                        <p class="card-text">{{ $product->description}}</p>
-                        <p class="card-text">{{ $product->nutrition}}</p>
+                        <p class="product card-text">{{ $product->description}}</p>
+                        <p class="product card-text">{{ $product->nutrition}}</p>
                     </div>
                     <div class="card-footer" style="border-top: none; background-color: transparent">
                         <div class="row">
-                            <p class="card-text col">RM {{ number_format($product->price,2) }}</p>
+                            <p class="price card-text col">RM {{ number_format($product->price,2) }}</p>
                             <div class="col">
                                 @if (Route::has('login'))
                                 @auth
@@ -212,23 +261,23 @@
                     <div class="card-body">
                         <div class="row">
                             <h5 class="col-10 card-title">{{ $product->name }}</h5>
-            @if (Route::has('login'))
-            @auth
-            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                            @if (Route::has('login'))
+                            @auth
+                            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
                             <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop1"></i>
                             <i class="col-1 bi bi-trash3-fill "></i>
-            @endif
-            @endauth
-            @endif
+                            @endif
+                            @endauth
+                            @endif
                         </div>
-                        <p class="card-text">{{ $product->description}}</p>
-                        <p class="card-text">{{ $product->nutrition}}</p>
+                        <p class="product card-text">{{ $product->description}}</p>
+                        <p class="product card-text">{{ $product->nutrition}}</p>
                     </div>
                     <div class="card-footer" style="border-top: none; background-color: transparent">
                         <div class="row">
-                            <p class="card-text col">RM {{ number_format($product->price,2) }}</p>
+                            <p class="price card-text col">RM {{ number_format($product->price,2) }}</p>
                             <div class="col">
                                 @if (Route::has('login'))
                                 @auth
@@ -265,23 +314,23 @@
                     <div class="card-body">
                         <div class="row">
                             <h5 class="col-10 card-title">{{ $product->name }}</h5>
-            @if (Route::has('login'))
-            @auth
-            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                            @if (Route::has('login'))
+                            @auth
+                            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
                             <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop1"></i>
                             <i class="col-1 bi bi-trash3-fill "></i>
-            @endif
-            @endauth
-            @endif
+                            @endif
+                            @endauth
+                            @endif
                         </div>
-                        <p class="card-text">{{ $product->description}}</p>
-                        <p class="card-text">{{ $product->nutrition}}</p>
+                        <p class="product card-text">{{ $product->description}}</p>
+                        <p class="product card-text">{{ $product->nutrition}}</p>
                     </div>
                     <div class="card-footer" style="border-top: none; background-color: transparent">
                         <div class="row">
-                            <p class="card-text col">RM {{ number_format($product->price,2) }}</p>
+                            <p class="price card-text col">RM {{ number_format($product->price,2) }}</p>
                             <div class="col">
                                 @if (Route::has('login'))
                                 @auth
@@ -318,23 +367,23 @@
                     <div class="card-body">
                         <div class="row">
                             <h5 class="col-10 card-title">{{ $product->name }}</h5>
-            @if (Route::has('login'))
-            @auth
-            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
+                            @if (Route::has('login'))
+                            @auth
+                            @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
                             <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop1"></i>
                             <i class="col-1 bi bi-trash3-fill "></i>
-            @endif
-            @endauth
-            @endif
+                            @endif
+                            @endauth
+                            @endif
                         </div>
-                        <p class="card-text">{{ $product->description}}</p>
-                        <p class="card-text">{{ $product->nutrition}}</p>
+                        <p class="product card-text">{{ $product->description}}</p>
+                        <p class="product card-text">{{ $product->nutrition}}</p>
                     </div>
                     <div class="card-footer" style="border-top: none; background-color: transparent">
                         <div class="row">
-                            <p class="card-text col">RM {{ number_format($product->price,2) }}</p>
+                            <p class="price card-text col">RM {{ number_format($product->price,2) }}</p>
                             <div class="col">
                                 @if (Route::has('login'))
                                 @auth

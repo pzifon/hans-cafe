@@ -49,8 +49,8 @@
                             var total = price;
                             //console.log(total);
                             $('#totalprice').html(total);
-                            orderlist[i] = response.details;
-                            console.log(orderlist);
+                            orderlist[i] = response.details[0];
+                            //console.log(orderlist);
                             i++;
                         }
                     }

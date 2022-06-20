@@ -34,8 +34,8 @@ class MenuController extends Controller
         if($menu){
             return response()->json([   
                 'status'=>200,
-                'code'=>$menu_code,
-                'name'=>$menu_name,
+                // 'code'=>$menu_code,
+                // 'name'=>$menu_name,
                 'details'=>$menu_details,
             ]);
         }
@@ -45,5 +45,15 @@ class MenuController extends Controller
                 'order'=>'error',
             ]);
         }
+    }
+
+    public function getItem(){
+
+        $menu_name = DB::table('menus')
+            ->select('name')
+            ->get();
+        return response()->json([
+            'name'=>$menu_name,
+        ]);
     }
 } 

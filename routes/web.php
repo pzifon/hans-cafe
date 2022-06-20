@@ -93,6 +93,8 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/viewCustReward/{id}','App\Http\Controllers\RewardController@viewCustReward');
 
     Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
+    Route::get('getitem/', [MenuController::class, 'getItem']);
+    Route::post('orderpos', [OrderController::class, 'orderItem']);
 });
 
 require __DIR__.'/auth.php';

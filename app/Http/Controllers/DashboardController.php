@@ -50,7 +50,22 @@ class DashboardController extends Controller
                     $week["Sat"]++;
                 }
             }
-            return view('admin.dashboard', compact('user', 'total_revenue', 'total_orders', 'week'));
+            $order_category = DB::table('orders')
+                ->join('menus', 'orders.menu_code', '=', 'menus.menu_code')
+                ->select('menus.category', DB::raw("SUM(orders.quantity) as amount"))
+                ->groupBy('menus.category')
+                ->get();
+            $res_time = DB::table('reservation')
+                ->select('time_slot', DB::raw("count(res_id) as count"))
+                ->groupBy('time_slot')
+                ->get();
+            $revenue_category = DB::table('orders')
+            ->join('menus', 'orders.menu_code', '=', 'menus.menu_code')
+            ->select('menus.category', DB::raw("SUM(orders.subtotal) as profit"))
+            ->groupBy('menus.category')
+            ->get();
+            Debugbar::info($revenue_category);
+            return view('admin.dashboard', compact('user', 'total_revenue', 'total_orders', 'week', 'order_category', 'res_time', 'revenue_category'));
         }elseif(Auth::user()->hasRole('employee')){
             $data = DB::table("clockIn")
                     ->whereMonth('date', Carbon::now()->month) //04 = April, 05 = May

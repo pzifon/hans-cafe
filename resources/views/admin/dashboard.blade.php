@@ -188,19 +188,21 @@
                 <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
                 <div id="container" class="m-0 p-0 h-75 d-inline-block"></div>
                 <script>
+                var week = {!! json_encode($week, JSON_HEX_TAG) !!};
+                console.log(week);
                 anychart.onDocumentReady(function() {
-
+    
                     // set the data
                     var data = {
                         header: ["day", "Number of Customer"],
                         rows: [
-                            ["Sunday", 50],
-                            ["Monday", 20],
-                            ["Tuesday", 10],
-                            ["Wednesday", 15],
-                            ["Thursday", 20],
-                            ["Friday", 35],
-                            ["Saturday", 40]
+                            ["Sunday", week["Sun"]],
+                            ["Monday", week["Mon"]],
+                            ["Tuesday", week["Tue"]],
+                            ["Wednesday", week["Wed"]],
+                            ["Thursday", week["Thu"]],
+                            ["Friday", week["Fri"]],
+                            ["Saturday", week["Sat"]]
                         ]
                     };
 

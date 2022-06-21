@@ -37,39 +37,53 @@ class OrderController extends Controller
         }
     }
 
-    public function orderList()
-    {
-        $orderList = DB::table('purchases')
-            -> select('*')
-            -> where('payment_status', false)
-            -> where('date', date("Y-m-d"))
-            -> get();
-        return view('orderlist', compact('orderList'));
-    }
+    // public function orderList()
+    // {
+    //     $orderList = DB::table('purchases')
+    //         -> select('*')
+    //         -> where('payment_status', false)
+    //         -> where('date', date("Y-m-d"))
+    //         -> get();
+    //     $orders = DB::table('orders')
+    //         ->join('purchases', 'purchases.id', '=', 'orders.purchase_id')
+    //         ->select('orders.*')
+    //         ->get(); 
+    //     foreach ($orders as $o){
+    //         $items = DB::table('menus')
+    //         ->join('orders', 'orders.menu_code', '=', 'menus.menu_code')
+    //         ->select('menus.name', 'menus.menu_code')
+    //         ->get(); 
+    //     }
+    //     Debugbar::info($items);
+    //     return view('orderlist', compact('orderList', 'orders', 'items'));
+    // }
 
-    public function orderDetails()
-    {
-        $orderList = DB::table('orders')
-            -> select('*')
-            -> where('payment_status', false)
-            -> where('date', date("Y-m-d"))
-            -> get();
-        return view('orderlist', compact('orderList'));
-    }
+    // public function orderDetails($id)
+    // {
+    //     $orderList = DB::table('orders')
+    //         -> select('*')
+    //         -> where('payment_status', false)
+    //         -> where('date', date("Y-m-d"))
+    //         -> get();
+    //     return view('orderlist', compact('orderList'));
+    // }
 
     public function getOrder() {
         $order = DB::table('purchases')
             -> select('id')
             -> where('purchases.payment_status', false)
+            -> where('date', date("Y-m-d"))
             -> get();
-        // $order = DB::table('purchases')
-        //     -> select('*')
-        //     // -> where('purchases.payment_status', false)
-        //     -> get();
+
+        $details = DB::table('orders')
+            -> select('*')
+            -> where('orders.purchase_id', $order->id)
+            -> get();
 
         return response()->json([
             'data' => "Success",
+            'order' => $order,
+            'details' => $details,
         ]);
-        
     }
 }

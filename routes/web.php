@@ -93,7 +93,7 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
     Route::get('getitem/', [MenuController::class, 'getItem']);
     Route::post('orderpos', [OrderController::class, 'orderItem']);
-    //Route::get('vieworder/', [OrderController::class, 'getOrder']);
+    Route::get('vieworder/', [OrderController::class, 'getOrder']);
 });
 
 require __DIR__.'/auth.php';

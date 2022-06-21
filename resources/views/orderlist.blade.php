@@ -50,38 +50,7 @@
 
         <div class="row mt-3">
             
-            <div class="col">
-                @foreach ($orderList as $order)
-                    {{ $order->id }}
-                    {{ $order->id }}
-                @endforeach
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <div class="card" style="height:250px">
-                        <div class="card-body p-0">
-                            <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
-                                Table: 1 Bill: D1 Date: 14/02/22 15:16</p>
-
-                            <dl class="row mb-0 p-3">
-                                <dd class="col-sm-10 text-start">Egg Benedict</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Healthy Vegan Salad</dd>
-                                <dd class="col-sm-2 text-center">2</dd>
-
-                                <dd class="col-sm-10 text-start">Nasi Lemak Bungkus</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Americano</dd>
-                                <dd class="col-sm-2 text-center">2</dd>
-                            </dl>
-
-                        </div>
-                    </div>
-
-                </button>
-            </div>
+            
 
             <div class="col">
                 <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

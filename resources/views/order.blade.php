@@ -33,7 +33,7 @@
                     type: "GET",
                     url: "/additem/" + menu_code,
                     success: function(response) {
-                        console.log(response);
+                        //console.log(response);
                         if (response.status == 404) {
 
                         } else {

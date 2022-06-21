@@ -79,9 +79,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
-    Route::get('/orderlist', function () {
-        return view('orderlist');
-    });
+    Route::get('/orderlist', 'App\Http\Controllers\OrderController@orderList');
     
     Route::get('/reservation', 'App\Http\Controllers\BookingController@index');
     Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
@@ -95,6 +93,7 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
     Route::get('getitem/', [MenuController::class, 'getItem']);
     Route::post('orderpos', [OrderController::class, 'orderItem']);
+    //Route::get('vieworder/', [OrderController::class, 'getOrder']);
 });
 
 require __DIR__.'/auth.php';

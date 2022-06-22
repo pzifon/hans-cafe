@@ -61,6 +61,7 @@
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
+    @include('flash-message')
     <div style="height:50px"></div>
     <div class="container">
         <div class="row">
@@ -211,9 +212,12 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
+                            <!-- <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                data-bs-target="#staticBackdrop1"></i> -->
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
                             <i class="col-1 bi bi-trash3-fill "></i>
                             @endif
                             @endauth
@@ -264,9 +268,12 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
+                            <!-- <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                data-bs-target="#staticBackdrop1"></i> -->
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
                             <i class="col-1 bi bi-trash3-fill "></i>
                             @endif
                             @endauth
@@ -317,9 +324,12 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
+                            <!-- <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                data-bs-target="#staticBackdrop1"></i> -->
+                            <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
                             <i class="col-1 bi bi-trash3-fill "></i>
                             @endif
                             @endauth
@@ -370,9 +380,12 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
+                            <!-- <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                data-bs-target="#staticBackdrop1"></i> -->
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
                             <i class="col-1 bi bi-trash3-fill "></i>
                             @endif
                             @endauth

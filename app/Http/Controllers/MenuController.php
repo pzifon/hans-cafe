@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use DB;
+use Debugbar;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -45,5 +46,27 @@ class MenuController extends Controller
                 'order'=>'error',
             ]);
         }
+    }
+
+    public function editMenu($id)
+    {
+        $item = DB::table('menus')
+            ->select('*')
+            ->where('id', $id)
+            ->get();
+        return view('editMenu', compact('item'));
+    }
+
+    public function editMenuItem(Request $request)
+    {   
+        $id = $request->input("id");
+        $name = $request->input("name");
+        $des = $request->input("description");
+        $nutri = $request->input("nutrition");
+        $price = $request->input("price");
+        DB::table('menus')
+            ->where('id', $id)
+            ->update(['name' => $name,'description' => $des, "nutrition" => $nutri, 'price' => $price]);
+        return redirect()->action('App\Http\Controllers\MenuController@menuList')->with('success','Menu details updated successfully!');
     }
 } 

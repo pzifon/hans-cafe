@@ -91,6 +91,9 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     
     Route::get('/viewCust/{id}', 'App\Http\Controllers\DashboardController@viewCust');
     Route::get('/viewCustReward/{id}','App\Http\Controllers\RewardController@viewCustReward');
+    
+    Route::get('/editMenu/{id}', 'App\Http\Controllers\MenuController@editMenu')->name('editMenu');
+    Route::post('editMenuItem', 'App\Http\Controllers\MenuController@editMenuItem');
 
     Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
 });

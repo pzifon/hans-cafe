@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order List</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,18 +15,52 @@
     <script>
         $(document).ready(function() {
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
+            // $.ajax({
+            //     type: "GET",
+            //     url: "/vieworder",
+            //     success: function(response) {
+            //         console.log(response);
+            //     }
+            // });
+
+            var passid;
+
+            $(document).on('click', '.purchaseid', function(e) {
+                e.preventDefault();
+                var purchase_id = $(this).val();
+                passid = purchase_id;
+                //console.log(menu_code);
+                $.ajax({
+                    type: "GET",
+                    url: "/showorder/" + purchase_id,
+                    success: function(response) {
+                        console.log(response);
+                        if (response.status == 404) {
+
+                        } else {
+                            $.each(response.order, function(key, item) {
+                                $('.orderdetails').append('<div>\
+                                    <p>' + item.name + '</p>\
+                                </div>');
+                            });
+                        }
+                    }
+                });
             });
 
-            $.ajax({
-                type: "GET",
-                url: "/vieworder",
-                success: function(response) {
-                    console.log(response);
-                }
+            $(document).on('click', '.paybtn', function(e) {
+                e.preventDefault();
+                var purchase_id = passid;
+                // console.log(purchase_id);
+                $.ajax({
+                    type: "GET",
+                    url: "/payitem/" + purchase_id,
+                    success: function(response) {
+                        // console.log(response);
+                        
+                    }
+                });
+                location.reload();
             });
         });
     </script>
@@ -36,23 +69,33 @@
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     <div class="row mt-2 mx-1">
-        <nav class="row">
+        <!-- <nav class="row">
             <div class="col-11">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="dine-in-tab" data-bs-toggle="tab" data-bs-target="#dine-in" type="button" role="tab" aria-controls="dine-in" aria-selected="true">Dine in</button>
                     <button class="nav-link" id="take-away-tab" data-bs-toggle="tab" data-bs-target="#take-away" type="button" role="tab" aria-controls="take-away" aria-selected="false">Take Away</button>
                 </div>
             </div>
-            <div class="col-1">
+            <div class="col">
                 <a class="text-end btn btn-success" aria-current="page" href="/orderlist">Order List</a>
             </div>
-        </nav>
+        </nav> -->
 
         <div class="row mt-3">
-            
-            
 
+            @foreach($orderList as $orderList)
             <div class="col">
+                <button type="submit" class="btn btn-outline-white p-0 purchaseid" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop" value="{{ $orderList->id}}">
+                    <div class="card" style="height:250px">
+                        <div class="card-body p-0">
+                            <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
+                                Purchase Order: {{ $orderList->id}}</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            @endforeach
+            <!-- <div class="col">
                 <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <div class="card" style="height:250px">
                         <div class="card-body p-0">
@@ -70,9 +113,9 @@
                         </div>
                     </div>
                 </button>
-            </div>
+            </div> -->
 
-            <div class="col">
+            <!-- <div class="col">
                 <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <div class="card" style="height:250px">
                         <div class="card-body p-0">
@@ -134,7 +177,7 @@
                         </div>
                     </div>
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -148,6 +191,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="row mx-2">
+                        <div class="col-sm-6">
+                            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header bg-transparent border-dark">Order Detail</div>
+                                <div class="card-body text-dark orderdetails">
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="card border-dark mb-3" style="max-width: 18rem;">
                                 <div class="card-header bg-transparent border-dark">Bill Detail</div>
@@ -173,30 +223,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                                <div class="card-header bg-transparent border-dark">Customer Detail</div>
-                                <div class="card-body text-dark">
-                                    <div class="border border-dark">&nbsp; ID/Name/Contact Number&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search mb-1" viewBox="0 0 16 16">
-                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                        </svg>
-                                    </div>
-                                    </br>
-                                    <p class="card-text">
-                                        ID: 1</br>
-                                        Name: Customer 1</br>
-                                        Contact Number: 012-3456789</br>
-                                        </br>
-                                        REWARDS</br>
-                                        None</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success">PAY</button>
+                    <button type="button" class="btn btn-success paybtn">PAY</button>
                 </div>
             </div>
         </div>

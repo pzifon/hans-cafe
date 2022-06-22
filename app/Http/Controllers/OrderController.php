@@ -44,47 +44,68 @@ class OrderController extends Controller
             ->where('payment_status', false)
             ->where('date', date("Y-m-d"))
             ->get();
-        $orders = DB::table('orders')
-            ->join('purchases', 'purchases.id', '=', 'orders.purchase_id')
-            ->select('orders.*')
-            ->get();
-        foreach ($orders as $o) {
-            $items = DB::table('menus')
-                ->join('orders', 'orders.menu_code', '=', 'menus.menu_code')
-                ->select('menus.name', 'menus.menu_code')
-                ->get();
-        }
-        Debugbar::info($items);
-        return view('orderlist', compact('orderList', 'orders', 'items'));
+        // $orders = DB::table('orders')
+        //     ->join('purchases', 'purchases.id', '=', 'orders.purchase_id')
+        //     ->select('orders.*')
+        //     ->get();
+        // foreach ($orders as $o) {
+        //     $items = DB::table('menus')
+        //         ->join('orders', 'orders.menu_code', '=', 'menus.menu_code')
+        //         ->select('menus.name', 'menus.menu_code')
+        //         ->get();
+        // }
+        return view('orderlist', compact('orderList'));
     }
 
-    public function getOrder()
+    // public function getOrder()
+    // {
+    //     $order = DB::table('purchases')
+    //         ->select('id')
+    //         ->where('purchases.payment_status', false)
+    //         ->where('date', date("Y-m-d"))
+    //         ->get();
+
+    //     foreach ($order as $key) {
+    //         $id = array('id' => $key->id);
+    //         $details = DB::table('orders')
+    //             ->select('*')
+    //             ->where('orders.purchase_id', $id)
+    //             ->get();
+    //     }
+
+    //     return response()->json([
+    //         'data' => "Success",
+    //         'order' => $order,
+    //         'details' => $details,
+    //         'id' => $id,    
+    //     ]);
+    // }
+
+    public function getOrder($purchase_id)
     {
-        $order = DB::table('purchases')
-            ->select('id')
-            ->where('purchases.payment_status', false)
-            ->where('date', date("Y-m-d"))
+        $order = DB::table('orders')
+            ->select('*')
+            ->join('menus', 'menus.menu_code', '=', 'orders.menu_code')
+            ->where('purchase_id', $purchase_id)
             ->get();
-
-        foreach ($order as $key) {
-            $id = array('id' => $key->id);
-            $details = DB::table('orders')
-                ->select('*')
-                ->where('orders.purchase_id', $id)
-                ->get();
-            
-        }
-
-        // $details = DB::table('orders')
-        //     ->select('*')
-        //     ->where('orders.purchase_id', $orderid)
-        //     ->get();
 
         return response()->json([
             'data' => "Success",
             'order' => $order,
-            'details' => $details,
-            'id' => $id,    
+        ]);
+    }
+
+    public function payOrder($purchase_id)
+    {
+        $purchase = DB::table('purchases')
+            ->select('*')
+            ->where('id', $purchase_id)
+            ->update(['payment_status' => true]);
+
+        // return redirect()->route('orderlist');
+        return response()->json([
+            'data' => "Success",
+            'purchases' => $purchase,
         ]);
     }
 }

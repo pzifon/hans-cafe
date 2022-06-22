@@ -30,7 +30,7 @@
                 var menu_code = $(this).val();
                 //console.log(menu_code);
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     url: "/additem/" + menu_code,
                     success: function(response) {
                         //console.log(response);
@@ -73,7 +73,8 @@
                     dataType: "json",
                     success: function(response) {
                         console.log(response);
-
+                        price = 0;
+                        i = 0;
                         $('#detailbody').html('');
                         $('#totalprice').html('');
                     },

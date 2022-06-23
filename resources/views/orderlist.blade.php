@@ -57,10 +57,14 @@
                     url: "/payitem/" + purchase_id,
                     success: function(response) {
                         // console.log(response);
-                        
+                        $('.orderdetails').html('');
                     }
                 });
                 location.reload();
+            });
+
+            $(document).on('click', '.btn-close', function(e) {
+                $('.orderdetails').html('');
             });
         });
     </script>

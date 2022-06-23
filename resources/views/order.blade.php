@@ -30,7 +30,7 @@
                 var menu_code = $(this).val();
                 //console.log(menu_code);
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: "/additem/" + menu_code,
                     success: function(response) {
                         //console.log(response);
@@ -61,8 +61,8 @@
                 e.preventDefault();
 
                 var data = {
-                    'price' : parseFloat(price),
-                    'item' : orderlist,
+                    'price': parseFloat(price),
+                    'item': orderlist,
                 }
 
                 console.log(price);
@@ -103,21 +103,13 @@
             <div class="col-8">
                 <div class="row tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="dine-in" role="tabpanel" aria-labelledby="dine-in-tab">
-                        <div class="tab-content border border-dark p-3 pb-0" id="pills-tabContent">
+                        <div class="tab-content border border-dark p-3 pb-0" id="pills-tabContent" style="padding: auto;">
                             <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                                 <div class="row row-cols-5">
                                     @foreach ($menu as $product)
-                                    <button class="itemid card h-100" value="{{ $product->menu_code }}">
+                                    <button class="itemid btn card-body bg-light" value="{{ $product->menu_code }}">
                                         {{ $product->name }}
                                     </button>
-                                    <!-- <div class="col mb-3">
-                                        <div class="card h-100 itemid" value="{{ $product->name }}">
-                                            <div class="card-body bg-light">
-                                                <p class="card-title h6 text-center item">
-                                                    {{ $product->name }}</p>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     @endforeach
                                 </div>
                             </div>
@@ -183,19 +175,19 @@
                             </div>
                         </div>
                         <ul class="nav nav-pills m-2" id="pills-tab" role="tablist">
-                            <li class="nav-item col border border-dark me-3">
-                                <button class="nav-link active mx-auto my-2" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+                            <li class="nav-item">
+                                <button class="nav-link active mx-auto my-2" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true" style="margin: 0px;">All</button>
                             </li>
-                            <li class="nav-item col border border-dark me-3">
+                            <li class="nav-item">
                                 <button class="nav-link mx-auto mt-2" id="main-course-tab" data-bs-toggle="pill" data-bs-target="#main-course" type="button" role="tab" aria-controls="main-course" aria-selected="false">Main Course</button>
                             </li>
-                            <li class="nav-item col border border-dark me-3">
+                            <li class="nav-item">
                                 <button class="nav-link mx-auto mt-2" id="sides-tab" data-bs-toggle="pill" data-bs-target="#sides" type="button" role="tab" aria-controls="sides" aria-selected="false">Sides</button>
                             </li>
-                            <li class="nav-item col border border-dark me-3">
+                            <li class="nav-item">
                                 <button class="nav-link mx-auto mt-2" id="beverages-tab" data-bs-toggle="pill" data-bs-target="#beverages" type="button" role="tab" aria-controls="beverages" aria-selected="false">Beverages</button>
                             </li>
-                            <li class="nav-item col border border-dark">
+                            <li class="nav-item">
                                 <button class="nav-link mx-auto mt-2" id="dessert-tab" data-bs-toggle="pill" data-bs-target="#dessert" type="button" role="tab" aria-controls="dessert" aria-selected="false">Dessert</button>
                             </li>
                         </ul>

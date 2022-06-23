@@ -94,6 +94,11 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     
     Route::get('/editMenu/{id}', 'App\Http\Controllers\MenuController@editMenu')->name('editMenu');
     Route::post('editMenuItem', 'App\Http\Controllers\MenuController@editMenuItem');
+    Route::get('/addMenu', function () {
+        return view('addMenu');
+    });
+    Route::post('addMenuItem', 'App\Http\Controllers\MenuController@addMenuItem');
+    Route::get('/delete/{id}','App\Http\Controllers\MenuController@delete');
 
     Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
 });

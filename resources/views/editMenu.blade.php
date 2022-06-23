@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" >Price</span>
-                                    <input type="text" class="form-control" name="price" value="{{$item->price}}">
+                                    <input type="text" class="form-control" name="price" value="{{$item->price}}" oninput="validate(this)">
                                 </div>
                             </div>
                         </div>
@@ -58,4 +58,12 @@
         </form>
     </div>
     @include('layouts.footer')
+
+    <script>
+
+      var validate = function(e) {
+          var t = e.value;
+          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
+      }
+  </script>
 </body>

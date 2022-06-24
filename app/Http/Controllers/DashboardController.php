@@ -30,7 +30,42 @@ class DashboardController extends Controller
                 ->whereMonth('date', Carbon::now()->month) 
                 ->whereYear('date', Carbon::now()->year)
                 ->count();
-            return view('admin.dashboard', compact('user', 'total_revenue', 'total_orders'));
+            $peak = DB::table('purchases')->get();
+            $week = array("Sun"=> 0, "Mon"=> 0, "Tue"=> 0, "Wed"=> 0, "Thu"=> 0, "Fri"=> 0, "Sat"=> 0);
+            foreach ($peak as $p){
+                $day = date('D', strtotime($p->date));
+                if ($day == "Sun"){
+                    $week["Sun"]++;
+                }else if ($day == "Mon"){
+                    $week["Mon"]++;
+                }elseif ($day == "Tue"){
+                    $week["Tue"]++;
+                }elseif ($day == "Wed"){
+                    $week["Wed"]++;
+                }elseif ($day == "Thu"){
+                    $week["Thu"]++;
+                }elseif ($day == "Fri"){
+                    $week["Fri"]++;
+                }elseif ($day == "Sat"){
+                    $week["Sat"]++;
+                }
+            }
+            $order_category = DB::table('orders')
+                ->join('menus', 'orders.menu_code', '=', 'menus.menu_code')
+                ->select('menus.category', DB::raw("SUM(orders.quantity) as amount"))
+                ->groupBy('menus.category')
+                ->get();
+            $res_time = DB::table('reservation')
+                ->select('time_slot', DB::raw("count(res_id) as count"))
+                ->groupBy('time_slot')
+                ->get();
+            $revenue_category = DB::table('orders')
+            ->join('menus', 'orders.menu_code', '=', 'menus.menu_code')
+            ->select('menus.category', DB::raw("SUM(orders.subtotal) as profit"))
+            ->groupBy('menus.category')
+            ->get();
+            Debugbar::info($revenue_category);
+            return view('admin.dashboard', compact('user', 'total_revenue', 'total_orders', 'week', 'order_category', 'res_time', 'revenue_category'));
         }elseif(Auth::user()->hasRole('employee')){
             $data = DB::table("clockIn")
                     ->whereMonth('date', Carbon::now()->month) //04 = April, 05 = May

@@ -62,6 +62,8 @@
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
+    @include('flash-message')
+
     <div class="container">
         <div class="row mt-4 mb-1">
             <h1 class="col-8 mt-2 mb-0" style="font-size:20px">Main Course</h1>
@@ -70,133 +72,14 @@
                 @if (Route::has('login'))
                 @auth
                 @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                <button type="button" class="btn btn-danger btn-sm tab-pane fade show active" id="AddMenu"
-                    role="tabpanel" aria-labelledby="add-menu-tab" name="add_menu" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop2">+ Add Menu</button>
+                <a href="/addMenu">
+                <button type="button" class="btn btn-danger btn-sm tab-pane fade show active" id="AddMenu" >+ Add Menu</button>
+</a>
                 @endif
                 @endauth
                 @endif
-
-                <script type='text/javascript'>
-                function myFunction2() {
-                    document.getElementById("AddMenu").style.display = "none";
-                }
-
-                function myFunction1() {
-                    document.getElementById("AddMenu").style.display = "block";
-                }
-                </script>
             </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Add Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text" for="inputGroupFile01">Photo</label>
-                                    <input type="file" class="form-control" id="inputGroupFile01">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Food Category</span>
-                                    <input class="form-control" list="datalistOptions" id="exampleDataList"
-                                        placeholder="Type to search...">
-                                    <datalist id="datalistOptions">
-                                        <option value="Main Course">
-                                        <option value="Sides">
-                                        <option value="Beverages">
-                                        <option value="Dessert">
-
-                                    </datalist>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Menu
-                                        Code</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Calories</span>
-                                    <input type="email" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default" placeholder="0.00">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end of Modal -->
-
-        <!-- Modal 1-->
-        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Edit Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Calories</span>
-                                    <input type="email" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-default">Price</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default" placeholder="0.00">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Submit Changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end of Modal 1-->
-
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($menu as $product)
@@ -207,17 +90,20 @@
                         style="width:100%;height:50%">
                     <div class="card-body">
                         <div class="row">
-                            <h5 class="col-10 card-title">{{ $product->name }}</h5>
+                        <h5 class="col-10 card-title">{{ $product->name }}</h5>
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 p-0 fs-6 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
-                                aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 p-0 fs-6 bi bi-pencil-fill"></i>
+                            </a>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
                             <i class="col-1 p-0 fs-6 bi bi-trash3-fill "></i>
+                            </a>
                             @endif
                             @endauth
                             @endif
+                            <h6 class="col card-subtitle mb-2 text-muted">{{ $product->menu_code }}</h6>
                         </div>
                         <p class="product card-text">{{ $product->description}}</p>
                         <p class="product card-text">{{ $product->nutrition}}</p>
@@ -264,13 +150,17 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
-                                aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
                             <i class="col-1 bi bi-trash3-fill "></i>
+                            </a>
                             @endif
                             @endauth
                             @endif
+                            <h6 class="col card-subtitle mb-2 text-muted">{{ $product->menu_code }}</h6>
+
                         </div>
                         <p class="product card-text">{{ $product->description}}</p>
                         <p class="product card-text">{{ $product->nutrition}}</p>
@@ -313,17 +203,20 @@
                         style="width:100%;height:50%">
                     <div class="card-body">
                         <div class="row">
-                            <h5 class="col-10 card-title">{{ $product->name }}</h5>
+                        <h5 class="col-10 card-title">{{ $product->name }}</h5>
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
-                                aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
                             <i class="col-1 bi bi-trash3-fill "></i>
+                            </a>
                             @endif
                             @endauth
                             @endif
+                            <h6 class="col card-subtitle mb-2 text-muted">{{ $product->menu_code }}</h6>
                         </div>
                         <p class="product card-text">{{ $product->description}}</p>
                         <p class="product card-text">{{ $product->nutrition}}</p>
@@ -366,17 +259,20 @@
                         style="width:100%;height:50%">
                     <div class="card-body">
                         <div class="row">
-                            <h5 class="col-10 card-title">{{ $product->name }}</h5>
+                        <h5 class="col-10 card-title">{{ $product->name }}</h5>
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
-                                aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop1"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                    <i class="col-1 bi bi-pencil-fill"></i>
+                            </a>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
                             <i class="col-1 bi bi-trash3-fill "></i>
+                            </a>
                             @endif
                             @endauth
                             @endif
+                            <h6 class="col card-subtitle mb-2 text-muted">{{ $product->menu_code }}</h6>
                         </div>
                         <p class="product card-text">{{ $product->description}}</p>
                         <p class="product card-text">{{ $product->nutrition}}</p>

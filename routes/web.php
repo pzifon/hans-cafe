@@ -69,12 +69,14 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::post('editEmp', 'App\Http\Controllers\DashboardController@editEmpInfo');
     Route::post('addEmp', 'App\Http\Controllers\DashboardController@addEmp');
 
-    Route::get('/revenue', function () {
-        return view('admin/revenue');
-    });
-
     Route::get('/payroll', 'App\Http\Controllers\PayrollController@index');
     Route::post('/payroll/filter', 'App\Http\Controllers\PayrollController@filter');
+
+    Route::get('/revenue', 'App\Http\Controllers\RevenueController@revenueByYear')->name('revenueByYear');
+    Route::get('/revenue/lastmonth', 'App\Http\Controllers\RevenueController@revenueLastMonth')->name('revenueLastMonth');
+    Route::get('/revenue/thismonth', 'App\Http\Controllers\RevenueController@revenueThisMonth')->name('revenueThisMonth');
+    Route::get('/revenue/Past7Days', 'App\Http\Controllers\RevenueController@revenuePast7Days')->name('revenuePast7Days');
+
 });
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {

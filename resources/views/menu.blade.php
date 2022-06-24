@@ -21,6 +21,7 @@
         p.price {
             font-size: 18px;
         }
+
         p.product {
             font-size: 18px;
         }
@@ -39,7 +40,7 @@
             font-size: 20px;
         }
 
-        div.card-body{
+        div.card-body {
             font-size: 20px;
         }
 
@@ -61,17 +62,16 @@
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
-    <div style="height:50px"></div>
     <div class="container">
-        <div class="row">
-            <h1 class="col-10" style="font-size:20px">Main Course</h1>
+        <div class="row mt-4 mb-1">
+            <h1 class="col-8 mt-2 mb-0" style="font-size:20px">Main Course</h1>
 
-            <div class="col-2 text-end mb-1">
+            <div class="col-4 text-end">
                 @if (Route::has('login'))
                 @auth
                 @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                <button type="button" class="btn btn-danger tab-pane fade show active" id="AddMenu" role="tabpanel"
-                    aria-labelledby="add-menu-tab" name="add_menu" data-bs-toggle="modal"
+                <button type="button" class="btn btn-danger btn-sm tab-pane fade show active" id="AddMenu"
+                    role="tabpanel" aria-labelledby="add-menu-tab" name="add_menu" data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop2">+ Add Menu</button>
                 @endif
                 @endauth
@@ -211,10 +211,10 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                            <i class="col-1 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
+                            <i class="col-1 p-0 fs-6 bi bi-pencil-fill" id="EditMenu" role="tabpanel"
                                 aria-labelledby="edit-menu-tab" name="edit_menu" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop1"></i>
-                            <i class="col-1 bi bi-trash3-fill "></i>
+                            <i class="col-1 p-0 fs-6 bi bi-trash3-fill "></i>
                             @endif
                             @endauth
                             @endif

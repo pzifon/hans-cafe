@@ -30,14 +30,17 @@
             <div class="col-auto px-5 py-1 text-center" style="border-right-style: dashed;">
                 <a class="btn w-100 me-md-2" aria-current="page" href="{{ route('revenuePast7Days') }}">Past 7 Days</a>
             </div>
-            <div class="col-auto px-5 py-1 text-center">
-                Custom :
-                <input type="date" id="date"> &nbsp-&nbsp
-                <input type="date" id="date">
-            </div>
-            <div class="col-auto ps-5 ms-6">
-                <button type="button" class="btn btn-secondary">Go</button>
-            </div>
+                <div class="col-auto px-5 py-1 text-center">
+                <form action="/revenue/revenueCustomDate" method="get" action="/action_page.php" id="search">
+                    @csrf
+                    Custom :
+                    <input type="date" id="start_date" name="start_date"> &nbsp-&nbsp
+                    <input type="date" id="end_date" name="end_date">
+                </div>
+            </form>
+                <div class="col-auto ps-5 ms-6">
+                    <button type="submit" class="btn btn-secondary" form="search">Go</button>
+                </div>
         </div>
     </div>
     <div class="row px-2 ms-5">
@@ -150,4 +153,22 @@ var myChart = new Chart(ctx, {
 	}
 });
 </script>
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    day = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("start_date").setAttribute("max", day);
+    document.getElementById("end_date").setAttribute("max", day);
+    </script>
 </body>

@@ -63,7 +63,6 @@ class RevenueController extends Controller
             ->orderby('week')
             ->orderby('menus.category')
             ->get();
-        Debugbar::info($result);
         $data = json_decode($result, true);
         $main = array(); $side = array(); $beverage = array(); $dessert = array();
         foreach ($data as $d){
@@ -97,7 +96,6 @@ class RevenueController extends Controller
             ->orderby('week')
             ->orderby('menus.category')
             ->get();
-        Debugbar::info($result);
         $data = json_decode($result, true);
         $main = array(); $side = array(); $beverage = array(); $dessert = array();
         foreach ($data as $d){
@@ -126,6 +124,37 @@ class RevenueController extends Controller
             ->join('purchases', 'purchases.id', '=' , 'orders.purchase_id')
             ->select('menus.category', 'purchases.date', DB::raw("SUM(orders.subtotal) as profit"))
             ->where('purchases.date', '>=', Carbon::now()->subDays(7))
+            ->groupby('purchases.date','menus.category')
+            ->orderby('purchases.date')
+            ->orderby('menus.category')
+            ->get();
+        $data = json_decode($result, true);
+        $main = array(); $side = array(); $beverage = array(); $dessert = array();
+        foreach ($data as $d){
+            if ($d['category'] == "Main_Course"){
+                $main[$d['date']] = $d['profit'];
+            } elseif ($d['category'] == "Sides"){
+                $side[$d['date']] = $d['profit'];
+            } elseif ($d['category'] == "Beverages"){
+                $beverage[$d['date']] = $d['profit'];
+            } elseif ($d['category'] == "Dessert"){
+                $dessert[$d['date']] = $d['profit'];
+            }
+        }
+        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert'));
+    }
+
+    public function revenueCustomDate(Request $request)
+    {
+        $start = $request->start_date;
+        $end = $request->end_date;
+        $title = "From ". $start. " To ". $end;
+        $result = DB::table('orders')
+            ->join('menus', 'orders.menu_code', '=', 'menus.menu_code')
+            ->join('purchases', 'purchases.id', '=' , 'orders.purchase_id')
+            ->select('menus.category', 'purchases.date', DB::raw("SUM(orders.subtotal) as profit"))
+            ->where('purchases.date', '>=', $start)
+            ->where('purchases.date', '<=', $end)
             ->groupby('purchases.date','menus.category')
             ->orderby('purchases.date')
             ->orderby('menus.category')

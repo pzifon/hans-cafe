@@ -31,11 +31,11 @@
                 <a class="btn w-100 me-md-2" aria-current="page" href="{{ route('revenuePast7Days') }}">Past 7 Days</a>
             </div>
                 <div class="col-auto px-5 py-1 text-center">
-                <form action="/revenue/revenueCustomDate" method="get" action="/action_page.php" id="search">
+                <form action="/revenue/revenueCustomDate" method="post" action="/action_page.php" id="search">
                     @csrf
                     Custom :
-                    <input type="date" id="start_date" name="start_date"> &nbsp-&nbsp
-                    <input type="date" id="end_date" name="end_date">
+                    <input type="date" id="start_date" name="start_date" required> &nbsp-&nbsp
+                    <input type="date" id="end_date" name="end_date" required>
                 </div>
             </form>
                 <div class="col-auto ps-5 ms-6">

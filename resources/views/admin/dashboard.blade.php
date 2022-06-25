@@ -47,8 +47,7 @@
                 </div>
             </div>
         </a>
-
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/revenue">
+        <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/revenue">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
                     <i class="bi bi-cash-stack" style="font-size:60px"></i>
@@ -63,9 +62,7 @@
                 </div>
             </div>
         </a>
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="#" aria-disabled="true">
-
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView" href="/revenue">
+        <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView" href="/revenue">
             <div class="row" style="margin:0px">
                 <div class="col-8">
                     <div class="row">
@@ -77,8 +74,7 @@
                 </div>
             </div>
         </a>
-
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="">
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px"  id="WebView" aria-disabled="true">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
                     <i class="bi bi-cart-check" style="font-size:60px"></i>
@@ -178,7 +174,6 @@
                             options: {
                                 plugins: {
                                     tooltip: {
-                                        // Disable the on-canvas tooltip
                                         enabled: true
                                     }
                                 }
@@ -232,7 +227,6 @@
                             options: {
                                 plugins: {
                                     tooltip: {
-                                        // Disable the on-canvas tooltip
                                         enabled: true
                                     }
                                 }
@@ -280,7 +274,6 @@
                             options: {
                                 plugins: {
                                     tooltip: {
-                                        // Disable the on-canvas tooltip
                                         enabled: true
                                     }
                                 }
@@ -296,39 +289,70 @@
             <div class="row">
                 <p class="fs-3">Peak day</p>
             </div>
-            <div class="row m-0 p-0 h-100 w-100 d-inline-block"">
-                <script src=" https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js">
-                </script>
-                <div id="container" class="m-0 p-0 h-75 d-inline-block"></div>
+            <div class="row m-0 p-0 h-100 w-100 d-inline-block">
+                <div id="container" class="m-0 p-0 h-90 d-inline-block">
+                        <canvas id="chart4"></canvas>
+                </div>
                 <script>
                 var week = {!! json_encode($week, JSON_HEX_TAG) !!};
-                anychart.onDocumentReady(function() {
+            
+                week_data = [];
+                week_data.push(week["Sun"]);
+                week_data.push(week["Mon"]);
+                week_data.push(week["Tue"]);
+                week_data.push(week["Wed"]);
+                week_data.push(week["Thu"]);
+                week_data.push(week["Fri"]);
+                week_data.push(week["Sat"]);
 
-                    // set the data
-                    var data = {
-                        header: ["day", "Number of Customer"],
-                        rows: [
-                            ["Sunday", week["Sun"]],
-                            ["Monday", week["Mon"]],
-                            ["Tuesday", week["Tue"]],
-                            ["Wednesday", week["Wed"]],
-                            ["Thursday", week["Thu"]],
-                            ["Friday", week["Fri"]],
-                            ["Saturday", week["Sat"]]
-                        ]
-                    };
+                $(document).ready(function() {
+                        // Chart options
+                        Chart.defaults.global.legend.display = false;
+                        Chart.defaults.global.tooltips.enabled = true;
 
-                    // create the chart
-                    var chart = anychart.column();
+                        // Create the chart
+                        var canvas = $("#chart4");
+                        var data = {
+                            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                            datasets: [{
+                                data: week_data,
+                                backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                                ],
+                                borderColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)'
+                                ],
+                                borderWidth: 1
+                           }]
+                        };
 
-                    // add data
-                    chart.data(data);
-
-                    // draw
-                    chart.container("container");
-                    chart.draw();
-                });
-                </script>
+                        var chart4 = new Chart(canvas, {
+                            type: "bar",
+                            data: data,
+                            options: {
+                                plugins: {
+                                    tooltip: {
+                                        enabled: true
+                                    }
+                                },
+                                responsive: true,
+                                maintainAspectRatio: false,
+                            }
+                        });
+                    });
+                    </script>
 
             </div>
         </div>

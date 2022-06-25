@@ -48,20 +48,15 @@
             <div class="row">
                 <div class="container border border-dark mt-4">
                     <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Product</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput"
-                            placeholder="Search for a product...">
-                        <button type="button" class="btn btn-outline-dark mt-2">Filter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container border border-dark mt-4">
-                    <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Categories</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput"
-                            placeholder="Search categories...">
-                        <button type="button" class="btn btn-outline-dark mt-2">Filter</button>
+                        <!-- <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Search categories..."> -->
+                        <select id="myselect" onchange="updateData()">
+                        <option disabled selected value> -- Choose a category -- </option>
+                        @foreach ($category as $value)
+                            <option value="{{ $value }}">{{ $value }}</option>
+                        @endforeach
+                        </select>
+                        <button type="button" onclick="clearFilter()" class="btn btn-outline-dark mt-2">Clear</button>
                     </div>
                 </div>
             </div>
@@ -76,7 +71,6 @@
             </div>
         </div>
     </div>
-
 <script>
 var title = {!! json_encode($title, JSON_HEX_TAG) !!};
 var main = {!! json_encode($main, JSON_HEX_TAG) !!};
@@ -170,5 +164,44 @@ var myChart = new Chart(ctx, {
     day = yyyy + '-' + mm + '-' + dd;
     document.getElementById("start_date").setAttribute("max", day);
     document.getElementById("end_date").setAttribute("max", day);
-    </script>
+
+</script>
+
+    
+<script>
+    function updateData() {
+        myChart.data.datasets[0].data = data_m;
+        myChart.data.datasets[1].data = data_s;
+        myChart.data.datasets[2].data = data_b;
+        myChart.data.datasets[3].data = data_d;
+        console.log(myChart.data.datasets);
+        var str = document.getElementById("myselect").value;
+        console.log(str);
+        if (str == "Main_Course"){
+            index = 0;
+        } else if (str == 'Sides'){
+            index = 1;
+        } else if (str == 'Beverages'){
+            index = 2;
+        } else if (str == 'Dessert'){
+            index = 3;
+        }
+        for (let i = 0; i < 4; i++) {
+            if (i != index){
+                myChart.data.datasets[i].data = [];
+                console.log(myChart.data.datasets);
+            }
+        }
+        myChart.update();
+    }
+
+    function clearFilter() {
+        myChart.data.datasets[0].data = data_m;
+        myChart.data.datasets[1].data = data_s;
+        myChart.data.datasets[2].data = data_b;
+        myChart.data.datasets[3].data = data_d;
+        console.log(myChart.data.datasets);
+        myChart.update();
+    }
+</script>
 </body>

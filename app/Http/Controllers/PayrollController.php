@@ -44,8 +44,6 @@ class PayrollController extends Controller
             }
             $arr = array('id' => $id, 'hours' => $total_hours);                
             array_push($working_hours, $arr);
-            Debugbar::info('working_hours');
-            Debugbar::info($working_hours);
         }
 
         return view('admin.payroll', compact('employee', 'working_hours'));
@@ -88,8 +86,6 @@ class PayrollController extends Controller
             }
             $arr = array('id' => $id, 'hours' => $total_hours);                
             array_push($working_hours, $arr);
-            Debugbar::info('working_hours');
-            Debugbar::info($working_hours);
         }
 
         return view('admin.payroll', compact('employee', 'working_hours'));

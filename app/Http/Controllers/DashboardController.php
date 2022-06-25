@@ -64,7 +64,6 @@ class DashboardController extends Controller
             ->select('menus.category', DB::raw("SUM(orders.subtotal) as profit"))
             ->groupBy('menus.category')
             ->get();
-            Debugbar::info($revenue_category);
             return view('admin.dashboard', compact('user', 'total_revenue', 'total_orders', 'week', 'order_category', 'res_time', 'revenue_category'));
         }elseif(Auth::user()->hasRole('employee')){
             $data = DB::table("clockIn")
@@ -271,8 +270,6 @@ class DashboardController extends Controller
         DB::table('users')
             ->where('id', $id)
             ->update(['name' => $name, 'dob' => $dob,'email' => $email, 'contact' => $contact, "updated_at" => date("Y-m-d H:i:s")]);
-        // echo "Sucessfully updated!";
-        // return redirect()->action('App\Http\Controllers\DashboardController@viewEmp')->with('success','Employee Info updated successfully!');
         return redirect()->route('viewEmp', $id)->with('success','Employee Info updated successfully!');
     }
 

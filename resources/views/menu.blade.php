@@ -7,16 +7,67 @@
     <title>Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+    @media screen and (min-width: 601px) {
+        div {
+            font-size: 30px;
+        }
+
+        div.card-body {
+            font-size: 20px;
+        }
+
+        p.price {
+            font-size: 18px;
+        }
+
+        p.product {
+            font-size: 18px;
+        }
+
+        img {
+            height: 80vh;
+        }
+
+        a.nav-link {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        div {
+            font-size: 20px;
+        }
+
+        div.card-body {
+            font-size: 20px;
+        }
+
+        p.price {
+            font-size: 15px;
+        }
+
+        p.product {
+            font-size: 15px;
+        }
+
+        img {
+            height: auto;
+        }
+    }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     @include('flash-message')
-    <div style="height:50px"></div>
+
     <div class="container">
-        <div class="row">
-            <h1 class="col-10" style="font-size:20px">Main Course</h1>
+        <div class="row mt-4 mb-1">
+            <h1 class="col-8 mt-2 mb-0" style="font-size:20px">Main Course</h1>
+
 
             <div class="col-2 text-end mb-1">
             @if (Route::has('login'))
@@ -255,6 +306,7 @@
                     <div class="card-body">
                         <div class="row">
                             <h5 class="col-10 card-title">{{ $product->name }}</h5>
+
             @if (Route::has('login'))
             @auth
             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))

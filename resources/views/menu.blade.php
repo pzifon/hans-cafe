@@ -94,10 +94,10 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1 p-0">
                                     <i class="col-1 p-0 fs-6 bi bi-pencil-fill"></i>
                             </a>
-                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 p-0 text-reset">
                             <i class="col-1 p-0 fs-6 bi bi-trash3-fill "></i>
                             </a>
                             @endif
@@ -150,11 +150,11 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
-                                    <i class="col-1 bi bi-pencil-fill"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1 p-0">
+                                    <i class="col-1 p-0 fs-6 bi bi-pencil-fill"></i>
                             </a>
-                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
-                            <i class="col-1 bi bi-trash3-fill "></i>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 p-0 text-reset">
+                            <i class="col-1 p-0 fs-6 bi bi-trash3-fill "></i>
                             </a>
                             @endif
                             @endauth
@@ -207,11 +207,11 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
-                                    <i class="col-1 bi bi-pencil-fill"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1 p-0">
+                                    <i class="col-1 p-0 fs-6 bi bi-pencil-fill"></i>
                             </a>
-                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
-                            <i class="col-1 bi bi-trash3-fill "></i>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 p-0 text-reset">
+                            <i class="col-1 p-0 fs-6 bi bi-trash3-fill "></i>
                             </a>
                             @endif
                             @endauth
@@ -263,11 +263,11 @@
                             @if (Route::has('login'))
                             @auth
                             @if (Auth::user()->hasRole('employee') || Auth::user()->hasRole('admin'))
-                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1">
-                                    <i class="col-1 bi bi-pencil-fill"></i>
+                                <a href="{{ url('/editMenu/'.$product->id) }}" class="col-1 p-0">
+                                    <i class="col-1 p-0 fs-6 bi bi-pencil-fill"></i>
                             </a>
-                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 text-reset">
-                            <i class="col-1 bi bi-trash3-fill "></i>
+                            <a href="{{ url('/delete/'.$product->id) }}" class="col-1 p-0 text-reset">
+                            <i class="col-1 p-0 fs-6 bi bi-trash3-fill "></i>
                             </a>
                             @endif
                             @endauth

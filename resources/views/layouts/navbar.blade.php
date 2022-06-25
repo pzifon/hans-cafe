@@ -39,24 +39,24 @@
             @auth
             @if (Auth::user()->hasRole('employee'))
             @if (App\Http\Controllers\ClockInController::check())
-            <li class="nav-item">
-                <a class="btn btn-light me-md-2" aria-current="page" href="{{ url('/clockOut') }}">Clock Out</a>
-            </li>
+            <div class="col-auto nav-item p-0 pe-2">
+                <a class="btn btn-light btn-sm" aria-current="page" href="{{ url('/clockOut') }}">Clock Out</a>
+            </div>
             @else
-            <li class="nav-item">
-                <a class="btn btn-light me-md-2" aria-current="page" href="{{ url('/clockIn')}}">Clock In</a>
-            </li>
+            <div class="col-auto nav-item p-0 pe-2">
+                <a class="btn btn-light btn-sm" aria-current="page" href="{{ url('/clockIn')}}">Clock In</a>
+            </div>
             @endif
-            <li class="nav-item">
-                <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
-            </li>
+            <div class="col-auto nav-item p-0 pe-2">
+                <a class="btn btn-success btn-sm " aria-current="page" href="{{ url('/order') }}">Order</a>
+            </div>
             @elseif (Auth::user()->hasRole('admin'))
-            <li class="nav-item">
-                <a class="btn btn-success me-md-2" aria-current="page" href="{{ url('/order') }}">Order</a>
-            </li>
+            <div class="col nav-item p-0 pe-2">
+                <a class="btn btn-success btn-sm " aria-current="page" href="{{ url('/order') }}">Order</a>
+            </div>
             @else
-            <div class="col p-0">
-                <a class="btn btn-success btn-sm me-md-2" aria-current="page" href="{{ url('/cart') }}">Cart</a>
+            <div class="col p-0 pe-2">
+                <a class="btn btn-success btn-sm " aria-current="page" href="{{ url('/cart') }}">Cart</a>
             </div>
             @endif
             @if (Auth::user()->hasRole('customer'))
@@ -77,10 +77,10 @@
                 </div>
             </div>
             @elseif (Auth::user()->hasRole('admin'))
-            <li class="nav-item">
-                <div class="btn-group btn-outline-success dropdown me-md-2">
-                    <a class="btn btn-success" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
-                    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split"
+            <div class="col nav-item p-0 pe-2">
+                <div class="btn-group btn-outline-success dropdown">
+                    <a class="btn btn-success btn-sm " aria-current="page" href="{{ url('/dashboard') }}">Account</a>
+                    <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split"
                         data-bs-toggle="dropdown" aria-expanded="false" aria-current="page"><span
                             class="visually-hidden">Toggle Dropdown</span></button>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-sm">
@@ -92,13 +92,13 @@
                         </li>
                     </ul>
                 </div>
-            </li>
+            </div>
             @else
-            <div class="col p-0">
+            <div class="col-auto p-0 pe-2">
                 <a class="btn btn-success btn-sm" aria-current="page" href="{{ url('/dashboard') }}">Account</a>
             </div>
             @endif
-            <div class="col p-0">
+            <div class="col-auto p-0 pe-2">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a class="btn btn-success btn-sm" onclick="event.preventDefault();this.closest('form').submit();"

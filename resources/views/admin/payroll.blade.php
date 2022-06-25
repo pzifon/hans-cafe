@@ -10,12 +10,48 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <style type="text/css">
+    @media screen and (min-width: 601px) {
+        #MobileView {
+            border: 1px solid black;
+            border-radius: 30px;
+            margin: 50px;
+        }
+
+        #info {
+            max-height: 300px;
+        }
+    }
+
+
+
+    @media screen and (max-width: 600px) {
+        #MobileView {
+            border: none;
+            border-radius: 30px;
+            max-height: 500px;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        #info {
+            max-height: 500px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        td,
+        #vdb {
+            font-size: 11px;
+        }
+    }
+    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
 
-    <div class="row" style="text-align:center;display:block;width: auto;height:400px;margin:50px;border: 1px solid black;border-radius:30px">
+    <div class="row" id="MobileView">
 
         <p class="fw-light fs-1" style="font-style:italic;margin: 25px 0 10px 20px;text-align:left">Payroll</p>
         <div class="ms-3 text-start input-daterange">
@@ -26,7 +62,7 @@
             <input type="submit" name="filter" id="filter" class="btn btn-info btn-sm">
         </div>
 
-        <div class="table-scrollable" style="overflow-x: auto;  max-width: auto; max-height:275px;">
+        <div class="table-scrollable mb-5" style="overflow-x: auto;  max-width: auto; max-height:275px;" id="info">
 
             <form style="margin:20px;" method="view">
 

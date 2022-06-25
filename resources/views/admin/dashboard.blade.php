@@ -26,21 +26,7 @@
                 </div>
             </div>
         </a>
-<<<<<<< HEAD
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView"
-            href="/accmanagement">
-            <div class="row" style="margin:0px">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="fs-3 mt-4 mb-2 align-middle">Account Management</div>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/revenue">
-=======
         <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/revenue">
->>>>>>> parent of 46d6e8c (.)
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
                     <i class="bi bi-wallet2" style="font-size:60px"></i>
@@ -55,23 +41,7 @@
                 </div>
             </div>
         </a>
-<<<<<<< HEAD
-        <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView" href="/revenue">
-            <div class="row" style="margin:0px">
-                <div class="col-8">
-                    <div class="row">
-                        <p class="fs-1 mt-1">RM {{ number_format($total_revenue, 2) }}</p>
-                    </div>
-                    <div class="row">
-                        <p class="fs-3">Total Revenue</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px"  id="WebView" aria-disabled="true">
-=======
         <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="#" aria-disabled="true">
->>>>>>> parent of 46d6e8c (.)
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
                     <i class="bi bi-wallet2" style="font-size:60px"></i>

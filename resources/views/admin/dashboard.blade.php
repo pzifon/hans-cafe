@@ -8,27 +8,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
-    @media screen and (min-width: 601px) {
-        a#MobileView {
-            display: none;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        a#WebView {
-            display: none;
-        }
-    }
     </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     <div class="row mx-1">
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/accmanagement">
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/accmanagement">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-person-circle" style="font-size:60px"></i>
+                    <i class="bi bi-wallet2" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -37,6 +26,7 @@
                 </div>
             </div>
         </a>
+<<<<<<< HEAD
         <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView"
             href="/accmanagement">
             <div class="row" style="margin:0px">
@@ -48,9 +38,12 @@
             </div>
         </a>
         <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/revenue">
+=======
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/revenue">
+>>>>>>> parent of 46d6e8c (.)
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-cash-stack" style="font-size:60px"></i>
+                    <i class="bi bi-wallet2" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -62,6 +55,7 @@
                 </div>
             </div>
         </a>
+<<<<<<< HEAD
         <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView" href="/revenue">
             <div class="row" style="margin:0px">
                 <div class="col-8">
@@ -75,9 +69,12 @@
             </div>
         </a>
         <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px"  id="WebView" aria-disabled="true">
+=======
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="#" aria-disabled="true">
+>>>>>>> parent of 46d6e8c (.)
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-cart-check" style="font-size:60px"></i>
+                    <i class="bi bi-wallet2" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -89,24 +86,10 @@
                 </div>
             </div>
         </a>
-
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView" href="">
-            <div class="row" style="margin:0px">
-                <div class="col-8">
-                    <div class="row">
-                        <p class="fs-1 mt-1">{{ $total_orders }}</p>
-                    </div>
-                    <div class="row">
-                        <p class="fs-3">Total Order</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/payroll">
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/payroll">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-person-workspace" style="font-size:60px"></i>
+                    <i class="bi bi-wallet2" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -115,17 +98,6 @@
                 </div>
             </div>
         </a>
-
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="MobileView" href="/payroll">
-            <div class="row" style="margin:0px">
-                <div class="col-8">
-                    <div class="row">
-                        <div class="fs-3 mt-4 mb-2 align-middle">Employee Payroll</div>
-                    </div>
-                </div>
-            </div>
-        </a>
-        
     </div>
 
     <div class="row mx-1">

@@ -134,32 +134,32 @@
                     <div class="container">
                         <div class="row">
                             <div class="input-group mb-3">
-                            <label for="inputItemCode" class="col-sm-2 col-form-label">Item Code</label>
+                                <span class="input-group-text" id="inputGroup-sizing-default">Item Code</span>
                                 <input type="text" name="code" class="form-control" aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-default" required>
                             </div>
                             <div class="input-group mb-3">
-                            <label for="inputExpiryDate" class="col-sm-2 col-form-label">Expiry Date</label>
+                                <span class="input-group-text" id="inputGroup-sizing-default">Expiry Date</span>
                                 <input type="date" name="expiry" class="form-control" aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-default" required>
                             </div>
                             <div class="input-group mb-3">
-                            <label for="inputInventoryCategory" class="col-sm-2 col-form-label">Inventory Category</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                                            placeholder="Type to search..." name="category">
-                                            <option selected>Type to search...</option>
-                                            <option value="1">Condiment</option>
-                                            <option value="2">Dairy</option>
-                                            <option value="3">Meat</option>
-                                        </select>
+                                <span class="input-group-text" id="inputGroup-sizing-default">Inventory Category</span>
+                                <input name="category" class="form-control" list="datalistOptions" id="exampleDataList"
+                                    placeholder="Type to search...">
+                                <datalist id="datalistOptions">
+                                    <option value="Condiment">
+                                    <option value="Dairy">
+                                    <option value="Meat">
+                                </datalist>
                             </div>
                             <div class="input-group mb-3">
-                            <label for="inputIngredientsName" class="col-sm-2 col-form-label">Ingredients Name</label>
+                                <span class="input-group-text" id="inputGroup-sizing-default">Ingredients Name</span>
                                 <input type="text" name="name" class="form-control" aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-default" required>
                             </div>
                             <div class="input-group mb-3">
-                            <label for="inputNumberOfStock" class="col-sm-2 col-form-label">Number Of Stock</label>
+                                <span class="input-group-text" id="inputGroup-sizing-default">Number Of Stock</span>
                                 <input type="number" name="no_of_stock" class="form-control" aria-label="Sizing example input"
                                     aria-describedby="inputGroup-sizing-default" min=0 max=100 required>
                             </div>

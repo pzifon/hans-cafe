@@ -110,7 +110,7 @@
                             </div>
                         </form>
                     </div>
- 
+ ;
                     <div class="col-2">
                         {{ number_format($item->price*$item->quantity,2) }}
                     </div>

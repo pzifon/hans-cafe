@@ -23,7 +23,7 @@ class RevenueController extends Controller
             ->orderby('menus.category')
             ->get();
         $data = json_decode($result, true);
-        $main = array(); $side = array(); $beverage = array(); $dessert = array();
+        $main = array(); $side = array(); $beverage = array(); $dessert = array(); $category = array();
         foreach ($data as $d){
             if ($d['category'] == "Main_Course"){
                 $monthNum  = $d['month'];
@@ -46,8 +46,11 @@ class RevenueController extends Controller
                 $monthName = $dateObj->format('F');
                 $dessert[$monthName] = $d['profit'];
             }
+            if (!in_array($d['category'], $category)){
+                array_push($category, $d['category']);
+            }
         }
-        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert'));
+        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert', 'category'));
     }
 
     public function revenueLastMonth()
@@ -64,7 +67,7 @@ class RevenueController extends Controller
             ->orderby('menus.category')
             ->get();
         $data = json_decode($result, true);
-        $main = array(); $side = array(); $beverage = array(); $dessert = array();
+        $main = array(); $side = array(); $beverage = array(); $dessert = array(); $category = array();
         foreach ($data as $d){
             if ($d['category'] == "Main_Course"){
                 $num = 'Week '.$d['week'];
@@ -79,8 +82,11 @@ class RevenueController extends Controller
                 $num = 'Week '.$d['week'];
                 $dessert[$num] = $d['profit'];
             }
+            if (!in_array($d['category'], $category)){
+                array_push($category, $d['category']);
+            }
         }
-        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert'));
+        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert', 'category'));
     }
 
     public function revenueThisMonth()
@@ -97,7 +103,7 @@ class RevenueController extends Controller
             ->orderby('menus.category')
             ->get();
         $data = json_decode($result, true);
-        $main = array(); $side = array(); $beverage = array(); $dessert = array();
+        $main = array(); $side = array(); $beverage = array(); $dessert = array(); $category = array();
         foreach ($data as $d){
             if ($d['category'] == "Main_Course"){
                 $num = 'Week '.$d['week'];
@@ -112,8 +118,11 @@ class RevenueController extends Controller
                 $num = 'Week '.$d['week'];
                 $dessert[$num] = $d['profit'];
             }
+            if (!in_array($d['category'], $category)){
+                array_push($category, $d['category']);
+            }
         }
-        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert'));
+        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert', 'category'));
     }
 
     public function revenuePast7Days()
@@ -129,7 +138,7 @@ class RevenueController extends Controller
             ->orderby('menus.category')
             ->get();
         $data = json_decode($result, true);
-        $main = array(); $side = array(); $beverage = array(); $dessert = array();
+        $main = array(); $side = array(); $beverage = array(); $dessert = array(); $category = array();
         foreach ($data as $d){
             if ($d['category'] == "Main_Course"){
                 $main[$d['date']] = $d['profit'];
@@ -140,8 +149,11 @@ class RevenueController extends Controller
             } elseif ($d['category'] == "Dessert"){
                 $dessert[$d['date']] = $d['profit'];
             }
+            if (!in_array($d['category'], $category)){
+                array_push($category, $d['category']);
+            }
         }
-        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert'));
+        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert', 'category'));
     }
 
     public function revenueCustomDate(Request $request)
@@ -160,7 +172,7 @@ class RevenueController extends Controller
             ->orderby('menus.category')
             ->get();
         $data = json_decode($result, true);
-        $main = array(); $side = array(); $beverage = array(); $dessert = array();
+        $main = array(); $side = array(); $beverage = array(); $dessert = array(); $category = array();
         foreach ($data as $d){
             if ($d['category'] == "Main_Course"){
                 $main[$d['date']] = $d['profit'];
@@ -171,7 +183,10 @@ class RevenueController extends Controller
             } elseif ($d['category'] == "Dessert"){
                 $dessert[$d['date']] = $d['profit'];
             }
+            if (!in_array($d['category'], $category)){
+                array_push($category, $d['category']);
+            }
         }
-        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert'));
+        return view('admin.revenue', compact('title', 'main', 'side', 'beverage', 'dessert', 'category'));
     }
 }

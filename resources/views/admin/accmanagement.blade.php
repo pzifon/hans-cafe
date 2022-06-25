@@ -116,44 +116,38 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Name</span>
+                                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                                                 <input type="text" name="name" class="form-control"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default">
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Date
-                                                    of Birth</span>
+                                            <label for="inputDateOfBirth" class="col-sm-2 col-form-label">Date Of Birth</label>
                                                 <input type="date" name="dob" id="dob" class="form-control"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default" required>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Email</span>
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                                 <input type="email" name="email" class="form-control"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default" required>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Contact
-                                                    Number</span>
+                                            <label for="inputContactNumber" class="col-sm-2 col-form-label">Contact Number</label>
                                                 <input type="text" name="contact" class="form-control"
                                                     pattern="^(01)[0-9]{8,9}$" placeholder="eg. 01XXXXXXXX"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default" required>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"
-                                                    id="inputGroup-sizing-default">Password</span>
+                                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                                                 <input type="password" name="password" class="form-control"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default" required>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Confirm
-                                                    Password</span>
+                                            <label for="inputConfirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
                                                 <input type="password" name="password_confirmation" class="form-control"
                                                     aria-label="Sizing example input"
                                                     aria-describedby="inputGroup-sizing-default" required>

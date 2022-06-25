@@ -8,16 +8,49 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
+    @media screen and (min-width: 601px) {
+        a#MobileView {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        a#WebView {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 601px) {
+        #PieC{
+            padding: 20px;
+            margin:20px;
+        }
+        #PDay{
+            padding: 20px;
+            margin:20px;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        #PieC{
+            padding: 30px;
+            margin:30px;
+        }
+        #PDay{
+            padding: 30px;
+            margin:30px;
+        }
+    }
     </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     <div class="row mx-1">
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/accmanagement">
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/accmanagement">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-wallet2" style="font-size:60px"></i>
+                    <i class="bi bi-person-circle" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -26,10 +59,20 @@
                 </div>
             </div>
         </a>
-        <a class="btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/revenue">
+
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px; height:150px; width:120px;" id="MobileView" href="/accmanagement">
+            <div class="row" style="margin:0px">
+                <div>
+                    <div style="margin-top: 30px;">
+                        <div class="fs-3 mt-4 mb-2 text-center">Account Management</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/revenue">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-wallet2" style="font-size:60px"></i>
+                    <i class="bi bi-cash-stack" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -41,10 +84,23 @@
                 </div>
             </div>
         </a>
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" aria-disabled="true">
+
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px; height:150px; width:120px;" id="MobileView" href="/revenue">
+            <div class="row" style="margin:0px">
+                <div>
+                    <div class="row" style="margin-top:20px">
+                        <p class="fs-1 mt-1">RM {{ number_format($total_revenue, 2) }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="fs-3">Total Revenue</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="#"  id="WebView" aria-disabled="true">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-wallet2" style="font-size:60px"></i>
+                    <i class="bi bi-cart-check" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -56,10 +112,23 @@
                 </div>
             </div>
         </a>
-        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" href="/payroll">
+
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px; height:150px; width:120px;" href="#"  id="MobileView" aria-disabled="true">
+            <div class="row" style="margin:0px">
+                <div>
+                    <div class="row" style="margin-top:20px">
+                        <p class="fs-1 mt-1">{{ $total_orders }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="fs-3">Total Order</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px" id="WebView" href="/payroll">
             <div class="row" style="margin:0px">
                 <div class="col-4 py-4" style="Background:#FF6767;">
-                    <i class="bi bi-wallet2" style="font-size:60px"></i>
+                    <i class="bi bi-person-workspace" style="font-size:60px"></i>
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -68,10 +137,19 @@
                 </div>
             </div>
         </a>
+        <a class=" btn btn-outline-dark col mb-auto" style="margin:20px;padding:0px; height:150px; width:120px;" id="MobileView" href="/payroll">
+            <div class="row" style="margin:0px">
+                <div>
+                    <div style="margin-top: 30px;">
+                        <div class="fs-3 mt-4 mb-2 text-center">Employee Payroll</div>
+                    </div>
+                </div>
+            </div>
+        </a>
     </div>
 
     <div class="row mx-1">
-        <div class="border border-dark col-6 p-3 m-4">
+    <div class="border border-dark col" id="PieC">
             <div class="row">
                 <p class="fs-3">Pie Chart</p>
             </div>
@@ -116,6 +194,7 @@
                             options: {
                                 plugins: {
                                     tooltip: {
+                                        // Disable the on-canvas tooltip
                                         enabled: true
                                     }
                                 }
@@ -169,6 +248,7 @@
                             options: {
                                 plugins: {
                                     tooltip: {
+                                        // Disable the on-canvas tooltip
                                         enabled: true
                                     }
                                 }
@@ -216,6 +296,7 @@
                             options: {
                                 plugins: {
                                     tooltip: {
+                                        // Disable the on-canvas tooltip
                                         enabled: true
                                     }
                                 }
@@ -226,75 +307,45 @@
                 </div>
             </div>
         </div>
+        
 
-        <div class="border border-dark col p-3 m-4">
+        <div class="border border-dark col" id="PDay">
             <div class="row">
                 <p class="fs-3">Peak day</p>
             </div>
-            <div class="row m-0 p-0 h-100 w-100 d-inline-block">
-                <div id="container" class="m-0 p-0 h-90 d-inline-block">
-                        <canvas id="chart4"></canvas>
-                </div>
+            <div class="row m-0 p-0 h-100 w-100 d-inline-block"">
+                <script src=" https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js">
+                </script>
+                <div id="container" class="m-0 p-0 h-75 d-inline-block"></div>
                 <script>
                 var week = {!! json_encode($week, JSON_HEX_TAG) !!};
-            
-                week_data = [];
-                week_data.push(week["Sun"]);
-                week_data.push(week["Mon"]);
-                week_data.push(week["Tue"]);
-                week_data.push(week["Wed"]);
-                week_data.push(week["Thu"]);
-                week_data.push(week["Fri"]);
-                week_data.push(week["Sat"]);
+                anychart.onDocumentReady(function() {
 
-                $(document).ready(function() {
-                        // Chart options
-                        Chart.defaults.global.legend.display = false;
-                        Chart.defaults.global.tooltips.enabled = true;
+                    // set the data
+                    var data = {
+                        header: ["day", "Number of Customer"],
+                        rows: [
+                            ["Sunday", week["Sun"]],
+                            ["Monday", week["Mon"]],
+                            ["Tuesday", week["Tue"]],
+                            ["Wednesday", week["Wed"]],
+                            ["Thursday", week["Thu"]],
+                            ["Friday", week["Fri"]],
+                            ["Saturday", week["Sat"]]
+                        ]
+                    };
 
-                        // Create the chart
-                        var canvas = $("#chart4");
-                        var data = {
-                            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                            datasets: [{
-                                data: week_data,
-                                backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(255, 159, 64, 0.2)',
-                                'rgba(255, 205, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(201, 203, 207, 0.2)'
-                                ],
-                                borderColor: [
-                                'rgb(255, 99, 132)',
-                                'rgb(255, 159, 64)',
-                                'rgb(255, 205, 86)',
-                                'rgb(75, 192, 192)',
-                                'rgb(54, 162, 235)',
-                                'rgb(153, 102, 255)',
-                                'rgb(201, 203, 207)'
-                                ],
-                                borderWidth: 1
-                           }]
-                        };
+                    // create the chart
+                    var chart = anychart.column();
 
-                        var chart4 = new Chart(canvas, {
-                            type: "bar",
-                            data: data,
-                            options: {
-                                plugins: {
-                                    tooltip: {
-                                        enabled: true
-                                    }
-                                },
-                                responsive: true,
-                                maintainAspectRatio: false,
-                            }
-                        });
-                    });
-                    </script>
+                    // add data
+                    chart.data(data);
+
+                    // draw
+                    chart.container("container");
+                    chart.draw();
+                });
+                </script>
 
             </div>
         </div>

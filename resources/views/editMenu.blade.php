@@ -30,19 +30,19 @@
                             <div class="row">
                             <input type="hidden" name="id" value="{{ $item->id}}">
                                 <div class="input-group mb-3">
-                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                    <span class="input-group-text">Name</span>
                                     <input type="text" class="form-control" name="name" value="{{$item->name}}">
                                 </div>
                                 <div class="input-group mb-3">
-                                <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+                                    <span class="input-group-text" >Description</span>
                                     <textarea class="form-control" name="description">{{$item->description}}</textarea>
                                 </div>
                                 <div class="input-group mb-3">
-                                <label for="inputNutrition" class="col-sm-2 col-form-label">Nutrition</label>
+                                    <span class="input-group-text">Nutrition</span>
                                     <input type="text" class="form-control" name="nutrition" value="{{$item->nutrition}}">
                                 </div>
                                 <div class="input-group mb-3">
-                                <label for="inputPrice" class="col-sm-2 col-form-label">Price</label>
+                                    <span class="input-group-text" >Price</span>
                                     <input type="text" class="form-control" name="price" value="{{$item->price}}" oninput="validate(this)">
                                 </div>
                             </div>

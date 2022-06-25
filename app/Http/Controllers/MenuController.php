@@ -16,26 +16,23 @@ class MenuController extends Controller
 
     public function orderMenu()
     {
-        $menu = Menu::all();
+        // $menu = Menu::find('deleted',false);
+        $menu = DB::table('menus')
+            ->select('*')
+            ->where('deleted', false)
+            ->get();
         return view('order', compact('menu'));
     }
 
     public function additem($menu_code){
 
-        $menu = Menu::all();
         $menu_details = DB::table('menus')
             ->select('*')
             ->where('menu_code', $menu_code)
             ->get();
-        $menu_name = DB::table('menus')
-            ->select('name')
-            ->where('menu_code', $menu_code)
-            ->get();
-        if($menu){
+        if($menu_details){
             return response()->json([   
                 'status'=>200,
-                // 'code'=>$menu_code,
-                // 'name'=>$menu_name,
                 'details'=>$menu_details,
             ]);
         }

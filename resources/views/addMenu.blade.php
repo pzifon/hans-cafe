@@ -35,7 +35,7 @@
                                     <div class="input-group mb-3">
                                         <label for="inputFoodCategory"
                                             class="col-sm-2 col-form-label">FoodCategory</label>
-                                        <select class="form-select" aria-label="Default select example" placeholder="Choose a category...">
+                                        <select class="form-select" aria-label="Default select example" placeholder="Choose a category..." name="category">
                                             <option selected>Choose a category...</option>
                                             <option value="1">Main_Course</option>
                                             <option value="2">Sides</option>

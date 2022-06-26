@@ -17,5 +17,7 @@ class Menu extends Model
         'image',
         'price',
         'nutrition',
+        'id',
+        'deleted',
     ];
 }

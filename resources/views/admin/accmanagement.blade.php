@@ -77,12 +77,12 @@
                     onclick="myFunction2()">Customer
                     Info</button>
                 <div class="col-sm-md-4 ms-auto">
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <input type="text" class="form-control rounded-start border-dark" placeholder="Search..."
                             aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary rounded-end me-4" type="button" id="button-addon2"><i
                                 class="fa fa-search"></i></button>
-                    </div>
+                    </div> -->
                 </div>
                 <div>
                     <button type="button" class="btn btn-success tab-pane fade show active" id="AddEmployee"
@@ -175,12 +175,12 @@
             </div>
             <div class="row pe-0 mt-3">
                 <div class="col-7">
-                    <div class="input-group">
+                    <!-- <div class="input-group">
                         <input type="text" class="form-control rounded-start border-dark w-75" placeholder="Search..."
                             aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2"><i
                                 class="fa fa-search"></i></button>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-5 px-0">
                     <button type="button" class="btn btn-success tab-pane fade show active" id="AddEmployee"

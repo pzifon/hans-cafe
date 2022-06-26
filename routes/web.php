@@ -77,13 +77,12 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::get('/revenue/thismonth', 'App\Http\Controllers\RevenueController@revenueThisMonth')->name('revenueThisMonth');
     Route::get('/revenue/Past7Days', 'App\Http\Controllers\RevenueController@revenuePast7Days')->name('revenuePast7Days');
     Route::post('/revenue/revenueCustomDate', 'App\Http\Controllers\RevenueController@revenueCustomDate')->name('revenueCustomDate');
+    Route::post('/revenue/salesReport', 'App\Http\Controllers\RevenueController@salesReport');
 });
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/order', 'App\Http\Controllers\MenuController@orderMenu')->name('order');
-    Route::get('/orderlist', function () {
-        return view('orderlist');
-    });
+    Route::get('/orderlist', 'App\Http\Controllers\OrderController@orderList')->name('orderlist');
     
     Route::get('/reservation', 'App\Http\Controllers\BookingController@index');
     Route::get('/inventory', 'App\Http\Controllers\InventoryController@index');
@@ -103,6 +102,11 @@ Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {
     Route::get('/delete/{id}','App\Http\Controllers\MenuController@delete');
 
     Route::get('additem/{menu_code}', [MenuController::class, 'additem']);
+    Route::get('getitem/', [MenuController::class, 'getItem']);
+    Route::post('orderpos', [OrderController::class, 'orderItem']);
+    // Route::get('vieworder/', [OrderController::class, 'getOrder']);
+    Route::get('showorder/{purchase_id}', [OrderController::class, 'getOrder']);
+    Route::get('payitem/{purchase_id}', [OrderController::class, 'payOrder']);
 });
 
 require __DIR__.'/auth.php';

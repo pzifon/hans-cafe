@@ -125,6 +125,7 @@
         <div class="modal-dialog modal-dialog-centered modal-xl">
         <form action="/add" method="post" action="/action_page.php">
             @csrf
+            @csrf
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Add Ingredients</h5>
@@ -149,7 +150,7 @@
                             <select class="form-select" aria-label="Default select example" placeholder="Type to search..." name="category">
                                             <option selected>Type to search...</option>
                                             <option value="Condiment">Condiment</option>
-                                            <option value="Diary">Diary</option>
+                                            <option value="Dairy">Dairy</option>
                                             <option value="Meat">Meat</option>
                                         </select>
                             </div>

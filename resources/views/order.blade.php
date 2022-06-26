@@ -258,11 +258,9 @@
 
 
         <div class="border border-0 p-3 mt-5">
-
             <div class="text-end">
-                <input class="btn btn-primary btn-lg submitbtn" type="submit" value="Submit">
+                <a class="btn btn-primary btn-lg submitbtn" href="/orderlist">Order</a>
             </div>
-
         </div>
     </div>
 

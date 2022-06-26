@@ -5,30 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Cart </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <style>
-    @media screen and (min-width: 601px) {
-        div#MobileView {
-            display: none;
+        @media screen and (min-width: 601px) {
+            div#MobileView {
+                display: none;
+            }
         }
-    }
 
-    @media screen and (max-width: 600px) {
-        div#WebView {
-            display: none;
+        @media screen and (max-width: 600px) {
+            div#WebView {
+                display: none;
+            }
+
+            #contShop {
+                font-size: 10px;
+            }
+
+            #confirm {
+                font-size: 10px;
+            }
         }
-        #contShop {
-            font-size: 10px;
-        }
-        #confirm{
-            font-size: 10px;
-        }
-    }
     </style>
 
 </head>
@@ -60,12 +61,12 @@
                     <div class="col-3">
                         Name
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         Price (RM)
                     </div>
-                    <div class="col-1 d-flex justify-content-center">
+                    <!-- <div class="col-1 d-flex justify-content-center">
                         Take Away
-                    </div>
+                    </div> -->
                     <div class="col-2">
                         Quantity
                     </div>
@@ -81,28 +82,26 @@
                 @foreach ($cartItems as $item)
                 <div class="row mt-2" id="WebView">
                     <div class="col-2">
-                        <img src="{{asset('storage/img/'.$item->attributes->image)}}" class="form-control"
-                            alt="Thumbnail">
+                        <img src="{{asset('storage/img/'.$item->attributes->image)}}" class="form-control" alt="Thumbnail">
                     </div>
                     <div class="col-3">
                         {{ $item->name }}
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         {{ number_format($item->price,2) }}
                     </div>
-                    <div class="col-1">
+                    <!-- <div class="col-1">
                         <div class="form-check d-flex justify-content-center">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-2">
                         <form action="{{ route('cart.update') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col">
                                     <input type="hidden" name="id" value="{{ $item->id}}">
-                                    <input type="number" name="quantity" value="{{ $item->quantity }}"
-                                        class="form-control" />
+                                    <input type="number" name="quantity" value="{{ $item->quantity }}" class="form-control" />
                                 </div>
                                 <div class="col">
                                     <button type="submit" class="btn btn-outline-info">Update</button>
@@ -110,7 +109,6 @@
                             </div>
                         </form>
                     </div>
- ;
                     <div class="col-2">
                         {{ number_format($item->price*$item->quantity,2) }}
                     </div>
@@ -136,8 +134,7 @@
                     </div>
 
                     <div class="col-4">
-                        <img src="{{asset('storage/img/'.$item->attributes->image)}}" class="form-control mt-4 p-0 h-50"
-                            alt="Thumbnail">
+                        <img src="{{asset('storage/img/'.$item->attributes->image)}}" class="form-control mt-4 p-0 h-50" alt="Thumbnail">
                     </div>
 
                     <div class="col-6">
@@ -151,7 +148,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-6 mt-auto mb-0">
-                            {{ number_format($item->price*$item->quantity,2) }}
+                                {{ number_format($item->price*$item->quantity,2) }}
                             </div>
 
                             <div class="col-6 mt-auto mb-0">
@@ -160,8 +157,7 @@
                                     <div class="row ms-auto me-0">
                                         <div class="col-5 p-0 m-0">
                                             <input type="hidden" name="id" value="{{ $item->id}}">
-                                            <input type="number" name="quantity" value="{{ $item->quantity }}"
-                                                class="form-control form-control-sm" />
+                                            <input type="number" name="quantity" value="{{ $item->quantity }}" class="form-control form-control-sm" />
                                         </div>
                                         <div class="col-1 ps-0">
                                             <button type="submit" class="btn btn-outline-info btn-sm ms-0">Update</button>
@@ -174,7 +170,7 @@
                 </div>
                 @endforeach
                 </br>
-                <div class="row" >
+                <div class="row">
                     <div class="col-4 ps-1 pe-0">
                         <a href="/menu" class="btn btn-info btn-sm" id="contShop">Continue Shopping</a>
                     </div>

@@ -77,6 +77,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::get('/revenue/thismonth', 'App\Http\Controllers\RevenueController@revenueThisMonth')->name('revenueThisMonth');
     Route::get('/revenue/Past7Days', 'App\Http\Controllers\RevenueController@revenuePast7Days')->name('revenuePast7Days');
     Route::post('/revenue/revenueCustomDate', 'App\Http\Controllers\RevenueController@revenueCustomDate')->name('revenueCustomDate');
+    Route::post('/revenue/salesReport', 'App\Http\Controllers\RevenueController@salesReport');
 });
 
 Route::group(['middleware' => ['auth', 'role:employee|admin']], function() {

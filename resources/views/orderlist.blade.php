@@ -15,26 +15,22 @@
     <script>
         $(document).ready(function() {
 
-            // $.ajax({
-            //     type: "GET",
-            //     url: "/vieworder",
-            //     success: function(response) {
-            //         console.log(response);
-            //     }
-            // });
-
             var passid;
 
             $(document).on('click', '.purchaseid', function(e) {
                 e.preventDefault();
                 var purchase_id = $(this).val();
                 passid = purchase_id;
+                var ttl = 0;
+                var exttl = 0;
+                var tax = 0;
                 //console.log(menu_code);
                 $.ajax({
                     type: "GET",
                     url: "/showorder/" + purchase_id,
                     success: function(response) {
                         console.log(response);
+                        // console.log(response.total);
                         if (response.status == 404) {
 
                         } else {
@@ -42,6 +38,18 @@
                                 $('.orderdetails').append('<div>\
                                     <p>' + item.name + '</p>\
                                 </div>');
+                            });
+                            $.each(response.total, function(key, item) {
+                                ttl = item.total;
+                                // ttl = ttl.toFixed(2);
+                                exttl = ttl/1.06;
+                                exttl = exttl.toFixed(2);
+                                tax = ttl - exttl;
+                                tax = tax.toFixed(2);
+                                $('.totalnum').html('RM ' + item.total);
+                                $('.extotalnum').html('RM ' + exttl);
+                                $('.taxnum').html('RM ' + tax);
+                                console.log(item.total);
                             });
                         }
                     }
@@ -90,98 +98,16 @@
             @foreach($orderList as $orderList)
             <div class="col">
                 <button type="submit" class="btn btn-outline-white p-0 purchaseid" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop" value="{{ $orderList->id}}">
-                    <div class="card" style="height:250px">
+                    <div class="card">
                         <div class="card-body p-0">
                             <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
-                                Purchase Order: {{ $orderList->id}}</p>
+                                Purchase Order: {{ $orderList->id}}
+                            </p>
                         </div>
                     </div>
                 </button>
             </div>
             @endforeach
-            <!-- <div class="col">
-                <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <div class="card" style="height:250px">
-                        <div class="card-body p-0">
-                            <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
-                                Table: 2 Bill: D2 Date: 14/02/22 15:08 </p>
-
-                            <dl class="row mb-0 p-3">
-                                <dd class="col-sm-10 text-start">Quinoa Tabbouleh</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Apple Juice</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-                            </dl>
-
-                        </div>
-                    </div>
-                </button>
-            </div> -->
-
-            <!-- <div class="col">
-                <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <div class="card" style="height:250px">
-                        <div class="card-body p-0">
-                            <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
-                                Table: 3 Bill: D3 Date: 14/02/22 11:38</p>
-
-                            <dl class="row mb-0 p-3">
-                                <dd class="col-sm-10 text-start">Parmesan Potato Wedges</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Nasi Lemak Bungkus</dd>
-                                <dd class="col-sm-2 text-center">2</dd>
-
-                                <dd class="col-sm-10 text-start">Americano</dd>
-                                <dd class="col-sm-2 text-center">2</dd>
-                            </dl>
-
-                        </div>
-                    </div>
-                </button>
-            </div>
-
-            <div class="col">
-                <button type="submit" class="btn btn-outline-white p-0" name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <div class="card" style="height:250px">
-                        <div class="card-body p-0">
-                            <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
-                                Table: 5 Bill: D4 Date: 14/02/22 16:10</p>
-
-                            <dl class="row mb-0 p-3">
-                                <dd class="col-sm-10 text-start">Spaghetti Cabonara</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Oatmeal Cookie</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Earl Grey Tea</dd>
-                                <dd class="col-sm-2 text-center">2</dd>
-                            </dl>
-
-                        </div>
-                    </div>
-                </button>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-outline-white p-0 " name="view_details" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <div class="card" style="height:250px">
-                        <div class="card-body p-0">
-                            <p class="card-title mb-0 px-1 py-3 text-center" style="font-size:15px;background-color:#c4c4c4">
-                                Table: 4 Bill: D5 Date: 14/02/22 17:32</p>
-
-                            <dl class="row mb-0 p-3">
-                                <dd class="col-sm-10 text-start">Quinoa Tabbouleh</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-
-                                <dd class="col-sm-10 text-start">Apple Juice</dd>
-                                <dd class="col-sm-2 text-center">1</dd>
-                            </dl>
-                        </div>
-                    </div>
-                </button>
-            </div> -->
         </div>
     </div>
 
@@ -208,13 +134,13 @@
                                 <div class="card-body bg-transparent">
                                     <dl class="row mb-0 p-0">
                                         <dd class="col-sm-6 text-start">Subtotal</dd>
-                                        <dd class="col-sm-6 text-end">RM 55.40</dd>
+                                        <dd class="extotalnum col-sm-6 text-end">RM 55.40</dd>
 
                                         <dd class="col-sm-6 text-start">Service Tax</dd>
-                                        <dd class="col-sm-6 text-end">RM 5.54</dd>
+                                        <dd class="taxnum col-sm-6 text-end">RM 5.54</dd>
 
-                                        <dd class="col-sm-6 text-start">Discount</dd>
-                                        <dd class="col-sm-6 text-end">(RM 0.00)</dd>
+                                        <!-- <dd class="col-sm-6 text-start">Discount</dd>
+                                        <dd class="col-sm-6 text-end">(RM 0.00)</dd> -->
                                     </dl>
                                 </div>
                                 </br>
@@ -222,7 +148,7 @@
                                 <div class="card-footer bg-transparent border-dark">
                                     <dl class="row mb-0 p-0">
                                         <dd class="col-sm-6 text-start">Total</dd>
-                                        <dd class="col-sm-6 text-end">RM 60.94</dd>
+                                        <dd class="totalnum col-sm-6 text-end">RM 60.94</dd>
                                     </dl>
                                 </div>
                             </div>

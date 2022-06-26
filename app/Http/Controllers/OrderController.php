@@ -89,8 +89,14 @@ class OrderController extends Controller
             ->where('purchase_id', $purchase_id)
             ->get();
 
+        $total = DB::table('purchases')
+            ->select('total')
+            ->where('id', $purchase_id)
+            ->get();
+
         return response()->json([
             'data' => "Success",
+            'total' => $total,
             'order' => $order,
         ]);
     }

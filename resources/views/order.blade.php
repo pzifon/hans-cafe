@@ -40,7 +40,7 @@
                             $.each(response.details, function(key, item) {
                                 $('#detailbody').append('<tr>\
                                     <td>' + item.name + '</td>\
-                                    <td><input type="number" name="item" value="1"></td>\
+                                    <td>1</td>\
                                     <td>' + item.price + '</td>\
                                 </tr>');
                                 price += parseFloat(item.price);
@@ -48,7 +48,10 @@
                             });
                             var total = price;
                             //console.log(total);
-                            $('#totalprice').html(total);
+                            $('#totalprice').html('\
+                                <td colspan="2"> Total: </td>\
+                                <td>' + total + '</td>\
+                            ');
                             orderlist[i] = response.details[0];
                             //console.log(orderlist);
                             i++;
@@ -126,7 +129,7 @@
                                     @if ($product->category == 'Main_Course')
                                     <div class="col mb-3">
                                         <div class="card h-100">
-                                            <button class="card-body bg-light btn" value="{{ $product->menu_code }}">
+                                            <button class="itemid card-body bg-light btn" value="{{ $product->menu_code }}">
                                                 <p class="card-title h6 text-center">{{ $product->name }}</p>
                                             </button>
                                         </div>
@@ -141,9 +144,9 @@
                                     @if ($product->category == 'Sides')
                                     <div class="col mb-3">
                                         <div class="card h-100">
-                                            <div class="card-body bg-light">
+                                            <button class="itemid card-body bg-light btn" value="{{ $product->menu_code }}">
                                                 <p class="card-title h6 text-center">{{ $product->name }}</p>
-                                            </div>
+                                            </button>
                                         </div>
                                     </div>
                                     @endif
@@ -156,9 +159,9 @@
                                     @if ($product->category == 'Beverages')
                                     <div class="col mb-3">
                                         <div class="card h-100">
-                                            <div class="card-body bg-light">
+                                            <button class="itemid card-body bg-light btn" value="{{ $product->menu_code }}">
                                                 <p class="card-title h6 text-center">{{ $product->name }}</p>
-                                            </div>
+                                            </button>
                                         </div>
                                     </div>
                                     @endif
@@ -171,9 +174,9 @@
                                     @if ($product->category == 'Dessert')
                                     <div class="col mb-3">
                                         <div class="card h-100">
-                                            <div class="card-body bg-light">
+                                            <button class="itemid card-body bg-light btn" value="{{ $product->menu_code }}">
                                                 <p class="card-title h6 text-center">{{ $product->name }}</p>
-                                            </div>
+                                            </button>
                                         </div>
                                     </div>
                                     @endif
@@ -203,7 +206,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-3">
+                <!-- <div class="row mt-3">
                     <div class="border border-dark">
                         <ul class="nav nav-pills m-2" id="pills-tab" role="tablist">
                             <li class="nav-item col border border-dark me-3">
@@ -233,17 +236,21 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-4 border border-dark">
                 <table class="table">
-
-                    <tbody>
-                        <tr id="detailbody">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
                         </tr>
-                        <tr id="totalprice">
-                        </tr>
+                    </thead>
+                    <tbody id="detailbody">
+                        <!-- <tr id="totalprice">
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

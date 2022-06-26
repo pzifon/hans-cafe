@@ -14,7 +14,7 @@
 		        text-align: center;
 		    }
 		    .title {
-			    font-size: 55px;
+			    font-size: 35px;
 		    }
 		    .pb-10 {
 		    	padding-bottom: 10px;
@@ -25,13 +25,13 @@
 		    .head-content{
 		    	padding-bottom: 4px;
 		    	border-style: none none ridge none;
-		    	font-size: 35px;
+		    	font-size: 25px;
 		    }
             thead { display: table-header-group; }
             tfoot { display: table-row-group; }
             tr { page-break-inside: avoid; }
 		    table.table {
-		    	font-size: 26px;
+		    	font-size: 20px;
 		    	border-collapse: collapse;
 		    }
 			.page-break {

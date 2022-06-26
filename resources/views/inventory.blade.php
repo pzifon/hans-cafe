@@ -136,7 +136,8 @@
                             <div class="input-group mb-3">
                             <label for="inputItemCode" class="col-sm-2 col-form-label">Item Code</label>
                                 <input type="text" name="code" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" required>
+                                    aria-describedby="inputGroup-sizing-default" pattern="^[CDM]{1}[0-9]{2}$"
+                                    placeholder="start with M/S/D/B"required>
                             </div>
                             <div class="input-group mb-3">
                             <label for="inputExpiryDate" class="col-sm-2 col-form-label">Expiry Date</label>
@@ -145,11 +146,11 @@
                             </div>
                             <div class="input-group mb-3">
                             <label for="inputInventoryCategory" class="col-sm-2 col-form-label">Inventory Category</label>
-                            <select class="form-select" aria-label="Default select example" placeholder="Type to search...">
+                            <select class="form-select" aria-label="Default select example" placeholder="Type to search..." name="category">
                                             <option selected>Type to search...</option>
-                                            <option value="1">Condiment</option>
-                                            <option value="2">Diary</option>
-                                            <option value="3">Meat</option>
+                                            <option value="Condiment">Condiment</option>
+                                            <option value="Diary">Diary</option>
+                                            <option value="Meat">Meat</option>
                                         </select>
                             </div>
                             <div class="input-group mb-3">

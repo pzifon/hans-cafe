@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revenue Analysis</title>
+    <title>Revenue Analytics</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,15 +17,6 @@
 <body class="d-flex flex-column min-vh-100">
     @include('layouts.navbar')
     <div class="container">
-        <div class="row">
-            <form action="/revenue/salesReport" method="post" action="/action_page.php">
-                @csrf
-                <div class="col-md-12">
-                    <input type="hidden" name="title" value="{{ $title }}">
-                    <button type="submit" class="btn btn-warning ml-2 float-end">Generate Sales Report</button>
-                </div>
-            </form>
-        </div>
         <div class="row border border-dark mt-4">
             <div class="col-auto px-5 py-1 text-center" style="border-right-style: dashed;">
                 <a class="btn w-100 me-md-2" aria-current="page" href="{{ route('revenueByYear') }}">Year</a>

@@ -16,6 +16,7 @@ class PurchaseController extends Controller
         $purchases = DB::table('purchases')
             ->select('*')
             ->where('customer_id', Auth::id())
+            ->orderBy('id')
             ->get();
         return view('purchases', compact('purchases'));
     }

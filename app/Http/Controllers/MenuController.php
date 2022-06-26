@@ -14,6 +14,7 @@ class MenuController extends Controller
         $menu = DB::table('menus')
             ->select('*')
             ->where('deleted', false)
+            ->orderBy('menu_code')
             ->get();
         return view('menu', compact('menu'));
     }
@@ -23,6 +24,7 @@ class MenuController extends Controller
         $menu = DB::table('menus')
             ->select('*')
             ->where('deleted', false)
+            ->orderBy('menu_code')
             ->get();
         return view('order', compact('menu'));
     }
@@ -32,6 +34,7 @@ class MenuController extends Controller
         $menu = DB::table('menus')
             ->select('*')
             ->where('deleted', false)
+            ->orderBy('menu_code')
             ->get();
         $menu_details = DB::table('menus')
             ->select('*')

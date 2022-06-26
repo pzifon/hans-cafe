@@ -54,7 +54,6 @@ class RewardController extends Controller
             ->where('payment_status', true)
             ->where('claimed', false)
             ->count();
-
         return view('reward', compact('user', 'records'));
     }
     

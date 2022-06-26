@@ -76,6 +76,7 @@
                     </table>
                 </div>
                 @endforeach
+                @if($records > 9)
                 <div class="row">
                     <table class="table table-bordered">
                         <thead>
@@ -87,13 +88,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="width:10%">1.</td>
-                                <td style="width:73%">Free a cup of Americano</td>
-                                <td style="width:17%"><button class="btn btn-success btn-sm">Claim now</botton>
-                                </td>
+                                    <?php $records -= 9 ?>
+                                    @if (Auth::user()->hasRole('customer'))
+                                    <form action="/claim" method="POST" action="/action_page.php">
+                                        @csrf
+                                        <td style="width:10%">1.</td>
+                                        <td style="width:73%">Free Coffee or Tea</td>
+                                        <td style="width:17%">
+                                            <button type="submit" class="btn btn-success btn-sm">Claim now</botton>
+                                        </td>
+                                    </form>
+                                    @endif
                         </tbody>
                     </table>
                 </div>
+                @endif
             </div>
 
             <div class="col-6">

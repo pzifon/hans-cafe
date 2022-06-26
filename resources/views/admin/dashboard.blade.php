@@ -12,30 +12,28 @@
         a#MobileView {
             display: none;
         }
+        #PieC{
+            padding: 20px;
+            margin:20px;
+            font-size: 22px;
+        }
+        #PDay{
+            padding: 20px;
+            margin:20px;
+        }
     }
     @media screen and (max-width: 600px) {
         a#WebView {
             display: none;
         }
-    }
-    @media screen and (min-width: 601px) {
-        #PieC{
-            padding: 20px;
-            margin:20px;
-        }
-        #PDay{
-            padding: 20px;
-            margin:20px;
-        }
-    }
-    @media screen and (max-width: 600px) {
         #PieC{
             padding: 30px;
             margin:30px;
+            font-size: 16px;
         }
         #PDay{
-            padding: 30px;
-            margin:30px;
+            padding:10px;
+            margin: 10px;
         }
     }
     </style>
@@ -157,7 +155,7 @@
                 <div class="col-4">
                     <div class="container-chart">
                         <canvas id="chart1" class="w-80 h-80"></canvas>
-                        <p class="fs-5 text-center mt-3 mb-1">Order by Category</p>
+                        <p class="text-center mt-3 mb-1">Order by Category</p>
                     </div>
 
                     <script>
@@ -203,7 +201,7 @@
                 <div class="col-4">
                     <div class="container-chart">
                         <canvas id="chart2" class="w-80 h-80"></canvas>
-                        <p class="fs-5 text-center mt-3 mb-1">Reservation By Time</p>
+                        <p class="text-center mt-3 mb-1">Reservation By Time</p>
                     </div>
                     <script>
                     var res_time = {!! json_encode($res_time, JSON_HEX_TAG) !!};
@@ -256,7 +254,7 @@
                 <div class="col-4">
                     <div class="container-chart">
                         <canvas id="chart3" class="w-80 h-80"></canvas>
-                        <p class="fs-5 text-center mt-3 mb-1">Revenue by Category</p>
+                        <p class="text-center mt-3 mb-1">Revenue by Category</p>
                     </div>
                     <script>
                     var revenue_category = {!! json_encode($revenue_category, JSON_HEX_TAG) !!};

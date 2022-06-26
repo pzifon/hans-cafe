@@ -37,10 +37,10 @@
                                             class="col-sm-2 col-form-label">FoodCategory</label>
                                         <select class="form-select" aria-label="Default select example" placeholder="Choose a category..." name="category">
                                             <option selected>Choose a category...</option>
-                                            <option value="1">Main_Course</option>
-                                            <option value="2">Sides</option>
-                                            <option value="3">Beverages</option>
-                                            <option value="4">Desserts</option>
+                                            <option value="Main_Course">Main_Course</option>
+                                            <option value="Sides">Sides</option>
+                                            <option value="Beverages">Beverages</option>
+                                            <option value="Dessert">Dessert</option>
                                         </select>
 
                                     </div>

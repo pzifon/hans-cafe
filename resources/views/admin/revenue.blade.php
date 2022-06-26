@@ -94,14 +94,14 @@
         <div class="row mt-4" id="border">
             <div class="btn-toolbar mb-3 mt-3" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group col-6 pt-2" role="group" aria-label="First group" id="info">
-                    <button type="button" class="btn btn-outline-secondary w-100 h-75 " id="info1"
-                        href="{{ route('revenueByYear') }}">Year</button>
-                    <button type="button" class="btn btn-outline-secondary w-100 h-75 " id="info1"
-                        href="{{ route('revenueLastMonth') }}">Last Month</button>
-                    <button type="button" class="btn btn-outline-secondary w-100 h-75 " id="info1"
-                        href="{{ route('revenueThisMonth') }}">This Month</button>
-                    <button type="button" class="btn btn-outline-secondary w-100 h-75 " id="info1"
-                        href="{{ route('revenuePast7Days') }}">Past 7Days</button>
+                    <a class="btn btn-outline-secondary w-100 h-75 " id="info1"
+                        href="{{ route('revenueByYear') }}">Year</a>
+                    <a class="btn btn-outline-secondary w-100 h-75 " id="info1"
+                        href="{{ route('revenueLastMonth') }}">Last Month</a>
+                    <a class="btn btn-outline-secondary w-100 h-75 " id="info1"
+                        href="{{ route('revenueThisMonth') }}">This Month</a>
+                    <a  class="btn btn-outline-secondary w-100 h-75 " id="info1"
+                        href="{{ route('revenuePast7Days') }}">Past 7Days</a>
                 </div>
                 <div class="col-auto pt-2 pe-1 text-end" id="date">
                     <form action="/revenue/revenueCustomDate" method="post" action="/action_page.php" id="search">
@@ -148,21 +148,11 @@
         </div>
 
         <script>
-        var title = {
-            !!json_encode($title, JSON_HEX_TAG) !!
-        };
-        var main = {
-            !!json_encode($main, JSON_HEX_TAG) !!
-        };
-        var side = {
-            !!json_encode($side, JSON_HEX_TAG) !!
-        };
-        var beverage = {
-            !!json_encode($beverage, JSON_HEX_TAG) !!
-        };
-        var dessert = {
-            !!json_encode($dessert, JSON_HEX_TAG) !!
-        };
+        var title = {!! json_encode($title, JSON_HEX_TAG) !!};
+        var main = {!! json_encode($main, JSON_HEX_TAG) !!};
+        var side = {!! json_encode($side, JSON_HEX_TAG) !!};
+        var beverage = {!! json_encode($beverage, JSON_HEX_TAG) !!};
+        var dessert = {!! json_encode($dessert, JSON_HEX_TAG) !!};
 
         var labels = Object.keys(main);
         var data_m = [],

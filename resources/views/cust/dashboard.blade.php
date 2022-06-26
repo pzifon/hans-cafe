@@ -61,7 +61,7 @@
                 <a class="btn btn-outline-dark col ms-md-3 my-4 p-0 w-50" id="WebView" href="/reward">
                     @else
                     @foreach ($user as $customer)
-                    <a class="btn btn-outline-dark col" style="margin:20px;padding:0px"
+                    <a class="btn btn-outline-dark col ms-md-3 my-4 p-0 w-50" style="margin:20px;padding:0px" id="WebView"
                         href="{{ url('/viewCustReward/'.$customer->id) }}">
                         @endforeach
                         @endif
@@ -83,7 +83,7 @@
                     <a class="btn btn-outline-dark col ms-3 my-4 p-0" id="MobileView" href="/reward">
                         @else
                         @foreach ($user as $customer)
-                        <a class="btn btn-outline-dark col ms-3 m-3 p-0" style="margin:20px;padding:0px"
+                        <a class="btn btn-outline-dark col ms-3 my-4 p-0" style="margin:20px;padding:0px" id="MobileView"
                             href="{{ url('/viewCustReward/'.$customer->id) }}">
                             @endforeach
                             @endif

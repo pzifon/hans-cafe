@@ -80,6 +80,7 @@
                         i = 0;
                         $('#detailbody').html('');
                         $('#totalprice').html('');
+                        location.href = '/orderlist';
                     },
                 });
             });

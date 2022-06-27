@@ -66,9 +66,9 @@
                     success: function(response) {
                         // console.log(response);
                         $('.orderdetails').html('');
+                        location.reload();
                     }
                 });
-                location.reload();
             });
 
             $(document).on('click', '.btn-close', function(e) {

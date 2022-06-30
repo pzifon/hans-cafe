@@ -247,8 +247,30 @@ class DashboardController extends Controller
             ->select('id', 'name', 'dob', 'email', 'contact', 'created_at')
             ->where('id', $id)
             ->get();
-        
-        return view('employee.dashboard', compact('user'));
+            $data = DB::table("clockIn")
+            ->whereMonth('date', Carbon::now()->month) //04 = April, 05 = May
+            ->whereYear('date', Carbon::now()->year)
+            ->whereNotNull('clock_out_time')
+            ->where('emp_id', Auth::id()) 
+            ->get();
+        $data = DB::table("clockIn")
+            ->whereMonth('date', Carbon::now()->month) //04 = April, 05 = May
+            ->whereYear('date', Carbon::now()->year)
+            ->whereNotNull('clock_out_time')
+            ->where('emp_id', Auth::id()) 
+            ->get();
+        if ($data){
+            $total_hours = 0;
+            $total_days = 0;
+            foreach ($data as $d){
+                $start = strtotime($d->clock_in_time);
+                $end = strtotime($d->clock_out_time);
+                $difference = round(abs($end - $start) / 3600,0);
+                $total_hours += $difference;
+                $total_days +=1 ;
+            }
+        }
+        return view('employee.dashboard', compact('user', 'total_hours', 'total_days'));
     }
 
     public function reviewEmpInfo($id)

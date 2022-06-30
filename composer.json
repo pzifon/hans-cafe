@@ -10,6 +10,7 @@
         "darryldecode/cart": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "inspector-apm/inspector-laravel": "^4.7",
         "jimmyjs/laravel-report-generator": "^2.2",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",

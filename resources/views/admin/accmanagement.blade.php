@@ -128,6 +128,18 @@
                                                     aria-describedby="inputGroup-sizing-default" required>
                                             </div>
                                             <div class="input-group mb-3">
+                                            <label for="inputPosition" class="col-sm-2 col-form-label">Position</label>
+                                                <input type="text" name="position" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                            <label for="inputPayRate" class="col-sm-2 col-form-label">Hourly Pay Rate</label>
+                                                <input type="number" name="pay_rate" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default" required>
+                                            </div>
+                                            <div class="input-group mb-3">
                                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                                 <input type="email" name="email" class="form-control"
                                                     aria-label="Sizing example input"
@@ -226,6 +238,20 @@
                                                     <span class="input-group-text"
                                                         id="inputGroup-sizing-default">Name</span>
                                                     <input type="text" name="name" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Position</span>
+                                                    <input type="text" name="position" class="form-control"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-default">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text"
+                                                        id="inputGroup-sizing-default">Hourly Pay Rate</span>
+                                                    <input type="number" name="pay_rate" class="form-control"
                                                         aria-label="Sizing example input"
                                                         aria-describedby="inputGroup-sizing-default">
                                                 </div>

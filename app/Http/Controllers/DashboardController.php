@@ -295,12 +295,7 @@ class DashboardController extends Controller
         return redirect()->route('viewEmp', $id)->with('success','Employee Info updated successfully!');
     }
 
-    public function addEmp(Request $request){
-        $name = $request->input("name");
-        $dob = $request->input("dob");
-        $email = $request->input('email');
-        $contact = $request->input('category');
-        
+    public function addEmp(Request $request){        
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'dob' => ['required'],
@@ -319,6 +314,10 @@ class DashboardController extends Controller
 
         $user->attachRole($request->role); 
         event(new Registered($user));
+        
+        $added = DB::table('users')->latest('id')->first()->id;
+        $data = array('emp_id' => $added, "position" => $request->position, "hourly_rate" => $request->pay_rate);
+        DB::table('pay_rate')->insert($data);
 
         return redirect()->action('App\Http\Controllers\DashboardController@accManagement')->with('success','Employee Added!');;
     }
